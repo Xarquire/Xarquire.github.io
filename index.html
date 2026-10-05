@@ -909,6 +909,7 @@ html.schwifty .hero-name .ch{animation:jump var(--beat) ease-in-out infinite alt
             <textarea id="inMsg" name="message" placeholder="Meeseeks'e görevini anlat. Tek bir görev olsun, iki görev verirsen strese giriyor."></textarea>
             <p class="err" id="errMsg"></p>
           </div>
+          <input type="text" name="_gotcha" id="inGotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <div class="form-foot">
             <p class="form-note">Meeseeks mesajını hazırlar, sen de e-posta uygulamandan gönderirsin.</p>
             <button class="btn" type="submit" id="sendBtn">Görevi Meeseeks'e ver</button>
@@ -1000,7 +1001,7 @@ const CONFIG = {
   location: 'İstanbul, Dünya (C-137)',
   email: 'emirhancelik8342@gmail.com',
   photo: 'foto.jpg',       // index.html ile aynı klasördeki fotoğraf. Boş bırakırsan siluet görünür.
-  formEndpoint: '',        // İsteğe bağlı: Formspree vb. adres (ör. 'https://formspree.io/f/xxxx'). Boşsa e-posta uygulaması açılır.
+  formEndpoint: 'https://formspree.io/f/moejqrrd', // Formspree formu. Boş bırakırsan e-posta uygulaması açılır.
   bounty: '1.000.000 Flurbo',
   crime: 'İzinsiz algoritma deneyleri yapmak',
   socials: [
@@ -2103,27 +2104,46 @@ form.addEventListener('submit', async e => {
   lastMessage = `Kime: ${CONFIG.email}\nKonu: ${subject}\n\n${body}`;
   clearMee();
   meeSay('Gönderiyorum! Bana bak, gönderiyorum!');
-  let sent = false;
+  const result = $('#result'), sendBtn = $('#sendBtn');
+  result.hidden = true;
+  let sent = false, failed = false;
   if (CONFIG.formEndpoint) {
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Gönderiliyor…';
     try {
-      const res = await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ name, email, kind, message: msg, _subject: subject }) });
+      const res = await fetch(CONFIG.formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name, email, kind, message: msg, _subject: subject, _gotcha: $('#inGotcha').value }),
+      });
       sent = res.ok;
     } catch (err) { sent = false; }
+    failed = !sent;
+    sendBtn.disabled = false;
+    sendBtn.textContent = 'Görevi Meeseeks\'e ver';
   }
-  const result = $('#result');
   if (sent) {
-    $('#resultText').innerHTML = '<b>Mesajın gönderildi.</b> En kısa sürede dönüş yapacağım.';
+    $('#resultText').innerHTML = '<b>Mesajın gönderildi.</b> Teşekkürler, en kısa sürede dönüş yapacağım.';
     $('#mailLink').hidden = true; $('#copyMsg').hidden = true;
     form.reset();
   } else {
-    $('#resultText').innerHTML = '<b>Mesajın hazır.</b> E-posta uygulamanda açıp gönderebilir ya da kopyalayıp kendi e-postandan iletebilirsin.';
+    $('#resultText').innerHTML = failed
+      ? '<b>Mesaj şu an gönderilemedi.</b> E-posta uygulamanla göndermeyi deneyebilir ya da mesajı kopyalayıp kendi e-postandan iletebilirsin.'
+      : '<b>Mesajın hazır.</b> E-posta uygulamanda açıp gönderebilir ya da kopyalayıp kendi e-postandan iletebilirsin.';
     $('#mailLink').hidden = false; $('#copyMsg').hidden = false;
     $('#mailLink').href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
   result.hidden = false;
-  mee.timers.push(setTimeout(() => meeSay('Tamamdır! Görev tamamlandı!'), 900));
+  if (failed) {
+    mee.el.classList.add('stressed');
+    meeSay('Olmadı! Başka bir yoldan deneyelim!');
+    mee.timers.push(setTimeout(() => mee.el.classList.remove('stressed'), 1700));
+    return;
+  }
+  mee.timers.push(setTimeout(() => meeSay(sent ? 'Tamamdır! Mesaj gönderildi!' : 'Tamamdır! Görev tamamlandı!'), 900));
   mee.timers.push(setTimeout(meeVanish, 2500));
 });
+if (CONFIG.formEndpoint) $('.form-note').textContent = 'Mesajın doğrudan e-posta kutuma ulaşır.';
 $('#mailLink').addEventListener('click', e => e.stopPropagation());
 async function copyText(text, btn, okLabel) {
   const orig = btn.textContent;
