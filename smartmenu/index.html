@@ -3,8 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Smart Menu OS: kafe ve restoranlar için adisyon, masa takibi, QR menü, garson siparişi, mutfak ekranı ve ciro raporları.">
-<title>Smart Menu OS | Kafe ve Restoran Adisyon Sistemi</title>
+<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon ve QR menü sistemi. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. İşletmenizin bilgisayarında, internetsiz de çalışır.">
+<title>SmartMenuOS | QR Menü ve Adisyon Sistemi · Kafe, Restoran, Büfe</title>
+<meta name="theme-color" content="#1B2432">
+<link rel="icon" href="marka/favicon.ico" sizes="48x48">
+<link rel="icon" href="marka/smartmenuos-icon.svg" type="image/svg+xml">
+<link rel="icon" href="marka/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="marka/favicon-16x16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="marka/apple-touch-icon.png">
+<link rel="manifest" href="marka/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="SmartMenuOS">
+<meta property="og:title" content="SmartMenuOS | QR Menü ve Adisyon Sistemi">
+<meta property="og:description" content="Masadan mutfağa, mutfaktan kasaya tek sistem. Kafe, restoran, büfe ve manavlar için; işletmenizin bilgisayarında, internetsiz de çalışır.">
+<meta property="og:url" content="https://xarquire.github.io/smartmenu/">
+<meta property="og:image" content="https://xarquire.github.io/smartmenu/marka/og-gorsel.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SmartMenuOS logosu ve QR menü ve adisyon sistemi yazısı">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -12,8 +30,8 @@
 /* Layout: koyu "kasa paneli" bandı + fiş (adisyon) motifi; canlı sipariş akışı ve aç-kapat demosu sayfanın iki etkileşimli anı */
 :root {
   --bg: #f5f6f8; --surface: #ffffff; --ink: #151c27; --muted: #586172; --line: #dde1e8;
-  --band: #1b2330; --band-2: #232d3d; --band-ink: #eef1f6; --band-muted: #a3adbd; --band-line: #2f3a4b;
-  --amber: #f2a516; --amber-ink: #8a5a00; --amber-soft: #fdf1d8; --green: #1d7a4b; --green-soft: #e3f4ea;
+  --band: #1B2432; --band-2: #273349; --band-ink: #eef1f6; --band-muted: #a3adbd; --band-line: #2f3a4b;
+  --amber: #F6A623; --amber-ink: #8a5a00; --amber-soft: #fdf1d8; --green: #1d7a4b; --green-soft: #e3f4ea;
   --paper: #fffdf7; --paper-ink: #22262d; --tbd: #b4232a; --tbd-bg: #fde8e8;
   --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
@@ -55,7 +73,9 @@ a { color: inherit; }
 /* üst menü */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--band) 92%, transparent); backdrop-filter: blur(10px); color: var(--band-ink); border-bottom: 1px solid var(--band-line); }
 .top .wrap { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.05rem/1 var(--f-display); font-stretch: 115%; }
+.logo { display: flex; align-items: center; text-decoration: none; flex: none; }
+.logo img { display: block; height: 34px; width: auto; }
+@media (max-width: 420px) { .logo img { height: 28px; } }
 .nav { display: flex; gap: 22px; margin-left: auto; font-weight: 600; font-size: 0.95rem; }
 .nav a { text-decoration: none; color: var(--band-muted); transition: color .2s; }
 .nav a:hover { color: var(--band-ink); }
@@ -217,7 +237,7 @@ section { padding-block: 92px; }
 .pal { display: flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px 6px 6px; font: 600 .85rem var(--f-body); cursor: pointer; }
 .pal i { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--d) 50%, var(--a) 50%); }
 .pal[aria-pressed="true"] { border-color: var(--ink); }
-.mock { --md: #1b2330; --ma: #f2a516; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(20,28,40,.5); background: #f4f6f9; color: #1b2330; min-width: 0; transition: box-shadow .3s; }
+.mock { --md: #1B2432; --ma: #F6A623; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(20,28,40,.5); background: #f4f6f9; color: #1b2330; min-width: 0; transition: box-shadow .3s; }
 .mock-top { background: var(--md); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; transition: background .5s; }
 .mock-top b { font: 700 1.05rem var(--f-display); font-stretch: 108%; }
 .mock-top span { background: var(--ma); color: #1b1300; font: 700 .82rem var(--f-body); padding: 8px 12px; border-radius: 6px; transition: background .5s; }
@@ -246,10 +266,26 @@ section { padding-block: 92px; }
 
 /* adımlar */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: s; }
-.step { display: grid; gap: 10px; border-top: 2px solid var(--ink); padding-top: 18px; }
+.step { display: grid; gap: 10px; align-content: start; border-top: 2px solid var(--ink); padding-top: 18px; }
 .step::before { counter-increment: s; content: "Adım " counter(s); font: 600 0.78rem/1 var(--f-mono); color: var(--amber-ink); letter-spacing: .1em; text-transform: uppercase; }
 .step p { color: var(--muted); }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; gap: 26px; } }
+
+/* kurulum ve cihazlar */
+.req { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.req > div { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; background: var(--surface); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.req ul { margin: 0; padding: 0 0 0 18px; color: var(--muted); display: grid; gap: 6px; font-size: .97rem; }
+.req .k { font: 600 .72rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--amber-ink); }
+.honest { margin-top: 22px; border: 1px solid var(--line); border-left: 4px solid var(--amber); border-radius: var(--r); padding: 18px 22px; background: var(--amber-soft); display: grid; gap: 8px; }
+.honest ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+@media (max-width: 900px) { .req { grid-template-columns: 1fr; } }
+
+/* paket ve fiyat */
+.price-box { border: 2px solid var(--amber); border-radius: 14px; padding: 30px; background: var(--surface); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; }
+.price-box ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
+.price-box li::before { content: "✓  "; color: var(--green); font-weight: 700; }
+.price-box .cta-col { display: grid; gap: 12px; justify-items: start; }
+@media (max-width: 760px) { .price-box { grid-template-columns: 1fr; padding: 22px; gap: 22px; } }
 
 /* paketler */
 .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
@@ -317,18 +353,17 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Smart Menu OS ana sayfa">
-      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 8v6m-2-6v4a2 2 0 0 0 4 0V8m-2 6v8M19 8c-1.8 1-2.5 3-2.5 5.5H19V22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      Smart Menu OS
-    </a>
+    <a class="logo" href="#top"><img src="marka/smartmenuos-logo-dark.svg" alt="SmartMenuOS ana sayfa" width="188" height="32"></a>
     <nav class="nav" aria-label="Bölümler">
       <a href="#akis">Nasıl çalışır</a>
       <a href="#ozellikler">Özellikler</a>
       <a href="#size-gore">Size göre</a>
-      <a href="#paketler">Paketler</a>
+      <a href="#kurulum">Kurulum</a>
+      <a href="#paketler">Fiyat</a>
+      <a href="#sss">SSS</a>
       <a href="#iletisim">İletişim</a>
     </nav>
-    <a class="btn btn-amber" href="#iletisim">Ücretsiz demo</a>
+    <a class="btn btn-amber" href="#iletisim">Demo isteyin</a>
   </div>
 </header>
 
@@ -336,16 +371,16 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
   <section class="hero" style="padding:0">
     <div class="wrap">
       <div>
-        <p class="eyebrow lit"><span class="type-swap" aria-live="off"><span class="cur">Kafeniz</span><span>Restoranınız</span><span>Pastaneniz</span><span>Manavınız</span></span> için adisyon sistemi</p>
+        <p class="eyebrow lit"><span class="type-swap" aria-live="off"><span class="cur">Kafeniz</span><span>Restoranınız</span><span>Büfeniz</span><span>Manavınız</span></span> için adisyon sistemi</p>
         <h1><span class="w">Masadan</span> <span class="w">mutfağa,</span> <span class="w"><em>mutfaktan</em></span> <span class="w"><em>kasaya</em></span> <span class="w">tek</span> <span class="w">sistem.</span></h1>
-        <p class="lead">Garson siparişi telefondan girer, mutfak anında görür, kasa hesabı tek tuşla keser. Ciro, masa doluluğu ve personel performansı her an önünüzde.</p>
+        <p class="lead">Garson siparişi telefondan girer, mutfak anında görür, kasa hesabı keser. Ciro, adisyon ve personel satışları gün sonunda tek ekranda. SmartMenuOS işletmenizin kendi bilgisayarında çalışır.</p>
         <div class="hero-cta">
-          <a class="btn btn-amber" href="#iletisim">Ücretsiz demo isteyin <span class="arr">→</span></a>
+          <a class="btn btn-amber" href="#iletisim">Demo isteyin <span class="arr">→</span></a>
           <a class="btn btn-ghost" href="#akis">Nasıl çalıştığını izleyin</a>
         </div>
         <ul class="hero-facts">
           <li>QR menüden sipariş</li>
-          <li>İnternet kesilse de çalışır</li>
+          <li>İnternet kesilse de yerel ağda çalışır</li>
           <li>Kullanmadığınız özelliği kapatın</li>
         </ul>
       </div>
@@ -429,7 +464,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
       <div class="sec-head rv">
         <p class="eyebrow">Özellikler</p>
         <h2>Servisin her adımı aynı ekranda.</h2>
-        <p class="lead">Smart Menu OS, siparişin alındığı andan hesabın kesildiği ana kadar işletmenizin günlük akışını tek sistemde toplar.</p>
+        <p class="lead">SmartMenuOS, siparişin alındığı andan hesabın kesildiği ana kadar işletmenizin günlük akışını tek sistemde toplar.</p>
       </div>
 
       <div class="feature">
@@ -439,14 +474,14 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
           <p class="lead">Açık kalemler solda, ödenecekler sağda. Ürünü seçin, ödemeyi alın, masa kendiliğinden boşalsın.</p>
           <ul>
             <li>Kalem bazında tahsilat; hesabı kişi sayısına eşit ya da tutar bazında bölme</li>
-            <li>Nakit, kart ve karışık ödeme</li>
+            <li>Nakit, kart ve karışık ödeme kaydı (kart tahsilatı işletmenin kendi POS cihazından alınır)</li>
             <li>İkram, iskonto ve bahşiş</li>
             <li>Masa taşıma, birleştirme ve rezervasyon</li>
           </ul>
         </div>
         <div class="shot-pair rv-r">
-          <figure class="shot"><img src="img/kasa-adisyon.png" alt="Kasa adisyon ekranı, Masa 2'nin açık kalemleri" width="956" height="776" loading="lazy"><figcaption>Kasa · Adisyon ekranı</figcaption></figure>
-          <figure class="shot"><img src="img/hesap-bol.png" alt="Hesabı böl penceresi, 500 TL iki kişiye eşit bölünmüş" width="566" height="589" loading="lazy"><figcaption>Hesabı böl</figcaption></figure>
+          <figure class="shot"><img src="img/kasa-adisyon.png" alt="SmartMenuOS kasa adisyon ekranı: Masa 2'nin açık kalemleri ve ödeme düğmeleri" width="956" height="776" loading="lazy"><figcaption>Kasa · Adisyon ekranı</figcaption></figure>
+          <figure class="shot"><img src="img/hesap-bol.png" alt="SmartMenuOS hesabı böl penceresi: 500 TL iki kişiye eşit bölünmüş" width="566" height="589" loading="lazy"><figcaption>Hesabı böl</figcaption></figure>
         </div>
       </div>
 
@@ -459,10 +494,10 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
             <li>Ek cihaz gerekmez; garsonun kendi telefonu yeterli</li>
             <li>Ürün notu ve seçenekler: boy, porsiyon, ekstra</li>
             <li>QR menüden garson çağırma</li>
-            <li>Fotoğraflı, işletmenizin renklerinde dijital menü</li>
+            <li>Fotoğraflı dijital menü, müşterinin kendi telefonunda</li>
           </ul>
         </div>
-        <figure class="shot rv-l" style="max-width:300px;justify-self:center"><img src="img/garson-gorselli.jpg" alt="Garson sipariş ekranı" width="375" height="812" loading="lazy"><figcaption>Garson · Telefondan sipariş</figcaption></figure>
+        <figure class="shot rv-l" style="max-width:300px;justify-self:center"><img src="img/garson-gorselli.jpg" alt="SmartMenuOS garson ekranı: telefonda fotoğraflı ürün listesi ve Mutfağa gönder düğmesi" width="375" height="812" loading="lazy"><figcaption>Garson · Telefondan sipariş</figcaption></figure>
       </div>
 
       <div class="feature">
@@ -474,10 +509,11 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
             <li>Ürün, kategori, gün, saat, personel ve ödeme yöntemi dökümü</li>
             <li>Bugün, bu hafta, bu ay ya da istediğiniz tarih aralığı</li>
             <li>Cari hesap ve veresiye takibi</li>
+            <li>Menüyü ve zam listesini Excel'den aktarma</li>
             <li>Otomatik yedekleme</li>
           </ul>
         </div>
-        <figure class="shot rv-r"><img src="img/raporlar.png" alt="Raporlar ekranı: ciro, adisyon, ortalama adisyon, iskonto, ikram ve iptal kutuları" width="1150" height="700" loading="lazy"><figcaption>Yönetim · Raporlar</figcaption></figure>
+        <figure class="shot rv-r"><img src="img/raporlar.png" alt="SmartMenuOS raporlar ekranı: ciro, adisyon sayısı, ortalama adisyon, iskonto, ikram ve iptal" width="1150" height="700" loading="lazy"><figcaption>Yönetim · Raporlar</figcaption></figure>
       </div>
     </div>
   </section>
@@ -500,7 +536,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
           <label class="tg" for="t-rez"><span>Rezervasyon<small>Masayı rezerve et</small></span><input class="sw" type="checkbox" id="t-rez" data-b="rez"></label>
           <div class="palettes">
             <p>Renk paleti</p>
-            <button type="button" class="pal" aria-pressed="true" style="--d:#1b2330;--a:#f2a516" data-d="#1b2330" data-a="#f2a516"><i></i>Klasik</button>
+            <button type="button" class="pal" aria-pressed="true" style="--d:#1B2432;--a:#F6A623" data-d="#1B2432" data-a="#F6A623"><i></i>Klasik</button>
             <button type="button" class="pal" aria-pressed="false" style="--d:#231c4f;--a:#8b7cf6" data-d="#231c4f" data-a="#8b7cf6"><i></i>Gece Mavisi</button>
             <button type="button" class="pal" aria-pressed="false" style="--d:#173a30;--a:#3fb38a" data-d="#173a30" data-a="#3fb38a"><i></i>Okaliptüs</button>
             <button type="button" class="pal" aria-pressed="false" style="--d:#2e1f17;--a:#d9783a" data-d="#2e1f17" data-a="#d9783a"><i></i>Espresso</button>
@@ -537,13 +573,13 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
       <div class="sec-head rv">
         <p class="eyebrow">İşletme türleri</p>
         <h2>Kurulumda işletme türünüzü seçin.</h2>
-        <p class="lead">Her tür kendi menüsü ve ekran düzeniyle gelir. Kafe ile restoranın ihtiyacı aynı değildir.</p>
+        <p class="lead">Kurulumda Kafe, Restoran ya da Manav seçilir; ekran düzeni ve önerilen özellikler buna göre gelir. Büfe ve beach gibi işletmeler bu türlerden birini kendi düzenine göre kullanır.</p>
       </div>
       <div class="types rv">
         <div class="type"><span class="glyph" aria-hidden="true">☕</span><span class="tag on">Hazır</span><h3>Kafe</h3><p>Hızlı satış tezgâhı, masada çay-kahve siparişi, QR menü.</p></div>
         <div class="type"><span class="glyph" aria-hidden="true">🍽</span><span class="tag on">Hazır</span><h3>Restoran</h3><p>Masa planı, mutfak ekranı, ürün seçenekleri, hesap bölme.</p></div>
-        <div class="type"><span class="glyph" aria-hidden="true">⚖</span><span class="tag soon">Yakında</span><h3>Manav</h3><p>Tartıdan kilo ile satış, günlük fiyat güncelleme.</p></div>
-        <div class="type"><span class="glyph" aria-hidden="true">▥</span><span class="tag soon">Yakında</span><h3>Barkodlu satış</h3><p>Bakkal ve market için barkod okuyucuyla hızlı satış.</p></div>
+        <div class="type"><span class="glyph" aria-hidden="true">⚖</span><span class="tag on">Hazır</span><h3>Manav</h3><p>Masasız tezgâh satışı; ürün kiloyla ya da adetle. Tartılan miktar kasada girilir.</p></div>
+        <div class="type"><span class="glyph" aria-hidden="true">⛱</span><span class="tag on">Kafe düzeniyle</span><h3>Büfe ve beach</h3><p>Hızlı satışla masa açmadan tahsilat; geniş alanda garson telefonu ve QR menü. Wi-Fi her noktaya ulaşmalıdır.</p></div>
       </div>
     </div>
   </section>
@@ -552,58 +588,72 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
     <div class="wrap">
       <div class="sec-head rv">
         <p class="eyebrow">Nasıl başlarsınız</p>
-        <h2>Bir günde servise hazır.</h2>
+        <h2>Demodan ilk servise üç adım.</h2>
       </div>
       <div class="steps rv">
-        <div class="step"><h3>Demo görüşmesi</h3><p>İşletmenizi dinliyoruz, sistemi kendi menünüzle canlı gösteriyoruz.</p></div>
-        <div class="step"><h3>Kurulum ve menü</h3><p>Masalarınızı, ürünlerinizi ve personelinizi biz giriyoruz. QR kodlar baskıya hazır gelir.</p></div>
-        <div class="step"><h3>Personel eğitimi</h3><p>Garson ve kasiyerlere kısa eğitim. İlk haftalarda telefonla destek.</p></div>
+        <div class="step"><h3>Demo görüşmesi</h3><p>İşletmenizi dinliyoruz, sistemi size gösteriyoruz.</p></div>
+        <div class="step"><h3>Kurulum ve menü</h3><p>Kurulum sihirbazı işletmenizin bilgisayarına kurulur. Menü Excel listesinden aktarılabilir. Masa QR kodları uygulamadan yazdırılır.</p></div>
+        <div class="step"><h3>Deneme ve teslim</h3><p>Yazıcılar deneme fişiyle, telefonlar QR menüyle sınanır; kontrol listesi tamamlanınca teslim edilir. Eğitim ve destek koşulları: <span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></div>
       </div>
     </div>
   </section>
 
-  <section id="paketler">
+  <section id="kurulum">
     <div class="wrap">
       <div class="sec-head rv">
-        <p class="eyebrow">Paketler</p>
-        <h2>İşletmenizin büyüklüğüne göre.</h2>
-        <p class="lead">Fiyatlar <span class="tbd">[fiyatlandırma modeli: aylık / yıllık / tek seferlik lisans?]</span></p>
+        <p class="eyebrow">Kurulum ve cihazlar</p>
+        <h2>İşletmenizin bilgisayarında, kendi ağınızda.</h2>
+        <p class="lead">SmartMenuOS buluta bağlı değildir. Veritabanı ve menü kasadaki Windows bilgisayarda çalışır; telefonlar aynı Wi-Fi ağından bağlanır.</p>
       </div>
-      <div class="plans rv">
-        <div class="plan">
-          <h3>Başlangıç</h3>
-          <p class="who">Tek kasalı küçük kafe</p>
-          <p class="price"><span class="tbd">[₺ fiyat]</span> <small>/ ay</small></p>
-          <ul><li>Adisyon ve hızlı satış</li><li>QR menü</li><li>Gün sonu ve temel raporlar</li><li>1 kasa, <span class="tbd">[x]</span> garson</li></ul>
+      <div class="req rv">
+        <div><span class="k">Kasa bilgisayarı</span><h3>Windows 10 veya 11</h3><ul><li>.NET Framework 4.8, SQL Server Express (ücretsiz) ve IIS</li><li>Servis boyunca açık kalır; uyku modu kapatılır</li><li>Kasa, mutfak ve yönetim için ek bilgisayarlar aynı veritabanına bağlanabilir</li></ul></div>
+        <div><span class="k">Telefon ve tablet</span><h3>Uygulama kurulmaz</h3><ul><li>Garson, sipariş ekranını telefonunun tarayıcısında açar</li><li>Müşteri masadaki QR kodu kendi telefonuyla okutur</li><li>Kasa bilgisayarı ve telefonlar aynı ağda olmalıdır; misafir ağı cihazları ayırıyorsa çalışmaz</li></ul></div>
+        <div><span class="k">Yazıcı ve çekmece</span><h3>Windows'a kurulu fiş yazıcısı</h3><ul><li>Mutfak, bar ve kasa için ayrı yazıcı; kategoriye göre bar ayrımı</li><li>Para çekmecesi kasa yazıcısına bağlanır</li><li>Her yazıcı kurulumda deneme fişiyle sınanır</li></ul></div>
+      </div>
+      <div class="honest rv">
+        <b>Bilmeniz gerekenler</b>
+        <ul>
+          <li>Doğrulanmış bir asgari donanım ya da onaylı yazıcı model listesi yoktur. Yazıcı, kâğıt kesme ve Türkçe karakterler kurulumda işletmedeki cihazla denenir.</li>
+          <li>Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin POS cihazından alınır ve kasada "Kart" olarak kaydedilir.</li>
+          <li>Mali fiş yazar kasadan (ÖKC) ayrıca kesilir; SmartMenuOS'un fişi mali belge değildir.</li>
+          <li>QR menü varsayılan olarak işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim alan adı, modem ayarı ve HTTPS gerektiren ayrı bir iştir.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="paketler" class="alt">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">Paket ve fiyat</p>
+        <h2>İşletmenize uygun teklif.</h2>
+      </div>
+      <div class="price-box rv">
+        <div>
+          <h3 style="font-size:1.5rem">Paket ve fiyat bilgisi için iletişime geçin.</h3>
+          <p class="lead" style="margin-top:12px">Teklif, kasa ve yazıcı sayısına, garson sayısına ve kurulum ihtiyacınıza göre hazırlanır.</p>
+          <ul style="margin-top:18px"><li>Adisyon, hızlı satış ve hesap bölme</li><li>QR menü ve garson telefonundan sipariş</li><li>Mutfak ekranı ve mutfak/bar yazıcısı</li><li>Cari hesap, gün sonu ve raporlar</li></ul>
+        </div>
+        <div class="cta-col">
+          <a class="btn btn-amber" href="#iletisim">Teklif isteyin <span class="arr">→</span></a>
           <a class="btn btn-line" href="#iletisim">Demo isteyin</a>
-        </div>
-        <div class="plan pick">
-          <span class="badge">En çok tercih edilen</span>
-          <h3>İşletme</h3>
-          <p class="who">Kafe ve restoranlar için</p>
-          <p class="price"><span class="tbd">[₺ fiyat]</span> <small>/ ay</small></p>
-          <ul><li>Başlangıç paketindeki her şey</li><li>Garson telefonundan sipariş</li><li>Mutfak ekranı</li><li>Hesap bölme, cari / veresiye</li><li>Detaylı raporlar ve Excel</li></ul>
-          <a class="btn btn-amber" href="#iletisim">Demo isteyin <span class="arr">→</span></a>
-        </div>
-        <div class="plan">
-          <h3>Çok şubeli</h3>
-          <p class="who">Birden fazla şube ya da kasa</p>
-          <p class="price">Teklif alın</p>
-          <ul><li>İşletme paketindeki her şey</li><li>Birden fazla kasa ve şube</li><li>Uzaktan rapor takibi</li><li>Öncelikli destek</li></ul>
-          <a class="btn btn-line" href="#iletisim">Teklif isteyin</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sss" class="alt">
+  <section id="sss">
     <div class="wrap">
       <div class="sec-head rv"><p class="eyebrow">Sık sorulan sorular</p><h2>Merak edilenler</h2></div>
       <div class="faq">
-        <details open><summary>İnternet kesilirse ne olur?</summary><p>Yerel kurulumda sistem işletmenizin kendi bilgisayarında çalışır; internet kesilse de sipariş almaya ve hesap kesmeye devam edersiniz.</p></details>
-        <details><summary>Hangi cihazlar gerekiyor?</summary><p>Kasa için bir Windows bilgisayar yeterli. Garsonlar kendi telefonlarından ya da tabletten sipariş girer, müşteriler QR menüyü kendi telefonundan açar. <span class="tbd">[önerilen donanım listesi?]</span></p></details>
-        <details><summary>Fiş ve mutfak yazıcısı destekleniyor mu?</summary><p>Evet, adisyon ve hesap fişi yazıcıdan alınabilir. <span class="tbd">[desteklenen yazıcı modelleri]</span></p></details>
-        <details><summary>Verilerim güvende mi?</summary><p>Veriler işletmenizde tutulur ve düzenli olarak otomatik yedeklenir. Kişisel veriler KVKK kapsamında işlenir.</p></details>
+        <details open><summary>İnternet kesilirse ne olur?</summary><p>SmartMenuOS işletmenizin kendi bilgisayarında ve yerel ağında çalışır. İnternet kesilse de Wi-Fi ağı çalıştığı sürece sipariş almaya, mutfağa göndermeye ve hesap kesmeye devam edersiniz.</p></details>
+        <details><summary>Hangi cihazlar gerekiyor?</summary><p>Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır.</p></details>
+        <details><summary>Fiş ve mutfak yazıcısı destekleniyor mu?</summary><p>Evet. Windows'a yazıcı olarak kurulabilen fiş yazıcıları kullanılır: mutfak, bar ve kasa için ayrı yazıcı seçilebilir, nakit ödemede para çekmecesi açılabilir. Onaylı bir model listesi yoktur; her yazıcı kurulumda deneme fişiyle sınanır.</p></details>
+        <details><summary>Kartlı ödeme POS cihazına gider mi?</summary><p>Hayır. Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin kendi POS cihazından alınır, kasada ödeme yöntemi "Kart" olarak kaydedilir; tutar POS'a otomatik gönderilmez.</p></details>
+        <details><summary>Yazar kasa (ÖKC) ile bağlantılı mı?</summary><p>Hayır. SmartMenuOS'un bastığı fiş mali belge değildir; mali fiş işletmenin yazar kasasından ayrıca kesilir. İşletmenizin yükümlülükleri için mali müşavirinize danışın.</p></details>
+        <details><summary>Müşteri QR menüyü mobil veriyle açabilir mi?</summary><p>Varsayılan kurulumda QR menü işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı, modemde yönlendirme ve HTTPS sertifikası gerekir; bu, kurulumdan ayrı planlanan bir iştir.</p></details>
+        <details><summary>Birden fazla kasa kullanabilir miyim?</summary><p>Evet, aynı işletmede. Veritabanı ana bilgisayarda tutulur, diğer kasa ve mutfak bilgisayarları ona bağlanır; ana bilgisayar kapalıyken diğerleri çalışmaz. Şubeler arası bağlantı yoktur.</p></details>
+        <details><summary>Verilerim güvende mi?</summary><p>Veriler işletmenizin bilgisayarında tutulur ve otomatik olarak yedeklenir. Yedeğin ayrıca başka bir diske ya da USB belleğe kopyalanması önerilir. Kişisel veriler KVKK kapsamında işlenir.</p></details>
         <details><summary>Deneme süresi var mı?</summary><p><span class="tbd">[deneme süresi: örn. 14 gün ücretsiz?]</span></p></details>
         <details><summary>Kurulum ve eğitim ücretli mi?</summary><p><span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></details>
       </div>
@@ -633,7 +683,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
         <div class="frow">
           <label for="f-isletme">İşletme adı<input id="f-isletme" name="isletme" autocomplete="organization"></label>
           <label for="f-tur">İşletme türü
-            <select id="f-tur" name="tur"><option>Kafe</option><option>Restoran</option><option>Manav</option><option>Bakkal / market</option><option>Diğer</option></select>
+            <select id="f-tur" name="tur"><option>Kafe</option><option>Restoran</option><option>Büfe</option><option>Beach / plaj</option><option>Manav</option><option>Diğer</option></select>
           </label>
         </div>
         <div class="frow">
@@ -651,12 +701,12 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Smart Menu OS · <span class="tbd">[şirket unvanı]</span></span>
+    <span>© 2026 SmartMenuOS · <span class="tbd">[şirket unvanı]</span></span>
     <nav aria-label="Yasal"><a href="#iletisim">KVKK aydınlatma metni</a><a href="#iletisim">Gizlilik politikası</a><a href="#iletisim">Çerez politikası</a></nav>
   </div>
 </footer>
 
-<div class="mbar"><a class="btn btn-amber" href="#iletisim">Ücretsiz demo</a><a class="btn btn-ghost" href="#iletisim">WhatsApp</a></div>
+<div class="mbar"><a class="btn btn-amber" href="#iletisim">Demo isteyin</a><a class="btn btn-ghost" href="#iletisim">WhatsApp</a></div>
 
 <script>
 (function () {
