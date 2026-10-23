@@ -4,9 +4,5 @@
   "compatibility_date": "2026-09-01",
   "assets": {
     "directory": "./smartmenu"
-  },
-  "routes": [
-    { "pattern": "smartmenuos.com", "custom_domain": true },
-    { "pattern": "www.smartmenuos.com", "custom_domain": true }
-  ]
+  }
 }
