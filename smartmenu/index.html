@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon ve QR menü sistemi. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. İşletmenizin bilgisayarında, internetsiz de çalışır.">
+<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon ve QR menü sistemi. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL.">
 <title>SmartMenuOS | QR Menü ve Adisyon Sistemi · Kafe, Restoran, Büfe</title>
-<meta name="theme-color" content="#1B2432">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="marka/favicon.ico" sizes="48x48">
 <link rel="icon" href="marka/smartmenuos-icon.svg" type="image/svg+xml">
 <link rel="icon" href="marka/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -16,7 +17,7 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="SmartMenuOS">
 <meta property="og:title" content="SmartMenuOS | QR Menü ve Adisyon Sistemi">
-<meta property="og:description" content="Masadan mutfağa, mutfaktan kasaya tek sistem. Kafe, restoran, büfe ve manavlar için; işletmenizin bilgisayarında, internetsiz de çalışır.">
+<meta property="og:description" content="Masadan mutfağa, mutfaktan kasaya tek sistem. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL.">
 <meta property="og:url" content="https://xarquire.github.io/smartmenu/">
 <meta property="og:image" content="https://xarquire.github.io/smartmenu/marka/og-gorsel.png">
 <meta property="og:image:width" content="1200">
@@ -27,35 +28,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: koyu "kasa paneli" bandı + fiş (adisyon) motifi; canlı sipariş akışı ve aç-kapat demosu sayfanın iki etkileşimli anı */
+/* Beyaz palet: zemin beyaz, bölümler açık gri ile ayrılır, vurgu markanın kehribar rengi.
+   Ekran görüntüleri doğal boyutlarında ve oranlarında gösterilir; tıklayınca tam boy açılır. */
 :root {
-  --bg: #f5f6f8; --surface: #ffffff; --ink: #151c27; --muted: #586172; --line: #dde1e8;
-  --band: #1B2432; --band-2: #273349; --band-ink: #eef1f6; --band-muted: #a3adbd; --band-line: #2f3a4b;
-  --amber: #F6A623; --amber-ink: #8a5a00; --amber-soft: #fdf1d8; --green: #1d7a4b; --green-soft: #e3f4ea;
-  --paper: #fffdf7; --paper-ink: #22262d; --tbd: #b4232a; --tbd-bg: #fde8e8;
+  --bg: #ffffff; --soft: #f6f7f9; --surface: #ffffff; --ink: #151c27; --muted: #5a6372; --line: #e3e6eb; --line-2: #cfd4dc;
+  --navy: #1B2432;
+  --amber: #F6A623; --amber-ink: #8a5a00; --amber-soft: #fff4dc; --green: #1d7a4b; --green-soft: #e6f5ec;
+  --tbd: #b4232a; --tbd-bg: #fde8e8;
   --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
-  --r: 10px;
+  --r: 12px;
+  --shadow: 0 1px 2px rgba(21,28,39,.06), 0 18px 40px -22px rgba(21,28,39,.28);
+  color-scheme: light;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #0e131a; --surface: #161d28; --ink: #e9edf3; --muted: #9ba5b5; --line: #263041;
-  --band: #0a0e14; --band-2: #131a24; --band-ink: #eef1f6; --band-muted: #9ba5b5; --band-line: #222b39;
-  --amber: #f5b33c; --amber-ink: #f5b33c; --amber-soft: #2b2212; --green: #4cc38a; --green-soft: #12291d;
-  --paper: #f4f1e8; --paper-ink: #22262d; --tbd: #ff8a8f; --tbd-bg: #3a1a1d; color-scheme: dark; } }
-:root[data-theme="dark"] {
-  --bg: #0e131a; --surface: #161d28; --ink: #e9edf3; --muted: #9ba5b5; --line: #263041;
-  --band: #0a0e14; --band-2: #131a24; --band-ink: #eef1f6; --band-muted: #9ba5b5; --band-line: #222b39;
-  --amber: #f5b33c; --amber-ink: #f5b33c; --amber-soft: #2b2212; --green: #4cc38a; --green-soft: #12291d;
-  --paper: #f4f1e8; --paper-ink: #22262d; --tbd: #ff8a8f; --tbd-bg: #3a1a1d; color-scheme: dark; }
 
 * { box-sizing: border-box; }
 main { overflow-x: clip; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--f-body); overflow-x: hidden; }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
-.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 h1, h2, h3 { font-family: var(--f-display); font-stretch: 112%; line-height: 1.08; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
 h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 800; }
 h3 { font-size: 1.2rem; font-weight: 700; }
@@ -63,95 +57,58 @@ p { margin: 0; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 4px; }
 .eyebrow { font: 600 0.78rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-ink); }
-.on-band .eyebrow, .eyebrow.lit { color: var(--amber); }
-.lead { color: var(--muted); font-size: 1.12rem; max-width: 60ch; }
+.lead { color: var(--muted); font-size: 1.12rem; max-width: 62ch; }
 .tbd { background: var(--tbd-bg); color: var(--tbd); border: 1px dashed currentColor; border-radius: 4px; padding: 0 5px; font-weight: 600; white-space: nowrap; }
 
-.draft { background: var(--amber); color: #1b1300; font: 600 0.82rem/1.4 var(--f-mono); }
+.draft { background: var(--amber-soft); color: #5c3d00; border-bottom: 1px solid #f3dca8; font: 600 0.82rem/1.4 var(--f-mono); }
 .draft .wrap { padding-block: 8px; }
 
 /* üst menü */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--band) 92%, transparent); backdrop-filter: blur(10px); color: var(--band-ink); border-bottom: 1px solid var(--band-line); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
 .logo { display: flex; align-items: center; text-decoration: none; flex: none; }
 .logo img { display: block; height: 34px; width: auto; }
 @media (max-width: 420px) { .logo img { height: 28px; } }
 .nav { display: flex; gap: 22px; margin-left: auto; font-weight: 600; font-size: 0.95rem; }
-.nav a { text-decoration: none; color: var(--band-muted); transition: color .2s; }
-.nav a:hover { color: var(--band-ink); }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: 8px; font: 700 0.98rem/1 var(--f-body); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, filter .2s; }
-.btn-amber { background: var(--amber); color: #1b1300; box-shadow: 0 8px 24px -10px color-mix(in srgb, var(--amber) 80%, transparent); }
-.btn-amber:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px color-mix(in srgb, var(--amber) 90%, transparent); }
-.btn-ghost { border-color: var(--band-line); color: var(--band-ink); background: transparent; }
-.btn-ghost:hover { border-color: var(--band-muted); transform: translateY(-2px); }
+.nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: 8px; font: 700 0.98rem/1 var(--f-body); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.btn-amber { background: var(--amber); color: #1b1300; box-shadow: 0 8px 22px -12px rgba(200,130,0,.9); }
+.btn-amber:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -12px rgba(200,130,0,.9); }
+.btn-line { border-color: var(--line-2); color: var(--ink); background: #fff; }
+.btn-line:hover { border-color: var(--ink); transform: translateY(-2px); }
 .btn .arr { transition: transform .2s; }
 .btn:hover .arr { transform: translateX(4px); }
 .top .btn { padding: 10px 16px; }
-@media (max-width: 860px) { .nav { display: none; } .top .btn { margin-left: auto; } }
+@media (max-width: 880px) { .nav { display: none; } .top .btn { margin-left: auto; } }
 
 /* hero */
-.hero { background: radial-gradient(900px 500px at 85% 20%, var(--band-2), transparent 70%), var(--band); color: var(--band-ink); overflow: hidden; position: relative; }
-.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding-block: 72px 88px; }
-.hero h1 { font-size: clamp(2.5rem, 5.8vw, 4.5rem); font-weight: 850; margin-top: 18px; }
-.hero h1 .w { display: inline-block; }
-.hero h1 em { font-style: normal; color: var(--amber); }
-.hero .lead { color: var(--band-muted); margin-top: 22px; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-.hero-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; padding: 0; list-style: none; color: var(--band-muted); font-size: 0.95rem; }
-.hero-facts li::before { content: "✓ "; color: var(--amber); font-weight: 700; }
-.type-swap { display: inline-grid; vertical-align: bottom; color: var(--amber); }
+.hero { background: radial-gradient(1000px 420px at 50% -10%, var(--amber-soft), transparent 70%), var(--bg); }
+.hero-text { text-align: center; max-width: 860px; margin: 0 auto; padding-top: 64px; display: grid; justify-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.3rem); font-weight: 850; margin-top: 18px; }
+.hero h1 em { font-style: normal; color: var(--amber-ink); }
+.hero .lead { margin-top: 20px; }
+.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+.hero-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin: 26px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.95rem; }
+.hero-facts li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+.hero-facts b { color: var(--ink); }
+.type-swap { display: inline-grid; vertical-align: bottom; color: var(--amber-ink); }
 .type-swap span { grid-area: 1 / 1; transition: transform .5s, opacity .5s; }
 .type-swap span:not(.cur) { opacity: 0; transform: translateY(60%); }
 .type-swap span.out { opacity: 0; transform: translateY(-60%); }
+.hero-shots { display: grid; grid-template-columns: minmax(0, 1226fr) minmax(0, 393fr); gap: 20px; align-items: end; padding-block: 48px 72px; }
+@media (max-width: 760px) { .hero-shots { grid-template-columns: 1fr; gap: 24px; } .hero-shots .shot.phone { max-width: 300px; justify-self: center; } }
 
-.stage { position: relative; display: flex; justify-content: flex-start; align-items: flex-start; min-width: 0; padding-block: 10px 30px; }
-.receipt { position: relative; background: var(--paper); color: var(--paper-ink); width: min(330px, 100%); padding: 24px 22px 30px; font: 0.86rem/1.55 var(--f-mono); box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); transform: rotate(-2deg);
-  -webkit-mask: radial-gradient(circle 7px at 50% 100%, transparent 98%, #000) 0 0 / 18px 100% repeat-x; mask: radial-gradient(circle 7px at 50% 100%, transparent 98%, #000) 0 0 / 18px 100% repeat-x; }
-.receipt .rh { text-align: center; border-bottom: 1px dashed #9aa0a8; padding-bottom: 10px; margin-bottom: 10px; }
-.receipt .rh b { font-size: 1rem; letter-spacing: .08em; }
-.receipt .row { display: flex; justify-content: space-between; gap: 10px; font-variant-numeric: tabular-nums; }
-.receipt .note { color: #9a6200; font-style: italic; padding-left: 2ch; }
-.receipt .sum { border-top: 1px dashed #9aa0a8; margin-top: 10px; padding-top: 10px; font-weight: 600; }
-.receipt .total { font-size: 1.12rem; }
-.receipt .foot { text-align: center; margin-top: 14px; color: #6b7280; font-size: .78rem; }
-.stamp { position: absolute; right: 10px; top: 14px; border: 2.5px solid #1d7a4b; color: #1d7a4b; font: 800 .8rem/1 var(--f-display); letter-spacing: .12em; padding: 5px 8px; border-radius: 6px; transform: rotate(-12deg); }
-.phone { position: absolute; right: -6px; bottom: -20px; width: 168px; border: 7px solid #05070a; border-radius: 26px; overflow: hidden; background: #05070a; box-shadow: 0 24px 50px -16px rgba(0,0,0,.6); transform: rotate(4deg); }
-.phone img { display: block; width: 100%; height: auto; }
-.chip { position: absolute; display: flex; align-items: center; gap: 8px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px 8px 10px; font: 600 .82rem/1.2 var(--f-body); box-shadow: 0 14px 30px -14px rgba(0,0,0,.55); white-space: nowrap; }
-.chip i { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: .75rem; color: #fff; flex: none; }
-.chip.c1 { left: -24px; top: -12px; } .chip.c1 i { background: #1d7a4b; }
-.chip.c2 { left: 6px; bottom: 26px; } .chip.c2 i { background: #e08a00; }
-@media (max-width: 900px) {
-  .hero .wrap { grid-template-columns: 1fr; padding-block: 48px 72px; }
-  .stage { padding-right: 104px; }
-  .phone { width: 124px; right: 0; }
-  .chip.c1 { left: 0; top: -6px; }
-}
-@media (max-width: 420px) { .stage { padding-right: 84px; } .phone { width: 104px; } .chip { font-size: .75rem; } .chip.c2 { display: none; } }
+/* ekran görüntüsü: oran ve boyut korunur, kırpılmaz */
+.shot { margin: 0; min-width: 0; }
+.shot a { display: block; cursor: zoom-in; border-radius: var(--r); }
+.shot img { display: block; width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; }
+.shot.phone img { border-radius: 22px; border: 1px solid var(--line-2); }
+.shot figcaption { margin-top: 10px; font: 0.8rem/1.4 var(--f-mono); color: var(--muted); text-align: center; }
 
-/* yükleme sekansı (yalnızca hareket tercih edilirse) */
-@media (prefers-reduced-motion: no-preference) {
-  .hero h1 .w { animation: wordIn .7s cubic-bezier(.2,.8,.2,1) both; }
-  .hero h1 .w:nth-child(2) { animation-delay: .08s } .hero h1 .w:nth-child(3) { animation-delay: .16s } .hero h1 .w:nth-child(4) { animation-delay: .24s } .hero h1 .w:nth-child(5) { animation-delay: .32s } .hero h1 .w:nth-child(6) { animation-delay: .4s }
-  .hero .lead, .hero-cta, .hero-facts { animation: wordIn .8s .45s cubic-bezier(.2,.8,.2,1) both; }
-  .receipt { animation: printIn 1.1s .2s cubic-bezier(.2,.8,.2,1) both; }
-  .receipt .ln { animation: lineIn .35s both; }
-  .stamp { animation: stampIn .45s 2.5s cubic-bezier(.3,1.6,.5,1) both; }
-  .phone { animation: phoneIn 1s .6s cubic-bezier(.2,.8,.2,1) both, bob 6s 1.6s ease-in-out infinite; }
-  .chip.c1 { animation: chipIn .6s 1.4s cubic-bezier(.2,1.4,.4,1) both, bob 5s 2s ease-in-out infinite; }
-  .chip.c2 { animation: chipIn .6s 2.9s cubic-bezier(.2,1.4,.4,1) both, bob 5.5s 3.5s ease-in-out infinite; }
-}
-@keyframes wordIn { from { transform: translateY(28px); filter: blur(4px); } }
-@keyframes printIn { from { transform: translateY(-60px) rotate(-2deg); clip-path: inset(0 0 100% 0); } to { transform: rotate(-2deg); clip-path: inset(0 0 0 0); } }
-@keyframes lineIn { from { transform: translateX(-8px); color: transparent; } }
-@keyframes stampIn { from { transform: rotate(-12deg) scale(2.4); } }
-@keyframes phoneIn { from { transform: translate(40px, 60px) rotate(12deg); } }
-@keyframes chipIn { from { transform: translateY(16px) scale(.8); } }
-@keyframes bob { 50% { translate: 0 -8px; } }
-
-/* modül kayan şerit */
-.marquee { background: var(--surface); border-bottom: 1px solid var(--line); overflow: hidden; }
-.marquee .track { display: flex; width: max-content; gap: 0; padding-block: 18px; }
+/* modül şeridi */
+.marquee { background: var(--soft); border-block: 1px solid var(--line); overflow: hidden; }
+.marquee .track { display: flex; width: max-content; padding-block: 18px; }
 .marquee ul { display: flex; gap: 36px; padding: 0 18px; margin: 0; list-style: none; font: 700 1.05rem/1 var(--f-display); font-stretch: 110%; color: var(--muted); }
 .marquee li { display: flex; align-items: center; gap: 36px; white-space: nowrap; }
 .marquee li::after { content: "✦"; color: var(--amber); font-size: .8rem; }
@@ -159,85 +116,72 @@ a { color: inherit; }
 @keyframes slide { to { transform: translateX(-50%); } }
 
 section { padding-block: 92px; }
-.sec-head { display: grid; gap: 14px; margin-bottom: 44px; max-width: 760px; }
-.alt { background: var(--surface); border-block: 1px solid var(--line); }
+.sec-head { display: grid; gap: 14px; margin-bottom: 44px; max-width: 780px; }
+.alt { background: var(--soft); border-block: 1px solid var(--line); }
 @media (max-width: 860px) { section { padding-block: 64px; } }
 
-/* kaydırma animasyonu: yalnızca konum değişir, içerik her zaman görünür */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .rv { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
-    .rv-l { animation: fromLeft linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
-    .rv-r { animation: fromRight linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
-  }
-}
-@keyframes rise { from { transform: translateY(56px) scale(.97); } }
-@keyframes fromLeft { from { transform: translateX(-60px) rotate(-1.5deg); } }
-@keyframes fromRight { from { transform: translateX(60px) rotate(1.5deg); } }
-
 /* canlı sipariş akışı */
-.flow { background: var(--band); color: var(--band-ink); }
-.flow .lead { color: var(--band-muted); }
 .lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; position: relative; }
-.lane { background: var(--band-2); border: 1px solid var(--band-line); border-radius: 14px; padding: 18px; display: grid; gap: 14px; align-content: start; min-width: 0; transition: border-color .4s, box-shadow .4s, transform .4s; }
-.lane.act { border-color: var(--amber); box-shadow: 0 0 0 4px color-mix(in srgb, var(--amber) 22%, transparent); transform: translateY(-4px); }
+.lane { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 14px; align-content: start; min-width: 0; box-shadow: var(--shadow); transition: border-color .4s, box-shadow .4s, transform .4s; }
+.lane.act { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(246,166,35,.2), var(--shadow); transform: translateY(-4px); }
 .lane-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .lane-h b { font: 700 1rem/1 var(--f-display); font-stretch: 110%; }
-.lane-h small { font: 600 .72rem/1 var(--f-mono); color: var(--band-muted); text-transform: uppercase; letter-spacing: .08em; }
-.mini { background: #fff; color: #1b2330; border-radius: 10px; padding: 12px; display: grid; gap: 8px; font-size: .92rem; }
-.mini .it { display: flex; justify-content: space-between; gap: 8px; font-variant-numeric: tabular-nums; padding: 6px 8px; border-radius: 6px; background: #f3f5f8; transition: background .3s, transform .3s; }
+.lane-h small { font: 600 .72rem/1 var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.mini { background: var(--soft); color: #1b2330; border-radius: 10px; padding: 12px; display: grid; gap: 8px; font-size: .92rem; }
+.mini .it { display: flex; justify-content: space-between; gap: 8px; font-variant-numeric: tabular-nums; padding: 6px 8px; border-radius: 6px; background: #fff; transition: background .3s, transform .3s; }
 .mini .it.new { background: #fdf1d8; }
 .mini .act-btn { border: 0; border-radius: 8px; padding: 10px; font: 700 .9rem var(--f-body); color: #fff; background: #2d6a4f; text-align: center; transition: transform .2s, background .3s; }
-.ticket { border: 1.5px dashed #c9ced6; border-radius: 8px; padding: 10px; font: .82rem/1.5 var(--f-mono); display: grid; gap: 2px; transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s, background .3s, border-color .3s; }
+.ticket { border: 1.5px dashed #c9ced6; border-radius: 8px; padding: 10px; background: #fff; font: .82rem/1.5 var(--f-mono); display: grid; gap: 2px; transition: transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s, background .3s, border-color .3s; }
 .ticket .st { justify-self: start; margin-top: 6px; font: 700 .72rem/1 var(--f-body); padding: 5px 8px; border-radius: 4px; background: #fde7c2; color: #7a4c00; letter-spacing: .04em; }
 .ticket.ready { border-color: #2d6a4f; background: #eaf6ef; }
 .ticket.ready .st { background: #2d6a4f; color: #fff; }
 .ticket.ghost { opacity: .35; }
 .kasa-total { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; }
 .kasa-total span:last-child { font: 800 1.5rem/1 var(--f-display); font-variant-numeric: tabular-nums; }
-.paid { font: 700 .82rem/1 var(--f-body); text-align: center; padding: 10px; border-radius: 8px; background: #e9ecf1; color: #6b7280; transition: background .3s, color .3s, transform .3s; }
+.paid { font: 700 .82rem/1 var(--f-body); text-align: center; padding: 10px; border-radius: 8px; background: #e9ecf1; color: #5a6372; transition: background .3s, color .3s, transform .3s; }
 .paid.ok { background: #2d6a4f; color: #fff; transform: scale(1.03); }
 .flow-steps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-.flow-steps button { flex: 1 1 180px; text-align: left; background: transparent; color: var(--band-muted); border: 1px solid var(--band-line); border-radius: 10px; padding: 12px 14px; font: 600 .92rem/1.3 var(--f-body); cursor: pointer; position: relative; overflow: hidden; }
-.flow-steps button b { display: block; color: var(--band-ink); font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
-.flow-steps button[aria-current="step"] { border-color: var(--amber); color: var(--band-ink); }
+.flow-steps button { flex: 1 1 180px; text-align: left; background: #fff; color: var(--muted); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font: 600 .92rem/1.3 var(--f-body); cursor: pointer; position: relative; overflow: hidden; }
+.flow-steps button b { display: block; color: var(--ink); font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+.flow-steps button[aria-current="step"] { border-color: var(--amber); color: var(--ink); }
 .flow-steps button .bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--amber); }
 .flow-steps button[aria-current="step"] .bar.run { animation: fill var(--dur, 3s) linear forwards; }
 @keyframes fill { to { width: 100%; } }
 @keyframes pop { 0% { transform: scale(.85); } 60% { transform: scale(1.05); } }
 @media (max-width: 860px) { .lanes { grid-template-columns: 1fr; } }
 
-/* özellik blokları */
-.feature { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+/* özellik blokları: metin üstte, ekran tam genişlikte */
+.feature { display: grid; gap: 28px; }
 .feature + .feature { margin-top: 96px; }
-.feature.flip .ftext { order: 2; }
-.ftext { display: grid; gap: 16px; min-width: 0; }
-.ftext ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.ftext { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 48px; align-items: start; }
+.ftext > div { display: grid; gap: 14px; }
+.ftext ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
 .ftext li { padding-left: 26px; position: relative; }
-.ftext li::before { content: ""; position: absolute; left: 0; top: .55em; width: 14px; height: 2px; background: var(--amber); }
-.shot { margin: 0; min-width: 0; }
-.shot img { display: block; width: 100%; border-radius: var(--r); border: 1px solid var(--line); box-shadow: 0 18px 40px -24px rgba(20,28,40,.45); background: #fff; transition: transform .4s, box-shadow .4s; }
-.shot:hover img { transform: translateY(-6px); box-shadow: 0 28px 50px -24px rgba(20,28,40,.5); }
-.shot figcaption { margin-top: 10px; font: 0.8rem/1.4 var(--f-mono); color: var(--muted); }
-.shot-pair { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; align-items: end; min-width: 0; }
-@media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 28px; } .feature.flip .ftext { order: 0; } }
+.ftext li::before { content: ""; position: absolute; left: 0; top: .62em; width: 14px; height: 2px; background: var(--amber); }
+.shots-2 { display: grid; grid-template-columns: minmax(0, 1226fr) minmax(0, 520fr); gap: 20px; align-items: start; }
+@media (max-width: 860px) { .ftext { grid-template-columns: 1fr; } .shots-2 { grid-template-columns: 1fr; } }
+
+/* telefon ekranları */
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; align-items: start; }
+@media (max-width: 960px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .phones { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 8px; margin-inline: -16px; padding-inline: 16px; } .phones .shot { flex: 0 0 72%; scroll-snap-align: center; } }
 
 /* aç-kapat demosu */
 .custom { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 40px; align-items: start; }
-.toggles { display: grid; gap: 4px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 10px; min-width: 0; }
+.toggles { display: grid; gap: 4px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px; min-width: 0; box-shadow: var(--shadow); }
 .tg { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 12px; border-radius: 8px; cursor: pointer; font-weight: 600; }
-.tg:hover { background: var(--surface); }
+.tg:hover { background: var(--soft); }
 .tg small { display: block; font-weight: 400; color: var(--muted); font-size: .85rem; }
-.sw { appearance: none; -webkit-appearance: none; flex: none; width: 44px; height: 26px; border-radius: 999px; background: var(--line); position: relative; cursor: pointer; transition: background .25s; margin: 0; border: 0; }
+.sw { appearance: none; -webkit-appearance: none; flex: none; width: 44px; height: 26px; border-radius: 999px; background: var(--line-2); position: relative; cursor: pointer; transition: background .25s; margin: 0; border: 0; }
 .sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .25s cubic-bezier(.3,1.4,.5,1); }
 .sw:checked { background: var(--amber); }
 .sw:checked::after { transform: translateX(18px); }
 .palettes { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 12px 6px; border-top: 1px solid var(--line); margin-top: 6px; }
 .palettes p { width: 100%; font-weight: 600; margin-bottom: 4px; }
-.pal { display: flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px 6px 6px; font: 600 .85rem var(--f-body); cursor: pointer; }
+.pal { display: flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 6px 12px 6px 6px; font: 600 .85rem var(--f-body); cursor: pointer; }
 .pal i { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--d) 50%, var(--a) 50%); }
 .pal[aria-pressed="true"] { border-color: var(--ink); }
-.mock { --md: #1B2432; --ma: #F6A623; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(20,28,40,.5); background: #f4f6f9; color: #1b2330; min-width: 0; transition: box-shadow .3s; }
+.mock { --md: #1B2432; --ma: #F6A623; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #f4f6f9; color: #1b2330; min-width: 0; }
 .mock-top { background: var(--md); color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; transition: background .5s; }
 .mock-top b { font: 700 1.05rem var(--f-display); font-stretch: 108%; }
 .mock-top span { background: var(--ma); color: #1b1300; font: 700 .82rem var(--f-body); padding: 8px 12px; border-radius: 6px; transition: background .5s; }
@@ -254,12 +198,11 @@ section { padding-block: 92px; }
 
 /* işletme türleri */
 .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.type { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; background: var(--bg); transition: transform .3s, border-color .3s; }
-.type:hover { transform: translateY(-6px); border-color: var(--amber); }
+.type { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; background: #fff; transition: transform .3s, border-color .3s; }
+.type:hover { transform: translateY(-4px); border-color: var(--amber); }
 .type .glyph { font-size: 1.7rem; line-height: 1; }
 .type .tag { justify-self: start; font: 600 0.72rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 5px 8px; border-radius: 4px; }
 .tag.on { background: var(--green-soft); color: var(--green); }
-.tag.soon { border: 1px solid var(--line); color: var(--muted); }
 .type p { color: var(--muted); font-size: 0.97rem; }
 @media (max-width: 900px) { .types { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .types { grid-template-columns: 1fr; } }
@@ -273,35 +216,28 @@ section { padding-block: 92px; }
 
 /* kurulum ve cihazlar */
 .req { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.req > div { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; background: var(--surface); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.req > div { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; background: #fff; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .req ul { margin: 0; padding: 0 0 0 18px; color: var(--muted); display: grid; gap: 6px; font-size: .97rem; }
 .req .k { font: 600 .72rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--amber-ink); }
-.honest { margin-top: 22px; border: 1px solid var(--line); border-left: 4px solid var(--amber); border-radius: var(--r); padding: 18px 22px; background: var(--amber-soft); display: grid; gap: 8px; }
+.honest { margin-top: 22px; border: 1px solid #f3dca8; border-left: 4px solid var(--amber); border-radius: var(--r); padding: 18px 22px; background: var(--amber-soft); display: grid; gap: 8px; }
 .honest ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 @media (max-width: 900px) { .req { grid-template-columns: 1fr; } }
 
-/* paket ve fiyat */
-.price-box { border: 2px solid var(--amber); border-radius: 14px; padding: 30px; background: var(--surface); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center; }
-.price-box ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
-.price-box li::before { content: "✓  "; color: var(--green); font-weight: 700; }
-.price-box .cta-col { display: grid; gap: 12px; justify-items: start; }
-@media (max-width: 760px) { .price-box { grid-template-columns: 1fr; padding: 22px; gap: 22px; } }
-
-/* paketler */
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
-.plan { border: 1px solid var(--line); border-radius: var(--r); padding: 26px; display: grid; gap: 14px; align-content: start; background: var(--surface); position: relative; transition: transform .3s; }
-.plan:hover { transform: translateY(-6px); }
+/* fiyat */
+.pricing { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 20px; align-items: stretch; }
+.plan { border: 1px solid var(--line); border-radius: 16px; padding: 30px; display: grid; gap: 16px; align-content: start; background: #fff; position: relative; box-shadow: var(--shadow); }
 .plan.pick { border: 2px solid var(--amber); }
-.plan .badge { position: absolute; top: -12px; left: 24px; background: var(--amber); color: #1b1300; font: 700 .72rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 6px 10px; border-radius: 4px; }
-.plan .price { font: 800 1.9rem/1 var(--f-display); font-stretch: 110%; }
-.plan .price small { font: 400 .9rem var(--f-body); color: var(--muted); }
-.plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); font-size: .97rem; }
+.plan .badge { position: absolute; top: -13px; left: 26px; background: var(--amber); color: #1b1300; font: 700 .74rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-radius: 4px; }
+.plan .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.plan .price b { font: 850 clamp(2.6rem, 6vw, 3.6rem)/1 var(--f-display); font-stretch: 110%; font-variant-numeric: tabular-nums; }
+.plan .price span { color: var(--muted); font-weight: 600; }
+.plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
 .plan li::before { content: "✓  "; color: var(--green); font-weight: 700; }
-.plan .who { color: var(--muted); font-size: .95rem; }
-.plan .btn { margin-top: 6px; }
-.btn-line { border-color: var(--line); color: var(--ink); background: transparent; }
-.btn-line:hover { border-color: var(--ink); transform: translateY(-2px); }
-@media (max-width: 900px) { .plans { grid-template-columns: 1fr; } }
+.plan .note { font-size: .9rem; color: var(--muted); }
+.plan.trial { background: var(--green-soft); border-color: #bfe3cd; }
+.plan.trial .big { font: 850 clamp(2.2rem, 5vw, 3rem)/1 var(--f-display); font-stretch: 110%; color: var(--green); }
+.plan .btn { justify-self: start; }
+@media (max-width: 860px) { .pricing { grid-template-columns: 1fr; } .plan { padding: 24px; } }
 
 /* SSS */
 .faq { display: grid; max-width: 820px; }
@@ -313,18 +249,16 @@ section { padding-block: 92px; }
 .faq details p { margin-top: 10px; color: var(--muted); max-width: 68ch; }
 
 /* iletişim */
-.contact { background: var(--band); color: var(--band-ink); }
 .contact .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
-.contact .lead { color: var(--band-muted); }
 .channels { display: grid; gap: 14px; margin-top: 28px; }
-.ch { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--band-line); }
-.ch span:first-child { font: 600 .78rem/1.8 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--band-muted); }
+.ch { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.ch span:first-child { font: 600 .78rem/1.8 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .ch span:last-child { min-width: 0; overflow-wrap: anywhere; }
-form { background: var(--surface); color: var(--ink); border-radius: 12px; padding: 28px; display: grid; gap: 16px; min-width: 0; }
+form { background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 16px; min-width: 0; box-shadow: var(--shadow); }
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 label { display: grid; gap: 6px; font-weight: 600; font-size: .92rem; min-width: 0; }
-input, select, textarea { font: 400 1rem var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 11px 12px; width: 100%; }
-input:focus, select:focus, textarea:focus { border-color: var(--amber); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--amber) 25%, transparent); }
+input, select, textarea { font: 400 1rem var(--f-body); color: var(--ink); background: #fff; border: 1px solid var(--line-2); border-radius: 8px; padding: 11px 12px; width: 100%; }
+input:focus, select:focus, textarea:focus { border-color: var(--amber); outline: none; box-shadow: 0 0 0 3px rgba(246,166,35,.25); }
 textarea { min-height: 96px; resize: vertical; }
 .kvkk { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; color: var(--muted); font-size: .9rem; }
 .kvkk input { width: auto; margin-top: 4px; }
@@ -332,14 +266,26 @@ textarea { min-height: 96px; resize: vertical; }
 @media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; gap: 36px; } }
 @media (max-width: 520px) { .frow { grid-template-columns: 1fr; } .ch { grid-template-columns: 1fr; gap: 2px; } form { padding: 20px; } }
 
-footer { background: var(--band); color: var(--band-muted); border-top: 1px solid var(--band-line); font-size: .9rem; }
+footer { background: #fff; color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; padding-block: 26px; }
 footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+footer .credits { display: block; font-size: .8rem; color: var(--muted); padding-block: 0 22px; }
+footer .credits a { color: inherit; }
+.credits summary { cursor: pointer; font-weight: 600; }
+.credits ul { columns: 3 220px; margin: 10px 0 0; padding-left: 18px; }
+
+/* tam boy görüntü */
+.lb { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; margin: 0; }
+.lb::backdrop { background: rgba(15,20,28,.82); }
+.lb-in { width: 100%; height: 100%; overflow: auto; display: grid; place-items: center; padding: 56px 16px 24px; }
+.lb img { max-width: none; width: auto; height: auto; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.5); background: #fff; }
+.lb .kapat { position: fixed; top: 12px; right: 12px; background: #fff; color: var(--ink); border: 0; border-radius: 999px; padding: 10px 16px; font: 700 .95rem var(--f-body); cursor: pointer; }
+.lb p { position: fixed; top: 18px; left: 16px; right: 120px; color: #fff; font: 600 .9rem/1.3 var(--f-body); margin: 0; }
 
 /* mobil sabit çağrı çubuğu */
 .mbar { display: none; }
 @media (max-width: 700px) {
-  .mbar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--band); border-top: 1px solid var(--band-line);
+  .mbar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: rgba(255,255,255,.96); border-top: 1px solid var(--line);
     padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
   .mbar .btn { flex: 1; padding: 12px; }
   body { padding-bottom: 72px; }
@@ -348,76 +294,59 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 </head>
 <body>
 
-
 <div class="draft"><div class="wrap">TASLAK · Kırmızı kesikli çerçeveli alanlar sizden gelecek bilgilerle doldurulacak.</div></div>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top"><img src="marka/smartmenuos-logo-dark.svg" alt="SmartMenuOS ana sayfa" width="188" height="32"></a>
+    <a class="logo" href="#top"><img src="marka/smartmenuos-logo-light.svg" alt="SmartMenuOS ana sayfa" width="188" height="32"></a>
     <nav class="nav" aria-label="Bölümler">
       <a href="#akis">Nasıl çalışır</a>
       <a href="#ozellikler">Özellikler</a>
-      <a href="#size-gore">Size göre</a>
+      <a href="#qr-menu">QR menü</a>
       <a href="#kurulum">Kurulum</a>
-      <a href="#paketler">Fiyat</a>
+      <a href="#fiyat">Fiyat</a>
       <a href="#sss">SSS</a>
       <a href="#iletisim">İletişim</a>
     </nav>
-    <a class="btn btn-amber" href="#iletisim">Demo isteyin</a>
+    <a class="btn btn-amber" href="#iletisim">14 gün ücretsiz deneyin</a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero" style="padding:0">
     <div class="wrap">
-      <div>
-        <p class="eyebrow lit"><span class="type-swap" aria-live="off"><span class="cur">Kafeniz</span><span>Restoranınız</span><span>Büfeniz</span><span>Manavınız</span></span> için adisyon sistemi</p>
-        <h1><span class="w">Masadan</span> <span class="w">mutfağa,</span> <span class="w"><em>mutfaktan</em></span> <span class="w"><em>kasaya</em></span> <span class="w">tek</span> <span class="w">sistem.</span></h1>
-        <p class="lead">Garson siparişi telefondan girer, mutfak anında görür, kasa hesabı keser. Ciro, adisyon ve personel satışları gün sonunda tek ekranda. SmartMenuOS işletmenizin kendi bilgisayarında çalışır.</p>
+      <div class="hero-text">
+        <p class="eyebrow"><span class="type-swap" aria-live="off"><span class="cur">Kafeniz</span><span>Restoranınız</span><span>Büfeniz</span><span>Manavınız</span></span> için adisyon sistemi</p>
+        <h1>Masadan mutfağa, <em>mutfaktan kasaya</em> tek sistem.</h1>
+        <p class="lead">Garson siparişi telefondan girer, müşteri isterse QR menüden kendisi verir. Mutfak anında görür, kasa hesabı keser. SmartMenuOS işletmenizin kendi bilgisayarında çalışır.</p>
         <div class="hero-cta">
-          <a class="btn btn-amber" href="#iletisim">Demo isteyin <span class="arr">→</span></a>
-          <a class="btn btn-ghost" href="#akis">Nasıl çalıştığını izleyin</a>
+          <a class="btn btn-amber" href="#iletisim">14 gün ücretsiz deneyin <span class="arr">→</span></a>
+          <a class="btn btn-line" href="#fiyat">Fiyatı görün</a>
         </div>
         <ul class="hero-facts">
-          <li>QR menüden sipariş</li>
+          <li><b>14 gün</b> ücretsiz deneme</li>
+          <li>1 yıllık paket <b>8.000 TL</b></li>
           <li>İnternet kesilse de yerel ağda çalışır</li>
-          <li>Kullanmadığınız özelliği kapatın</li>
         </ul>
       </div>
-      <div class="stage" aria-label="Örnek adisyon ve garson sipariş ekranı">
-        <div class="receipt" aria-hidden="true">
-          <div class="rh"><b>ADİSYON</b><br>MASA 2 · 19:42<br>Garson: Ayşe</div>
-          <div class="row ln" style="animation-delay:1.1s"><span>2 x Bira</span><span>300,00</span></div>
-          <div class="row ln" style="animation-delay:1.3s"><span>1 x Mantı</span><span>210,00</span></div>
-          <div class="note ln" style="animation-delay:1.4s">yoğurtsuz</div>
-          <div class="row ln" style="animation-delay:1.55s"><span>3 x Çay</span><span>105,00</span></div>
-          <div class="row ln" style="animation-delay:1.75s"><span>1 x Tost</span><span>125,00</span></div>
-          <div class="sum ln" style="animation-delay:1.95s">
-            <div class="row"><span>Ara toplam</span><span>740,00</span></div>
-            <div class="row"><span>İkram (1 çay)</span><span>-35,00</span></div>
-            <div class="row total"><span>TOPLAM</span><span><span id="tot">705,00</span> ₺</span></div>
-          </div>
-          <div class="foot ln" style="animation-delay:2.2s">2 kişiye eşit bölündü · 352,50 ₺ / kişi</div>
-          <div class="stamp">ÖDENDİ</div>
-        </div>
-        <div class="chip c1" aria-hidden="true"><i>✓</i>Masa 4 · mutfağa gönderildi</div>
-        <div class="chip c2" aria-hidden="true"><i>☎</i>Masa 7 garson çağırıyor</div>
-        <div class="phone"><img src="img/garson-gorselli.jpg" alt="Garsonun telefonundaki sipariş ekranı: Masa 2, sıcak içecekler, Mutfağa gönder düğmesi" width="375" height="812"></div>
+      <div class="hero-shots">
+        <figure class="shot"><a href="img/kasa-siparis.png" data-lb><img src="img/kasa-siparis.png" alt="SmartMenuOS kasa ekranı: Masa 4 için fotoğraflı ürün kartları ve sağda sepet" width="1226" height="852" fetchpriority="high"></a><figcaption>Kasa · Masaya ürün ekleme</figcaption></figure>
+        <figure class="shot phone"><a href="img/qr-menu.png" data-lb><img src="img/qr-menu.png" alt="Müşterinin telefonunda SmartMenuOS QR menüsü: fotoğraflı ürünler ve kategoriler" width="780" height="1688"></a><figcaption>Müşteri · QR menü</figcaption></figure>
       </div>
     </div>
   </section>
 
   <div class="marquee" aria-label="Modüller">
     <div class="track">
-      <ul><li>Adisyon</li><li>Masa takibi</li><li>QR menü</li><li>Garson siparişi</li><li>Mutfak ekranı</li><li>Hızlı satış</li><li>Hesap bölme</li><li>Cari / veresiye</li><li>Gün sonu</li><li>Ciro raporları</li><li>Excel'e aktarım</li></ul>
-      <ul aria-hidden="true"><li>Adisyon</li><li>Masa takibi</li><li>QR menü</li><li>Garson siparişi</li><li>Mutfak ekranı</li><li>Hızlı satış</li><li>Hesap bölme</li><li>Cari / veresiye</li><li>Gün sonu</li><li>Ciro raporları</li><li>Excel'e aktarım</li></ul>
+      <ul><li>Adisyon</li><li>Masa ve bölgeler</li><li>QR menü</li><li>Garson siparişi</li><li>Mutfak ve bar ekranı</li><li>Hızlı satış</li><li>Ürün seçenekleri</li><li>Hesap bölme</li><li>Cari / veresiye</li><li>Gün sonu</li><li>Ciro raporları</li></ul>
+      <ul aria-hidden="true"><li>Adisyon</li><li>Masa ve bölgeler</li><li>QR menü</li><li>Garson siparişi</li><li>Mutfak ve bar ekranı</li><li>Hızlı satış</li><li>Ürün seçenekleri</li><li>Hesap bölme</li><li>Cari / veresiye</li><li>Gün sonu</li><li>Ciro raporları</li></ul>
     </div>
   </div>
 
-  <section id="akis" class="flow">
+  <section id="akis">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow lit">Bir siparişin yolculuğu</p>
+        <p class="eyebrow">Bir siparişin yolculuğu</p>
         <h2>Masa 4 sipariş verdi. Gerisini sistem halleder.</h2>
         <p class="lead">Kâğıt adisyon yok, mutfağa koşturma yok, kasada hesap karışıklığı yok. Aşağıdaki akış kendi kendine oynar; bir adıma tıklayıp durdurabilirsiniz.</p>
       </div>
@@ -425,18 +354,18 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
         <div class="lane" data-lane="1">
           <div class="lane-h"><b>Garson telefonu</b><small>Masa 4</small></div>
           <div class="mini">
-            <div class="it" data-show="1"><span>1 x Latte</span><span>115,00</span></div>
-            <div class="it" data-show="1"><span>1 x Tost</span><span>125,00</span></div>
-            <div class="it" data-show="1"><span>1 x Su</span><span>20,00</span></div>
+            <div class="it" data-show="1"><span>2 x Latte</span><span>270,00</span></div>
+            <div class="it" data-show="1"><span>1 x Cheesecake</span><span>180,00</span></div>
+            <div class="it" data-show="1"><span>1 x Brownie</span><span>160,00</span></div>
             <div class="act-btn" id="send">Mutfağa gönder</div>
           </div>
         </div>
         <div class="lane" data-lane="2">
-          <div class="lane-h"><b>Mutfak ekranı</b><small>Sırada 1</small></div>
+          <div class="lane-h"><b>Mutfak ve bar</b><small>Sırada 1</small></div>
           <div class="mini">
             <div class="ticket" id="ticket">
               <b>MASA 4 · Ayşe</b>
-              <span>1 x Latte</span><span>1 x Tost</span><span>1 x Su</span>
+              <span>2 x Latte (orta)</span><span>1 x Cheesecake</span><span>1 x Brownie</span>
               <span class="st" id="tst">Hazırlanıyor</span>
             </div>
           </div>
@@ -444,89 +373,119 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
         <div class="lane" data-lane="3">
           <div class="lane-h"><b>Kasa</b><small>Adisyon</small></div>
           <div class="mini">
-            <div class="kasa-total"><span>Masa 4</span><span id="ktot">260,00 ₺</span></div>
-            <div style="font-size:.85rem;color:#586172">Nakit · Kart · Hesap böl</div>
+            <div class="kasa-total"><span>Masa 4</span><span id="ktot">610,00 ₺</span></div>
+            <div style="font-size:.85rem;color:#5a6372">Nakit · Kart · Hesap böl</div>
             <div class="paid" id="paid">Hesabı kes</div>
           </div>
         </div>
       </div>
       <div class="flow-steps" id="fsteps" role="list">
         <button type="button" data-s="1" role="listitem"><b>Adım 1</b>Garson masada siparişi alır<span class="bar"></span></button>
-        <button type="button" data-s="2" role="listitem"><b>Adım 2</b>Sipariş mutfak ekranına düşer<span class="bar"></span></button>
+        <button type="button" data-s="2" role="listitem"><b>Adım 2</b>Sipariş mutfak ve bar ekranına düşer<span class="bar"></span></button>
         <button type="button" data-s="3" role="listitem"><b>Adım 3</b>Mutfak "Hazır" işaretler<span class="bar"></span></button>
         <button type="button" data-s="4" role="listitem"><b>Adım 4</b>Kasa hesabı keser, masa boşalır<span class="bar"></span></button>
       </div>
     </div>
   </section>
 
-  <section id="ozellikler">
+  <section id="ozellikler" class="alt">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow">Özellikler</p>
+      <div class="sec-head">
+        <p class="eyebrow">Özellikler · Sürüm 1.6</p>
         <h2>Servisin her adımı aynı ekranda.</h2>
-        <p class="lead">SmartMenuOS, siparişin alındığı andan hesabın kesildiği ana kadar işletmenizin günlük akışını tek sistemde toplar.</p>
+        <p class="lead">Aşağıdaki görüntüler uygulamanın 1.6 sürümünden, örnek bir kafe-restoran menüsüyle alındı. Büyütmek için görüntüye tıklayın.</p>
       </div>
 
       <div class="feature">
-        <div class="ftext rv-l">
-          <p class="eyebrow">Adisyon ve hesap kesimi</p>
-          <h3 style="font-size:1.6rem">Masanın hesabı her zaman net.</h3>
-          <p class="lead">Açık kalemler solda, ödenecekler sağda. Ürünü seçin, ödemeyi alın, masa kendiliğinden boşalsın.</p>
+        <div class="ftext">
+          <div>
+            <p class="eyebrow">Masalar ve bölgeler</p>
+            <h3 style="font-size:1.6rem">Salon, bahçe, teras: hangi masa dolu, ne kadar açık, tek bakışta.</h3>
+          </div>
           <ul>
-            <li>Kalem bazında tahsilat; hesabı kişi sayısına eşit ya da tutar bazında bölme</li>
-            <li>Nakit, kart ve karışık ödeme kaydı (kart tahsilatı işletmenin kendi POS cihazından alınır)</li>
-            <li>İkram, iskonto ve bahşiş</li>
+            <li>Masaları bölgelere ayırın; dolu, boş ve rezerve masalar renkle ayrılır</li>
+            <li>Her dolu masada açık tutar ve masanın ne zamandır açık olduğu görünür</li>
             <li>Masa taşıma, birleştirme ve rezervasyon</li>
           </ul>
         </div>
-        <div class="shot-pair rv-r">
-          <figure class="shot"><img src="img/kasa-adisyon.png" alt="SmartMenuOS kasa adisyon ekranı: Masa 2'nin açık kalemleri ve ödeme düğmeleri" width="956" height="776" loading="lazy"><figcaption>Kasa · Adisyon ekranı</figcaption></figure>
-          <figure class="shot"><img src="img/hesap-bol.png" alt="SmartMenuOS hesabı böl penceresi: 500 TL iki kişiye eşit bölünmüş" width="566" height="589" loading="lazy"><figcaption>Hesabı böl</figcaption></figure>
-        </div>
-      </div>
-
-      <div class="feature flip">
-        <div class="ftext rv-r">
-          <p class="eyebrow">Garson, QR menü ve mutfak</p>
-          <h3 style="font-size:1.6rem">Sipariş mutfağa saniyeler içinde düşer.</h3>
-          <p class="lead">Garson masada siparişi telefonundan girer. Müşteri isterse masadaki QR koddan kendisi sipariş verir. Mutfak ekranı siparişi hazırlanacak sırayla gösterir.</p>
-          <ul>
-            <li>Ek cihaz gerekmez; garsonun kendi telefonu yeterli</li>
-            <li>Ürün notu ve seçenekler: boy, porsiyon, ekstra</li>
-            <li>QR menüden garson çağırma</li>
-            <li>Fotoğraflı dijital menü, müşterinin kendi telefonunda</li>
-          </ul>
-        </div>
-        <figure class="shot rv-l" style="max-width:300px;justify-self:center"><img src="img/garson-gorselli.jpg" alt="SmartMenuOS garson ekranı: telefonda fotoğraflı ürün listesi ve Mutfağa gönder düğmesi" width="375" height="812" loading="lazy"><figcaption>Garson · Telefondan sipariş</figcaption></figure>
+        <figure class="shot"><a href="img/kasa-masalar.png" data-lb><img src="img/kasa-masalar.png" alt="SmartMenuOS masalar ekranı: Salon, Bahçe ve Teras bölgelerinde dolu, boş ve rezerve masalar" width="1226" height="610" loading="lazy"></a><figcaption>Kasa · Masalar</figcaption></figure>
       </div>
 
       <div class="feature">
-        <div class="ftext rv-l">
-          <p class="eyebrow">Ciro ve raporlar</p>
-          <h3 style="font-size:1.6rem">Bugün ne kadar sattınız, hangi saatte?</h3>
-          <p class="lead">Ciro, adisyon sayısı, ortalama adisyon, ikram, iskonto ve iptaller tek bakışta. Gün sonunu kasada kapatın, raporu Excel'e aktarın.</p>
+        <div class="ftext">
+          <div>
+            <p class="eyebrow">Adisyon ve hesap kesimi</p>
+            <h3 style="font-size:1.6rem">Masanın hesabı her zaman net.</h3>
+          </div>
+          <ul>
+            <li>Kalem bazında tahsilat; hesabı kişi sayısına eşit ya da tutar bazında bölme</li>
+            <li>Nakit, kart ve karışık ödeme kaydı (kart tahsilatı işletmenin kendi POS cihazından alınır)</li>
+            <li>İkram, iskonto ve bahşiş; yanlış girilen tahsilat düzeltilebilir</li>
+          </ul>
+        </div>
+        <div class="shots-2">
+          <figure class="shot"><a href="img/kasa-adisyon.png" data-lb><img src="img/kasa-adisyon.png" alt="SmartMenuOS adisyon ekranı: Masa 1'in kalemleri ve ödeme düğmeleri" width="1226" height="852" loading="lazy"></a><figcaption>Kasa · Adisyon</figcaption></figure>
+          <figure class="shot"><a href="img/hesap-bol.png" data-lb><img src="img/hesap-bol.png" alt="SmartMenuOS hesabı böl penceresi" width="690" height="560" loading="lazy"></a><figcaption>Hesabı böl</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="ftext">
+          <div>
+            <p class="eyebrow">Mutfak ve bar ekranı</p>
+            <h3 style="font-size:1.6rem">Sipariş mutfağa saniyeler içinde düşer.</h3>
+          </div>
+          <ul>
+            <li>Yiyecekler mutfakta, içecekler barda; her istasyon kendi işini görür</li>
+            <li>Ürün notu ve seçenekler fişte ve ekranda: boy, süt, ekstra</li>
+            <li>Hazır olan sipariş garsona bildirilir</li>
+          </ul>
+        </div>
+        <figure class="shot"><a href="img/mutfak.png" data-lb><img src="img/mutfak.png" alt="SmartMenuOS mutfak ekranı: masalara göre bekleyen ve hazırlanan siparişler" width="1226" height="852" loading="lazy"></a><figcaption>Mutfak ekranı</figcaption></figure>
+      </div>
+
+      <div class="feature">
+        <div class="ftext">
+          <div>
+            <p class="eyebrow">Ciro ve raporlar</p>
+            <h3 style="font-size:1.6rem">Bugün ne kadar sattınız, hangi saatte?</h3>
+          </div>
           <ul>
             <li>Ürün, kategori, gün, saat, personel ve ödeme yöntemi dökümü</li>
             <li>Bugün, bu hafta, bu ay ya da istediğiniz tarih aralığı</li>
-            <li>Cari hesap ve veresiye takibi</li>
-            <li>Menüyü ve zam listesini Excel'den aktarma</li>
-            <li>Otomatik yedekleme</li>
+            <li>Gün sonu, cari hesap ve veresiye takibi; menüyü Excel'den aktarma</li>
           </ul>
         </div>
-        <figure class="shot rv-r"><img src="img/raporlar.png" alt="SmartMenuOS raporlar ekranı: ciro, adisyon sayısı, ortalama adisyon, iskonto, ikram ve iptal" width="1150" height="700" loading="lazy"><figcaption>Yönetim · Raporlar</figcaption></figure>
+        <figure class="shot"><a href="img/raporlar.png" data-lb><img src="img/raporlar.png" alt="SmartMenuOS raporlar ekranı: ciro, adisyon sayısı ve ödeme yöntemleri" width="1226" height="852" loading="lazy"></a><figcaption>Yönetim · Raporlar</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="qr-menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">QR menü ve garson telefonu</p>
+        <h2>Fotoğraflı menü müşterinin, sipariş ekranı garsonun cebinde.</h2>
+        <p class="lead">Müşteri masadaki QR kodu okutur; menüye bakar, seçeneğini seçer, siparişini gönderir. Garson aynı siparişi kendi telefonundan girer. Ayrı bir uygulama kurulmaz.</p>
+      </div>
+      <div class="phones">
+        <figure class="shot phone"><a href="img/qr-menu.png" data-lb><img src="img/qr-menu.png" alt="QR menü ana sayfası: kategoriler ve fotoğraflı ürünler" width="780" height="1688" loading="lazy"></a><figcaption>QR menü</figcaption></figure>
+        <figure class="shot phone"><a href="img/qr-urun.png" data-lb><img src="img/qr-urun.png" alt="QR menüde Latte: boy, süt ve ekstra seçenekleri" width="780" height="1688" loading="lazy"></a><figcaption>Ürün seçenekleri</figcaption></figure>
+        <figure class="shot phone"><a href="img/qr-sepet.png" data-lb><img src="img/qr-sepet.png" alt="QR menüde sepet ve siparişi gönder düğmesi" width="780" height="1688" loading="lazy"></a><figcaption>Sepet</figcaption></figure>
+        <figure class="shot phone"><a href="img/garson-siparis.png" data-lb><img src="img/garson-siparis.png" alt="Garsonun telefonunda sipariş ekranı" width="780" height="1688" loading="lazy"></a><figcaption>Garson · Sipariş al</figcaption></figure>
       </div>
     </div>
   </section>
 
   <section id="size-gore" class="alt">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <p class="eyebrow">İşletmenize göre şekillenir</p>
         <h2>Kullanmadığınız özelliği kapatın, ekran sadeleşsin.</h2>
         <p class="lead">Veresiye vermiyor musunuz? Rezervasyon almıyor musunuz? Tek dokunuşla kapatın, ilgili düğmeler ekrandan kalksın. Verileriniz silinmez, açınca geri gelir. Deneyin:</p>
       </div>
       <div class="custom">
-        <div class="toggles rv-l" id="toggles">
+        <div class="toggles" id="toggles">
           <label class="tg" for="t-iskonto"><span>İskonto<small>Tahsilatta indirim kutusu</small></span><input class="sw" type="checkbox" id="t-iskonto" data-b="iskonto" checked></label>
           <label class="tg" for="t-bahsis"><span>Bahşiş<small>"Üstü kalsın" ve bahşiş raporu</small></span><input class="sw" type="checkbox" id="t-bahsis" data-b="bahsis" checked></label>
           <label class="tg" for="t-bol"><span>Hesap bölme<small>Kişiye ya da ödeme yöntemine göre</small></span><input class="sw" type="checkbox" id="t-bol" data-b="bol" checked></label>
@@ -542,14 +501,14 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
             <button type="button" class="pal" aria-pressed="false" style="--d:#2e1f17;--a:#d9783a" data-d="#2e1f17" data-a="#d9783a"><i></i>Espresso</button>
           </div>
         </div>
-        <div class="rv-r" style="min-width:0">
+        <div style="min-width:0">
           <div class="mock" id="mock">
             <div class="mock-top"><b>Adisyon · Masa 2</b><span>+ Ürün ekle</span></div>
             <div class="mock-body">
-              <div class="mock-row"><span>Bira</span><span>2</span><span>300,00</span></div>
-              <div class="mock-row"><span>Mantı <em>yoğurtsuz</em></span><span>1</span><span>210,00</span></div>
-              <div class="mock-row"><span>Çay</span><span>3</span><span>105,00</span></div>
-              <div class="mock-row"><span>Tost</span><span>1</span><span>125,00</span></div>
+              <div class="mock-row"><span>Türk Kahvesi <em>biri az şekerli</em></span><span>2</span><span>180,00</span></div>
+              <div class="mock-row"><span>Baklava</span><span>1</span><span>220,00</span></div>
+              <div class="mock-row"><span>Çay</span><span>3</span><span>75,00</span></div>
+              <div class="mock-row"><span>Karışık Tost</span><span>1</span><span>150,00</span></div>
             </div>
             <div class="mock-foot" id="mfoot">
               <span class="mb" data-k="ikram">İkram et</span>
@@ -559,7 +518,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
               <span class="mb" data-k="bahsis">Bahşiş</span>
               <span class="mb" data-k="bol">Hesabı böl</span>
               <span class="mb" data-k="veresiye">Veresiye</span>
-              <span class="mb go">Hesabı kes · 740,00 ₺</span>
+              <span class="mb go">Hesabı kes · 625,00 ₺</span>
             </div>
           </div>
           <p class="mock-note">Uygulamadaki Ayarlar → Özellikler ekranının canlı benzetimi.</p>
@@ -570,12 +529,12 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 
   <section id="isletmeler">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <p class="eyebrow">İşletme türleri</p>
         <h2>Kurulumda işletme türünüzü seçin.</h2>
         <p class="lead">Kurulumda Kafe, Restoran ya da Manav seçilir; ekran düzeni ve önerilen özellikler buna göre gelir. Büfe ve beach gibi işletmeler bu türlerden birini kendi düzenine göre kullanır.</p>
       </div>
-      <div class="types rv">
+      <div class="types">
         <div class="type"><span class="glyph" aria-hidden="true">☕</span><span class="tag on">Hazır</span><h3>Kafe</h3><p>Hızlı satış tezgâhı, masada çay-kahve siparişi, QR menü.</p></div>
         <div class="type"><span class="glyph" aria-hidden="true">🍽</span><span class="tag on">Hazır</span><h3>Restoran</h3><p>Masa planı, mutfak ekranı, ürün seçenekleri, hesap bölme.</p></div>
         <div class="type"><span class="glyph" aria-hidden="true">⚖</span><span class="tag on">Hazır</span><h3>Manav</h3><p>Masasız tezgâh satışı; ürün kiloyla ya da adetle. Tartılan miktar kasada girilir.</p></div>
@@ -586,57 +545,68 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 
   <section class="alt">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <p class="eyebrow">Nasıl başlarsınız</p>
-        <h2>Demodan ilk servise üç adım.</h2>
+        <h2>Denemeden ilk servise üç adım.</h2>
       </div>
-      <div class="steps rv">
-        <div class="step"><h3>Demo görüşmesi</h3><p>İşletmenizi dinliyoruz, sistemi size gösteriyoruz.</p></div>
-        <div class="step"><h3>Kurulum ve menü</h3><p>Kurulum sihirbazı işletmenizin bilgisayarına kurulur. Menü Excel listesinden aktarılabilir. Masa QR kodları uygulamadan yazdırılır.</p></div>
-        <div class="step"><h3>Deneme ve teslim</h3><p>Yazıcılar deneme fişiyle, telefonlar QR menüyle sınanır; kontrol listesi tamamlanınca teslim edilir. Eğitim ve destek koşulları: <span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></div>
+      <div class="steps">
+        <div class="step"><h3>Görüşme ve kurulum</h3><p>İşletmenizi dinliyoruz. Kurulum sihirbazı işletmenizin bilgisayarına kurulur, menü Excel listesinden aktarılabilir, masa QR kodları uygulamadan yazdırılır.</p></div>
+        <div class="step"><h3>14 gün ücretsiz deneme</h3><p>Sistemi kendi menünüzle, kendi servisinizde 14 gün ücretsiz kullanırsınız. Yazıcılar deneme fişiyle, telefonlar QR menüyle sınanır.</p></div>
+        <div class="step"><h3>Yıllık paket</h3><p>Devam etmek isterseniz 1 yıllık paket 8.000 TL. Lisans aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır. Eğitim ve destek koşulları: <span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></div>
       </div>
     </div>
   </section>
 
   <section id="kurulum">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <p class="eyebrow">Kurulum ve cihazlar</p>
         <h2>İşletmenizin bilgisayarında, kendi ağınızda.</h2>
         <p class="lead">SmartMenuOS buluta bağlı değildir. Veritabanı ve menü kasadaki Windows bilgisayarda çalışır; telefonlar aynı Wi-Fi ağından bağlanır.</p>
       </div>
-      <div class="req rv">
-        <div><span class="k">Kasa bilgisayarı</span><h3>Windows 10 veya 11</h3><ul><li>.NET Framework 4.8, SQL Server Express (ücretsiz) ve IIS</li><li>Servis boyunca açık kalır; uyku modu kapatılır</li><li>Kasa, mutfak ve yönetim için ek bilgisayarlar aynı veritabanına bağlanabilir</li></ul></div>
+      <div class="req">
+        <div><span class="k">Kasa bilgisayarı</span><h3>Windows 10 veya 11</h3><ul><li>.NET Framework 4.8 ve SQL Server Express (ücretsiz); menü sunucusu kurulumla gelir</li><li>Servis boyunca açık kalır; uyku modu kapatılır</li><li>Kasa, mutfak ve yönetim için ek bilgisayarlar aynı veritabanına bağlanabilir</li></ul></div>
         <div><span class="k">Telefon ve tablet</span><h3>Uygulama kurulmaz</h3><ul><li>Garson, sipariş ekranını telefonunun tarayıcısında açar</li><li>Müşteri masadaki QR kodu kendi telefonuyla okutur</li><li>Kasa bilgisayarı ve telefonlar aynı ağda olmalıdır; misafir ağı cihazları ayırıyorsa çalışmaz</li></ul></div>
         <div><span class="k">Yazıcı ve çekmece</span><h3>Windows'a kurulu fiş yazıcısı</h3><ul><li>Mutfak, bar ve kasa için ayrı yazıcı; kategoriye göre bar ayrımı</li><li>Para çekmecesi kasa yazıcısına bağlanır</li><li>Her yazıcı kurulumda deneme fişiyle sınanır</li></ul></div>
       </div>
-      <div class="honest rv">
+      <div class="honest">
         <b>Bilmeniz gerekenler</b>
         <ul>
           <li>Doğrulanmış bir asgari donanım ya da onaylı yazıcı model listesi yoktur. Yazıcı, kâğıt kesme ve Türkçe karakterler kurulumda işletmedeki cihazla denenir.</li>
           <li>Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin POS cihazından alınır ve kasada "Kart" olarak kaydedilir.</li>
           <li>Mali fiş yazar kasadan (ÖKC) ayrıca kesilir; SmartMenuOS'un fişi mali belge değildir.</li>
-          <li>QR menü varsayılan olarak işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim alan adı, modem ayarı ve HTTPS gerektiren ayrı bir iştir.</li>
+          <li>QR menü varsayılan olarak işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="paketler" class="alt">
+  <section id="fiyat" class="alt">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow">Paket ve fiyat</p>
-        <h2>İşletmenize uygun teklif.</h2>
+      <div class="sec-head">
+        <p class="eyebrow">Fiyat</p>
+        <h2>Önce deneyin, sonra yıllık devam edin.</h2>
+        <p class="lead">Sistemi 14 gün ücretsiz kullanın. Beğenirseniz 1 yıllık paketle devam edersiniz.</p>
       </div>
-      <div class="price-box rv">
-        <div>
-          <h3 style="font-size:1.5rem">Paket ve fiyat bilgisi için iletişime geçin.</h3>
-          <p class="lead" style="margin-top:12px">Teklif, kasa ve yazıcı sayısına, garson sayısına ve kurulum ihtiyacınıza göre hazırlanır.</p>
-          <ul style="margin-top:18px"><li>Adisyon, hızlı satış ve hesap bölme</li><li>QR menü ve garson telefonundan sipariş</li><li>Mutfak ekranı ve mutfak/bar yazıcısı</li><li>Cari hesap, gün sonu ve raporlar</li></ul>
+      <div class="pricing">
+        <div class="plan pick">
+          <span class="badge">1 yıllık paket</span>
+          <div class="price"><b>8.000 TL</b><span>/ yıl</span></div>
+          <p class="note">KDV: <span class="tbd">[dahil / hariç]</span></p>
+          <ul>
+            <li>Adisyon, hızlı satış ve hesap bölme</li>
+            <li>QR menü ve garson telefonundan sipariş</li>
+            <li>Mutfak ve bar ekranı, mutfak/bar yazıcısı</li>
+            <li>Masa bölgeleri, ürün seçenekleri ve notları</li>
+            <li>Cari hesap, gün sonu ve raporlar</li>
+          </ul>
+          <a class="btn btn-amber" href="#iletisim">Paketi isteyin <span class="arr">→</span></a>
         </div>
-        <div class="cta-col">
-          <a class="btn btn-amber" href="#iletisim">Teklif isteyin <span class="arr">→</span></a>
-          <a class="btn btn-line" href="#iletisim">Demo isteyin</a>
+        <div class="plan trial">
+          <span class="big">14 gün ücretsiz</span>
+          <p>Kurulumdan sonra 14 gün boyunca ücret ödemeden kendi işletmenizde kullanın.</p>
+          <p class="note">Deneme bittiğinde yıllık paketin lisansı aynı kuruluma girilir; menünüz ve kayıtlarınız silinmez.</p>
+          <a class="btn btn-line" href="#iletisim">Denemeyi başlatın <span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -644,28 +614,29 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
 
   <section id="sss">
     <div class="wrap">
-      <div class="sec-head rv"><p class="eyebrow">Sık sorulan sorular</p><h2>Merak edilenler</h2></div>
+      <div class="sec-head"><p class="eyebrow">Sık sorulan sorular</p><h2>Merak edilenler</h2></div>
       <div class="faq">
-        <details open><summary>İnternet kesilirse ne olur?</summary><p>SmartMenuOS işletmenizin kendi bilgisayarında ve yerel ağında çalışır. İnternet kesilse de Wi-Fi ağı çalıştığı sürece sipariş almaya, mutfağa göndermeye ve hesap kesmeye devam edersiniz.</p></details>
+        <details open><summary>Fiyat ne kadar?</summary><p>1 yıllık paket 8.000 TL. Önce 14 gün ücretsiz deneyebilirsiniz. KDV: <span class="tbd">[dahil / hariç]</span></p></details>
+        <details><summary>Deneme süresi var mı?</summary><p>Evet, 14 gün ücretsiz. Deneme bittiğinde devam etmek isterseniz yıllık paketin lisansı aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır.</p></details>
+        <details><summary>İnternet kesilirse ne olur?</summary><p>SmartMenuOS işletmenizin kendi bilgisayarında ve yerel ağında çalışır. İnternet kesilse de Wi-Fi ağı çalıştığı sürece sipariş almaya, mutfağa göndermeye ve hesap kesmeye devam edersiniz.</p></details>
         <details><summary>Hangi cihazlar gerekiyor?</summary><p>Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır.</p></details>
         <details><summary>Fiş ve mutfak yazıcısı destekleniyor mu?</summary><p>Evet. Windows'a yazıcı olarak kurulabilen fiş yazıcıları kullanılır: mutfak, bar ve kasa için ayrı yazıcı seçilebilir, nakit ödemede para çekmecesi açılabilir. Onaylı bir model listesi yoktur; her yazıcı kurulumda deneme fişiyle sınanır.</p></details>
         <details><summary>Kartlı ödeme POS cihazına gider mi?</summary><p>Hayır. Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin kendi POS cihazından alınır, kasada ödeme yöntemi "Kart" olarak kaydedilir; tutar POS'a otomatik gönderilmez.</p></details>
         <details><summary>Yazar kasa (ÖKC) ile bağlantılı mı?</summary><p>Hayır. SmartMenuOS'un bastığı fiş mali belge değildir; mali fiş işletmenin yazar kasasından ayrıca kesilir. İşletmenizin yükümlülükleri için mali müşavirinize danışın.</p></details>
-        <details><summary>Müşteri QR menüyü mobil veriyle açabilir mi?</summary><p>Varsayılan kurulumda QR menü işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı, modemde yönlendirme ve HTTPS sertifikası gerekir; bu, kurulumdan ayrı planlanan bir iştir.</p></details>
+        <details><summary>Müşteri QR menüyü mobil veriyle açabilir mi?</summary><p>Varsayılan kurulumda QR menü işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir; bu, kurulumda ayrıca planlanır.</p></details>
         <details><summary>Birden fazla kasa kullanabilir miyim?</summary><p>Evet, aynı işletmede. Veritabanı ana bilgisayarda tutulur, diğer kasa ve mutfak bilgisayarları ona bağlanır; ana bilgisayar kapalıyken diğerleri çalışmaz. Şubeler arası bağlantı yoktur.</p></details>
         <details><summary>Verilerim güvende mi?</summary><p>Veriler işletmenizin bilgisayarında tutulur ve otomatik olarak yedeklenir. Yedeğin ayrıca başka bir diske ya da USB belleğe kopyalanması önerilir. Kişisel veriler KVKK kapsamında işlenir.</p></details>
-        <details><summary>Deneme süresi var mı?</summary><p><span class="tbd">[deneme süresi: örn. 14 gün ücretsiz?]</span></p></details>
         <details><summary>Kurulum ve eğitim ücretli mi?</summary><p><span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></details>
       </div>
     </div>
   </section>
 
-  <section id="iletisim" class="contact">
+  <section id="iletisim" class="contact alt">
     <div class="wrap">
       <div>
-        <p class="eyebrow lit">İletişim</p>
-        <h2 style="margin-top:14px">Kendi menünüzle görelim.</h2>
-        <p class="lead" style="margin-top:16px">Formu doldurun, sizi arayalım ve sistemi işletmenizde ya da online olarak gösterelim.</p>
+        <p class="eyebrow">İletişim</p>
+        <h2 style="margin-top:14px">14 günlük denemenizi başlatalım.</h2>
+        <p class="lead" style="margin-top:16px">Formu doldurun, sizi arayalım; kurulumu planlayıp sistemi kendi menünüzle açalım.</p>
         <div class="channels">
           <div class="ch"><span>Telefon</span><span class="tbd">[0 5xx xxx xx xx]</span></div>
           <div class="ch"><span>WhatsApp</span><span class="tbd">[WhatsApp numarası]</span></div>
@@ -675,7 +646,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
         </div>
       </div>
       <form id="demo-form" novalidate>
-        <h3>Demo talebi</h3>
+        <h3>Deneme talebi</h3>
         <div class="frow">
           <label for="f-ad">Adınız soyadınız<input id="f-ad" name="ad" required autocomplete="name"></label>
           <label for="f-tel">Telefon<input id="f-tel" name="tel" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx"></label>
@@ -692,7 +663,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
         </div>
         <label for="f-mesaj">Mesajınız<textarea id="f-mesaj" name="mesaj" placeholder="Şu an hangi sistemi kullanıyorsunuz, neye ihtiyacınız var?"></textarea></label>
         <label class="kvkk" for="f-kvkk"><input id="f-kvkk" type="checkbox" required> <span>Kişisel verilerimin iletişim amacıyla işlenmesine ilişkin <a href="#iletisim">aydınlatma metnini</a> okudum.</span></label>
-        <button class="btn btn-amber" type="submit">Demo isteyin <span class="arr">→</span></button>
+        <button class="btn btn-amber" type="submit">Denemeyi başlatın <span class="arr">→</span></button>
         <p class="fmsg" id="f-msg" role="status" hidden></p>
       </form>
     </div>
@@ -704,14 +675,47 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
     <span>© 2026 SmartMenuOS · <span class="tbd">[şirket unvanı]</span></span>
     <nav aria-label="Yasal"><a href="#iletisim">KVKK aydınlatma metni</a><a href="#iletisim">Gizlilik politikası</a><a href="#iletisim">Çerez politikası</a></nav>
   </div>
+  <div class="wrap credits" id="gorsel-kaynaklari">
+    <p>Ekran görüntülerindeki işletme ve menü örnektir. Ürün fotoğrafları <a href="https://unsplash.com/license" rel="noopener">Unsplash Lisansı</a> ve <a href="https://www.pexels.com/license/" rel="noopener">Pexels Lisansı</a> ile kullanılmıştır; menü kartına uysun diye kırpılmıştır.</p>
+    <details><summary>Fotoğraf sahipleri</summary><ul>
+      <li>Çay: <a href="https://unsplash.com/photos/w-EIoCN75-Q" rel="noopener">Doğan Alpaslan DEMİR</a> (Unsplash)</li>
+      <li>Türk Kahvesi: <a href="https://unsplash.com/photos/JNUELX786BU" rel="noopener">Kameron Kincade</a> (Unsplash)</li>
+      <li>Latte: <a href="https://unsplash.com/photos/XOhI_kW_TaM" rel="noopener">Nathan Dumlao</a> (Unsplash)</li>
+      <li>Cappuccino: <a href="https://unsplash.com/photos/7zow7-ZranQ" rel="noopener">Sepehr Moazed</a> (Unsplash)</li>
+      <li>Americano: <a href="https://unsplash.com/photos/JNhaaPEz3FY" rel="noopener">Gerson Cifuentes</a> (Unsplash)</li>
+      <li>Sıcak Çikolata: <a href="https://unsplash.com/photos/NtmNhrdfs-o" rel="noopener">Elena Leya</a> (Unsplash)</li>
+      <li>Limonata: <a href="https://unsplash.com/photos/-uC6z3S8CMI" rel="noopener">Zhang Ziyu</a> (Unsplash)</li>
+      <li>Portakal Suyu: <a href="https://unsplash.com/photos/gEkTo1Oi78A" rel="noopener">Aneta Voborilova</a> (Unsplash)</li>
+      <li>Ice Latte: <a href="https://unsplash.com/photos/L-sm1B4L1Ns" rel="noopener">Demi DeHerrera</a> (Unsplash)</li>
+      <li>Ayran: <a href="https://www.pexels.com/photo/26648793/" rel="noopener">Esra Erdem</a> (Pexels)</li>
+      <li>Serpme Kahvaltı: <a href="https://unsplash.com/photos/NQkB9ohmb8s" rel="noopener">Ömer Haktan Bulut</a> (Unsplash)</li>
+      <li>Menemen: <a href="https://www.pexels.com/photo/36863875/" rel="noopener">Merve Gülhan</a> (Pexels)</li>
+      <li>Sucuklu Yumurta: <a href="https://www.pexels.com/photo/37206716/" rel="noopener">Mavi Yıldız Restoran Cumalıkızık Bursa</a> (Pexels)</li>
+      <li>Simit: <a href="https://unsplash.com/photos/hq9cnzbpoYQ" rel="noopener">Yasin Onus</a> (Unsplash)</li>
+      <li>Karışık Tost: <a href="https://www.pexels.com/photo/11256670/" rel="noopener">Tolga Aslantürk</a> (Pexels)</li>
+      <li>Hamburger: <a href="https://unsplash.com/photos/sc5sTPMrVfk" rel="noopener">amirali mirhashemian</a> (Unsplash)</li>
+      <li>Izgara Köfte: <a href="https://www.pexels.com/photo/7776552/" rel="noopener">Engin Akyurt</a> (Pexels)</li>
+      <li>Pizza Margherita: <a href="https://unsplash.com/photos/wgq8NVyXsYY" rel="noopener">Luigi Boccardo</a> (Unsplash)</li>
+      <li>Spagetti Napoliten: <a href="https://unsplash.com/photos/Htb3Neu9Tmg" rel="noopener">Mandy Bourke</a> (Unsplash)</li>
+      <li>Sezar Salata: <a href="https://unsplash.com/photos/UdLsLK_KFLw" rel="noopener">Cliffer Rebelo</a> (Unsplash)</li>
+      <li>Cheesecake: <a href="https://unsplash.com/photos/lKF0Urvp4RY" rel="noopener">A Studios</a> (Unsplash)</li>
+      <li>Brownie: <a href="https://unsplash.com/photos/yBNwcGFDqBk" rel="noopener">Arwen</a> (Unsplash)</li>
+      <li>Sufle: <a href="https://unsplash.com/photos/g1wZMtzpRy8" rel="noopener">joe boshra</a> (Unsplash)</li>
+      <li>Baklava: <a href="https://unsplash.com/photos/OEDeQheVySQ" rel="noopener">Benjamin Chambon</a> (Unsplash)</li>
+      <li>Waffle: <a href="https://unsplash.com/photos/1LPsUqjb_Jg" rel="noopener">Mae Mu</a> (Unsplash)</li>
+    </ul></details>
+  </div>
 </footer>
 
-<div class="mbar"><a class="btn btn-amber" href="#iletisim">Demo isteyin</a><a class="btn btn-ghost" href="#iletisim">WhatsApp</a></div>
+<div class="mbar"><a class="btn btn-amber" href="#iletisim">14 gün ücretsiz</a><a class="btn btn-line" href="#fiyat">Fiyat</a></div>
+
+<dialog class="lb" id="lb" aria-label="Görüntü tam boy">
+  <div class="lb-in"><p id="lb-yazi"></p><button class="kapat" type="button" id="lb-kapat">Kapat ✕</button><img id="lb-img" alt=""></div>
+</dialog>
 
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fmt = function (n) { return n.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.'); };
 
   // dönen işletme türü
   var sw = document.querySelectorAll('.type-swap span'), si = 0;
@@ -721,20 +725,6 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
     setTimeout(function () { cur.classList.remove('out'); }, 520);
     sw[si].classList.add('cur');
   }, 2400);
-
-  // fiş toplamı sayacı
-  var tot = document.getElementById('tot');
-  if (!reduce && tot) {
-    var t0 = null, target = 705, delay = 2000, dur = 900;
-    tot.textContent = fmt(0);
-    var tick = function (ts) {
-      if (t0 === null) t0 = ts;
-      var p = Math.min(1, Math.max(0, (ts - t0 - delay) / dur));
-      tot.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
 
   // sipariş akışı
   var lanes = document.getElementById('lanes'), steps = document.querySelectorAll('#fsteps button');
@@ -760,7 +750,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
     tst.textContent = s >= 3 ? 'Hazır ✓' : 'Hazırlanıyor';
     paid.classList.toggle('ok', s === 4);
     paid.textContent = s === 4 ? 'Ödendi · Masa 4 boşaldı' : 'Hesabı kes';
-    ktot.textContent = s === 4 ? '0,00 ₺' : '260,00 ₺';
+    ktot.textContent = s === 4 ? '0,00 ₺' : '610,00 ₺';
     steps.forEach(function (b) {
       var on = +b.getAttribute('data-s') === s;
       b.setAttribute('aria-current', on ? 'step' : 'false');
@@ -804,6 +794,23 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
       mock.style.setProperty('--ma', p.getAttribute('data-a'));
     });
   });
+
+  // ekran görüntüsünü tam boy aç (kendi piksel boyutunda; ekrandan büyükse kaydırılır)
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbYazi = document.getElementById('lb-yazi');
+  document.querySelectorAll('a[data-lb]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (!lb.showModal) return;
+      e.preventDefault();
+      var img = a.querySelector('img');
+      lbImg.src = a.getAttribute('href'); lbImg.alt = img.alt;
+      var w = +img.getAttribute('width'), phone = a.closest('.phone');
+      lbImg.style.width = (phone ? Math.round(w / 2) : w) + 'px';
+      lbYazi.textContent = img.alt;
+      lb.showModal();
+    });
+  });
+  document.getElementById('lb-kapat').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-in')) lb.close(); });
 
   // form
   document.getElementById('demo-form').addEventListener('submit', function (e) {
