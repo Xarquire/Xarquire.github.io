@@ -269,7 +269,10 @@ textarea { min-height: 96px; resize: vertical; }
 footer { background: #fff; color: var(--muted); border-top: 1px solid var(--line); font-size: .9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 28px; padding-block: 26px; }
 footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
-.credits { font-size: .8rem; color: var(--muted); }
+.credits { font-size: .8rem; color: var(--muted); padding-bottom: 22px; }
+.credits a { color: inherit; }
+.credits summary { cursor: pointer; font-weight: 600; }
+.credits ul { columns: 3 220px; margin: 10px 0 0; padding-left: 18px; }
 
 /* tam boy görüntü */
 .lb { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; margin: 0; }
@@ -672,7 +675,36 @@ footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
     <span>© 2026 SmartMenuOS · <span class="tbd">[şirket unvanı]</span></span>
     <nav aria-label="Yasal"><a href="#iletisim">KVKK aydınlatma metni</a><a href="#iletisim">Gizlilik politikası</a><a href="#iletisim">Çerez politikası</a></nav>
   </div>
-  <div class="wrap credits" id="gorsel-kaynaklari"><p>Ekran görüntülerindeki ürün fotoğrafları örnek menü içindir.</p></div>
+  <div class="wrap credits" id="gorsel-kaynaklari">
+    <p>Ekran görüntülerindeki işletme ve menü örnektir. Ürün fotoğrafları <a href="https://unsplash.com/license" rel="noopener">Unsplash Lisansı</a> ve <a href="https://www.pexels.com/license/" rel="noopener">Pexels Lisansı</a> ile kullanılmıştır; menü kartına uysun diye kırpılmıştır.</p>
+    <details><summary>Fotoğraf sahipleri</summary><ul>
+      <li>Çay: <a href="https://unsplash.com/photos/w-EIoCN75-Q" rel="noopener">Doğan Alpaslan DEMİR</a> (Unsplash)</li>
+      <li>Türk Kahvesi: <a href="https://unsplash.com/photos/JNUELX786BU" rel="noopener">Kameron Kincade</a> (Unsplash)</li>
+      <li>Latte: <a href="https://unsplash.com/photos/XOhI_kW_TaM" rel="noopener">Nathan Dumlao</a> (Unsplash)</li>
+      <li>Cappuccino: <a href="https://unsplash.com/photos/7zow7-ZranQ" rel="noopener">Sepehr Moazed</a> (Unsplash)</li>
+      <li>Americano: <a href="https://unsplash.com/photos/JNhaaPEz3FY" rel="noopener">Gerson Cifuentes</a> (Unsplash)</li>
+      <li>Sıcak Çikolata: <a href="https://unsplash.com/photos/NtmNhrdfs-o" rel="noopener">Elena Leya</a> (Unsplash)</li>
+      <li>Limonata: <a href="https://unsplash.com/photos/-uC6z3S8CMI" rel="noopener">Zhang Ziyu</a> (Unsplash)</li>
+      <li>Portakal Suyu: <a href="https://unsplash.com/photos/gEkTo1Oi78A" rel="noopener">Aneta Voborilova</a> (Unsplash)</li>
+      <li>Ice Latte: <a href="https://unsplash.com/photos/L-sm1B4L1Ns" rel="noopener">Demi DeHerrera</a> (Unsplash)</li>
+      <li>Ayran: <a href="https://www.pexels.com/photo/26648793/" rel="noopener">Esra Erdem</a> (Pexels)</li>
+      <li>Serpme Kahvaltı: <a href="https://unsplash.com/photos/NQkB9ohmb8s" rel="noopener">Ömer Haktan Bulut</a> (Unsplash)</li>
+      <li>Menemen: <a href="https://www.pexels.com/photo/36863875/" rel="noopener">Merve Gülhan</a> (Pexels)</li>
+      <li>Sucuklu Yumurta: <a href="https://www.pexels.com/photo/37206716/" rel="noopener">Mavi Yıldız Restoran Cumalıkızık Bursa</a> (Pexels)</li>
+      <li>Simit: <a href="https://unsplash.com/photos/hq9cnzbpoYQ" rel="noopener">Yasin Onus</a> (Unsplash)</li>
+      <li>Karışık Tost: <a href="https://www.pexels.com/photo/11256670/" rel="noopener">Tolga Aslantürk</a> (Pexels)</li>
+      <li>Hamburger: <a href="https://unsplash.com/photos/sc5sTPMrVfk" rel="noopener">amirali mirhashemian</a> (Unsplash)</li>
+      <li>Izgara Köfte: <a href="https://www.pexels.com/photo/7776552/" rel="noopener">Engin Akyurt</a> (Pexels)</li>
+      <li>Pizza Margherita: <a href="https://unsplash.com/photos/wgq8NVyXsYY" rel="noopener">Luigi Boccardo</a> (Unsplash)</li>
+      <li>Spagetti Napoliten: <a href="https://unsplash.com/photos/Htb3Neu9Tmg" rel="noopener">Mandy Bourke</a> (Unsplash)</li>
+      <li>Sezar Salata: <a href="https://unsplash.com/photos/UdLsLK_KFLw" rel="noopener">Cliffer Rebelo</a> (Unsplash)</li>
+      <li>Cheesecake: <a href="https://unsplash.com/photos/lKF0Urvp4RY" rel="noopener">A Studios</a> (Unsplash)</li>
+      <li>Brownie: <a href="https://unsplash.com/photos/yBNwcGFDqBk" rel="noopener">Arwen</a> (Unsplash)</li>
+      <li>Sufle: <a href="https://unsplash.com/photos/g1wZMtzpRy8" rel="noopener">joe boshra</a> (Unsplash)</li>
+      <li>Baklava: <a href="https://unsplash.com/photos/OEDeQheVySQ" rel="noopener">Benjamin Chambon</a> (Unsplash)</li>
+      <li>Waffle: <a href="https://unsplash.com/photos/1LPsUqjb_Jg" rel="noopener">Mae Mu</a> (Unsplash)</li>
+    </ul></details>
+  </div>
 </footer>
 
 <div class="mbar"><a class="btn btn-amber" href="#iletisim">14 gün ücretsiz</a><a class="btn btn-line" href="#fiyat">Fiyat</a></div>
