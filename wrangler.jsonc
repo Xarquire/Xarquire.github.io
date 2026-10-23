@@ -1,0 +1,8 @@
+// Cloudflare: smartmenuos.com yalnız smartmenu/ klasörünü yayınlar (kökteki portfolyo GitHub Pages'te kalır).
+{
+  "name": "smartmenuos",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./smartmenu"
+  }
+}
