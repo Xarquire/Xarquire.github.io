@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon ve QR menü sistemi. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL.">
+<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon ve QR menü sistemi. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL + KDV.">
 <title>SmartMenuOS | QR Menü ve Adisyon Sistemi · Kafe, Restoran, Büfe</title>
 <meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="SmartMenuOS">
 <meta property="og:title" content="SmartMenuOS | QR Menü ve Adisyon Sistemi">
-<meta property="og:description" content="Masadan mutfağa, mutfaktan kasaya tek sistem. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL.">
+<meta property="og:description" content="Masadan mutfağa, mutfaktan kasaya tek sistem. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL + KDV.">
 <meta property="og:url" content="https://xarquire.github.io/smartmenu/">
 <meta property="og:image" content="https://xarquire.github.io/smartmenu/marka/og-gorsel.png">
 <meta property="og:image:width" content="1200">
@@ -253,7 +253,8 @@ section { padding-block: 92px; }
 .channels { display: grid; gap: 14px; margin-top: 28px; }
 .ch { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .ch span:first-child { font: 600 .78rem/1.8 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-.ch span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.ch span:last-child, .ch a { min-width: 0; overflow-wrap: anywhere; }
+.ch a { color: var(--ink); font-weight: 600; }
 form { background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 16px; min-width: 0; box-shadow: var(--shadow); }
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 label { display: grid; gap: 6px; font-weight: 600; font-size: .92rem; min-width: 0; }
@@ -294,7 +295,6 @@ footer .credits a { color: inherit; }
 </head>
 <body>
 
-<div class="draft"><div class="wrap">TASLAK · Kırmızı kesikli çerçeveli alanlar sizden gelecek bilgilerle doldurulacak.</div></div>
 
 <header class="top">
   <div class="wrap">
@@ -325,7 +325,7 @@ footer .credits a { color: inherit; }
         </div>
         <ul class="hero-facts">
           <li><b>14 gün</b> ücretsiz deneme</li>
-          <li>1 yıllık paket <b>8.000 TL</b></li>
+          <li>1 yıllık paket <b>8.000 TL + KDV</b></li>
           <li>İnternet kesilse de yerel ağda çalışır</li>
         </ul>
       </div>
@@ -552,7 +552,7 @@ footer .credits a { color: inherit; }
       <div class="steps">
         <div class="step"><h3>Görüşme ve kurulum</h3><p>İşletmenizi dinliyoruz. Kurulum sihirbazı işletmenizin bilgisayarına kurulur, menü Excel listesinden aktarılabilir, masa QR kodları uygulamadan yazdırılır.</p></div>
         <div class="step"><h3>14 gün ücretsiz deneme</h3><p>Sistemi kendi menünüzle, kendi servisinizde 14 gün ücretsiz kullanırsınız. Yazıcılar deneme fişiyle, telefonlar QR menüyle sınanır.</p></div>
-        <div class="step"><h3>Yıllık paket</h3><p>Devam etmek isterseniz 1 yıllık paket 8.000 TL. Lisans aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır. Eğitim ve destek koşulları: <span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></div>
+        <div class="step"><h3>Yıllık paket</h3><p>Devam etmek isterseniz 1 yıllık paket 8.000 TL + KDV. Kurulum, eğitim ve destek pakete dahildir. Lisans aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır.</p></div>
       </div>
     </div>
   </section>
@@ -591,14 +591,15 @@ footer .credits a { color: inherit; }
       <div class="pricing">
         <div class="plan pick">
           <span class="badge">1 yıllık paket</span>
-          <div class="price"><b>8.000 TL</b><span>/ yıl</span></div>
-          <p class="note">KDV: <span class="tbd">[dahil / hariç]</span></p>
+          <div class="price"><b>8.000 TL</b><span>+ KDV / yıl</span></div>
+          <p class="note">Fiyata KDV dahil değildir. Kurulum, eğitim ve destek dahildir.</p>
           <ul>
             <li>Adisyon, hızlı satış ve hesap bölme</li>
             <li>QR menü ve garson telefonundan sipariş</li>
             <li>Mutfak ve bar ekranı, mutfak/bar yazıcısı</li>
             <li>Masa bölgeleri, ürün seçenekleri ve notları</li>
             <li>Cari hesap, gün sonu ve raporlar</li>
+            <li>Kurulum, eğitim ve destek</li>
           </ul>
           <a class="btn btn-amber" href="#iletisim">Paketi isteyin <span class="arr">→</span></a>
         </div>
@@ -616,7 +617,7 @@ footer .credits a { color: inherit; }
     <div class="wrap">
       <div class="sec-head"><p class="eyebrow">Sık sorulan sorular</p><h2>Merak edilenler</h2></div>
       <div class="faq">
-        <details open><summary>Fiyat ne kadar?</summary><p>1 yıllık paket 8.000 TL. Önce 14 gün ücretsiz deneyebilirsiniz. KDV: <span class="tbd">[dahil / hariç]</span></p></details>
+        <details open><summary>Fiyat ne kadar?</summary><p>1 yıllık paket 8.000 TL + KDV. Kurulum, eğitim ve destek bu pakete dahildir. Önce 14 gün ücretsiz deneyebilirsiniz.</p></details>
         <details><summary>Deneme süresi var mı?</summary><p>Evet, 14 gün ücretsiz. Deneme bittiğinde devam etmek isterseniz yıllık paketin lisansı aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır.</p></details>
         <details><summary>İnternet kesilirse ne olur?</summary><p>SmartMenuOS işletmenizin kendi bilgisayarında ve yerel ağında çalışır. İnternet kesilse de Wi-Fi ağı çalıştığı sürece sipariş almaya, mutfağa göndermeye ve hesap kesmeye devam edersiniz.</p></details>
         <details><summary>Hangi cihazlar gerekiyor?</summary><p>Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır.</p></details>
@@ -626,7 +627,7 @@ footer .credits a { color: inherit; }
         <details><summary>Müşteri QR menüyü mobil veriyle açabilir mi?</summary><p>Varsayılan kurulumda QR menü işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir; bu, kurulumda ayrıca planlanır.</p></details>
         <details><summary>Birden fazla kasa kullanabilir miyim?</summary><p>Evet, aynı işletmede. Veritabanı ana bilgisayarda tutulur, diğer kasa ve mutfak bilgisayarları ona bağlanır; ana bilgisayar kapalıyken diğerleri çalışmaz. Şubeler arası bağlantı yoktur.</p></details>
         <details><summary>Verilerim güvende mi?</summary><p>Veriler işletmenizin bilgisayarında tutulur ve otomatik olarak yedeklenir. Yedeğin ayrıca başka bir diske ya da USB belleğe kopyalanması önerilir. Kişisel veriler KVKK kapsamında işlenir.</p></details>
-        <details><summary>Kurulum ve eğitim ücretli mi?</summary><p><span class="tbd">[kurulum / eğitim / destek koşulları]</span></p></details>
+        <details><summary>Kurulum ve eğitim ücretli mi?</summary><p>Hayır. Kurulum, eğitim ve destek 1 yıllık pakete dahildir; ayrıca ücret alınmaz.</p></details>
       </div>
     </div>
   </section>
@@ -636,13 +637,12 @@ footer .credits a { color: inherit; }
       <div>
         <p class="eyebrow">İletişim</p>
         <h2 style="margin-top:14px">14 günlük denemenizi başlatalım.</h2>
-        <p class="lead" style="margin-top:16px">Formu doldurun, sizi arayalım; kurulumu planlayıp sistemi kendi menünüzle açalım.</p>
+        <p class="lead" style="margin-top:16px">Formu doldurun, WhatsApp'tan yazışalım; kurulumu planlayıp sistemi kendi menünüzle açalım.</p>
         <div class="channels">
-          <div class="ch"><span>Telefon</span><span class="tbd">[0 5xx xxx xx xx]</span></div>
-          <div class="ch"><span>WhatsApp</span><span class="tbd">[WhatsApp numarası]</span></div>
-          <div class="ch"><span>E-posta</span><span class="tbd">[info@alanadi.com]</span></div>
-          <div class="ch"><span>Adres</span><span class="tbd">[şehir / adres]</span></div>
-          <div class="ch"><span>Instagram</span><span class="tbd">[@kullaniciadi]</span></div>
+          <div class="ch"><span>WhatsApp</span><a href="https://wa.me/905423540851" rel="noopener">0542 354 08 51</a></div>
+          <div class="ch"><span>Telefon</span><a href="tel:+905423540851">0542 354 08 51</a></div>
+          <div class="ch"><span>Şehir</span><span>İstanbul</span></div>
+          <div class="ch"><span>Instagram</span><a href="https://www.instagram.com/smartmenuos/" rel="noopener">@smartmenuos</a></div>
         </div>
       </div>
       <form id="demo-form" novalidate>
@@ -662,8 +662,8 @@ footer .credits a { color: inherit; }
           <label for="f-masa">Masa sayısı<input id="f-masa" name="masa" type="number" min="0" inputmode="numeric"></label>
         </div>
         <label for="f-mesaj">Mesajınız<textarea id="f-mesaj" name="mesaj" placeholder="Şu an hangi sistemi kullanıyorsunuz, neye ihtiyacınız var?"></textarea></label>
-        <label class="kvkk" for="f-kvkk"><input id="f-kvkk" type="checkbox" required> <span>Kişisel verilerimin iletişim amacıyla işlenmesine ilişkin <a href="#iletisim">aydınlatma metnini</a> okudum.</span></label>
-        <button class="btn btn-amber" type="submit">Denemeyi başlatın <span class="arr">→</span></button>
+        <label class="kvkk" for="f-kvkk"><input id="f-kvkk" type="checkbox" required> <span>Bu bilgilerin deneme talebim için WhatsApp üzerinden SmartMenuOS'a iletilmesini kabul ediyorum.</span></label>
+        <button class="btn btn-amber" type="submit">WhatsApp ile gönderin <span class="arr">→</span></button>
         <p class="fmsg" id="f-msg" role="status" hidden></p>
       </form>
     </div>
@@ -672,8 +672,8 @@ footer .credits a { color: inherit; }
 
 <footer>
   <div class="wrap">
-    <span>© 2026 SmartMenuOS · <span class="tbd">[şirket unvanı]</span></span>
-    <nav aria-label="Yasal"><a href="#iletisim">KVKK aydınlatma metni</a><a href="#iletisim">Gizlilik politikası</a><a href="#iletisim">Çerez politikası</a></nav>
+    <span>© 2026 SmartMenuOS</span>
+    <nav aria-label="İletişim"><a href="https://wa.me/905423540851" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/smartmenuos/" rel="noopener">Instagram</a></nav>
   </div>
   <div class="wrap credits" id="gorsel-kaynaklari">
     <p>Ekran görüntülerindeki işletme ve menü örnektir. Ürün fotoğrafları <a href="https://unsplash.com/license" rel="noopener">Unsplash Lisansı</a> ve <a href="https://www.pexels.com/license/" rel="noopener">Pexels Lisansı</a> ile kullanılmıştır; menü kartına uysun diye kırpılmıştır.</p>
@@ -819,9 +819,17 @@ footer .credits a { color: inherit; }
     var ad = document.getElementById('f-ad'), tel = document.getElementById('f-tel'), kvkk = document.getElementById('f-kvkk');
     msg.hidden = false;
     if (!ad.value.trim() || !tel.value.trim()) { msg.style.color = 'var(--tbd)'; msg.textContent = 'Ad ve telefon alanlarını doldurun.'; return; }
-    if (!kvkk.checked) { msg.style.color = 'var(--tbd)'; msg.textContent = 'Devam etmek için aydınlatma metnini onaylayın.'; return; }
+    if (!kvkk.checked) { msg.style.color = 'var(--tbd)'; msg.textContent = 'Devam etmek için onay kutusunu işaretleyin.'; return; }
+    var deger = function (id) { return document.getElementById(id).value.trim(); };
+    var satirlar = ['Merhaba, SmartMenuOS 14 günlük ücretsiz deneme istiyorum.', 'Ad soyad: ' + deger('f-ad'), 'Telefon: ' + deger('f-tel')];
+    [['f-isletme', 'İşletme'], ['f-tur', 'İşletme türü'], ['f-sehir', 'Şehir'], ['f-masa', 'Masa sayısı'], ['f-mesaj', 'Mesaj']].forEach(function (a) {
+      if (deger(a[0])) satirlar.push(a[1] + ': ' + deger(a[0]));
+    });
+    var adres = 'https://wa.me/905423540851?text=' + encodeURIComponent(satirlar.join('\n'));
+    var pencere = window.open(adres, '_blank');
+    if (pencere) pencere.opener = null; else location.href = adres;
     msg.style.color = 'var(--green)';
-    msg.textContent = 'Taslak sürüm: form henüz bir yere gönderilmiyor. Yayına alırken e-posta ya da veritabanına bağlanacak.';
+    msg.textContent = 'WhatsApp açıldı. Mesajı gönderdiğinizde size dönüş yapacağız.';
   });
 })();
 </script>
