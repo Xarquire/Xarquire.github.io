@@ -1,8 +1,22 @@
 // Cloudflare: smartmenuos.com yalnız smartmenu/ klasörünü yayınlar (kökteki portfolyo GitHub Pages'te kalır).
+//
+// /guncelleme/* SmartMenuOS kasalarının otomatik güncellemesi (1.7.3): sunucu/index.js.
+// Sürüm bildirimi herkese, paket parçaları yalnızca geçerli lisanslı kasaya verilir.
+// Dosyalar Workers KV'de (GUNCELLEME); Lisans Yönetimi → Güncelleme yükler. Paket
+// dosyaları bu depoya KONMAZ (depo herkese açık).
+// Kaynak ve testler: SmartMenuOS deposu, tools/GuncellemeSunucusu.
 {
   "name": "smartmenuos",
   "compatibility_date": "2026-09-01",
+  "main": "./sunucu/index.js",
   "assets": {
-    "directory": "./smartmenu"
-  }
+    "directory": "./smartmenu",
+    "binding": "ASSETS",
+    "run_worker_first": ["/guncelleme/*"]
+  },
+  // Kimlik yazılmadı: ilk yayında Cloudflare depoyu kendisi oluşturur
+  // ("smartmenuos-guncelleme"), sonraki yayınlar aynısını kullanır.
+  "kv_namespaces": [
+    { "binding": "GUNCELLEME" }
+  ]
 }
