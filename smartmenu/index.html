@@ -164,6 +164,8 @@ section { padding-block: 92px; }
 @media (max-width: 860px) { .ftext { grid-template-columns: 1fr; } .shots-2 { grid-template-columns: 1fr; } }
 
 /* telefon ekranları */
+.table-qr { margin: 0 0 34px; }
+.table-qr img { border: 0; }
 .phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; align-items: start; }
 @media (max-width: 960px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .phones { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 8px; margin-inline: -16px; padding-inline: 16px; } .phones .shot { flex: 0 0 72%; scroll-snap-align: center; } }
@@ -472,6 +474,7 @@ footer .credits a { color: inherit; }
         <h2>Fotoğraflı menü müşterinin, sipariş ekranı garsonun cebinde.</h2>
         <p class="lead">Müşteri masadaki QR kodu okutur; menüye bakar, seçeneğini seçer, siparişini gönderir. Garson aynı siparişi kendi telefonundan girer. Ayrı bir uygulama kurulmaz.</p>
       </div>
+      <figure class="shot table-qr"><a href="img/masa-qr-standi.webp" data-lb><picture><source srcset="img/masa-qr-standi.webp" type="image/webp"><img src="img/masa-qr-standi.jpg" alt="Kafe masasında SmartMenuOS logolu QR menü standı: “Menü için okutun” yazısı ve QR kod; yanında müşterinin telefonunda açılmış fotoğraflı menü" width="1600" height="1000" loading="lazy"></picture></a><figcaption>Masadaki QR stand · Müşteri okutur, menü telefonunda açılır</figcaption></figure>
       <div class="phones">
         <figure class="shot phone"><a href="img/qr-menu.png" data-lb><img src="img/qr-menu.png" alt="QR menü ana sayfası: kategoriler ve fotoğraflı ürünler" width="780" height="1688" loading="lazy"></a><figcaption>QR menü</figcaption></figure>
         <figure class="shot phone"><a href="img/qr-urun.png" data-lb><img src="img/qr-urun.png" alt="QR menüde Latte: boy, süt ve ekstra seçenekleri" width="780" height="1688" loading="lazy"></a><figcaption>Ürün seçenekleri</figcaption></figure>
