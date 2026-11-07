@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#140d12">
+<title>Sana</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 56S6 40 6 22a13 13 0 0 1 26-4 13 13 0 0 1 26 4c0 18-26 34-26 34z' fill='%23e8a0a8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#140d12; --bg2:#1f141b; --ink:#f6ebe4; --muted:#c9b3ad;
+  --rose:#e8a0a8; --gold:#d9b26f; --frame:#8a6a3c;
+  --serif:"Cormorant Garamond",Georgia,serif; --hand:"Caveat",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:20px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+#yildizlar{position:fixed;inset:0;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+section{min-height:100svh;padding:72px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.dar{max-width:560px;width:100%;margin:0 auto}
+h1,h2{font-weight:400;line-height:1.15}
+h2{font-size:clamp(34px,8vw,52px);margin-bottom:28px}
+.el{font-family:var(--hand);color:var(--rose)}
+.kucuk{font-size:16px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+
+/* Giriş perdesi */
+#perde{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at center,#2a1820 0%,var(--bg) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:24px;text-align:center;transition:opacity 1.2s ease,visibility 1.2s}
+#perde.kalk{opacity:0;visibility:hidden}
+#perde p{font-size:24px;max-width:340px;opacity:0;animation:belir 1.6s .4s forwards}
+.kalp-btn{width:96px;height:96px;border:none;background:none;cursor:pointer;opacity:0;animation:belir 1.2s 1.6s forwards, atis 1.4s 2.8s infinite}
+.kalp-btn svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(232,160,168,.55))}
+#perde small{font-family:var(--hand);font-size:22px;color:var(--muted);opacity:0;animation:belir 1s 2.2s forwards}
+@keyframes belir{to{opacity:1}}
+@keyframes atis{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+
+/* Kahraman */
+#giris h1{font-size:clamp(44px,12vw,84px);margin:14px 0 8px}
+#giris .alt{font-size:22px;color:var(--muted);max-width:420px}
+.sayac{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:40px auto 0;max-width:440px;width:100%}
+.sayac div{background:rgba(255,255,255,.04);border:1px solid rgba(217,178,111,.25);border-radius:14px;padding:14px 4px}
+.sayac b{display:block;font-size:30px;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.sayac span{font-size:14px;color:var(--muted)}
+.asagi{margin-top:56px;font-family:var(--hand);font-size:22px;color:var(--muted);animation:suz 2.4s infinite}
+@keyframes suz{50%{transform:translateY(8px)}}
+
+/* Zaman çizelgesi */
+.cizgi{position:relative;max-width:560px;width:100%;margin:0 auto;text-align:left}
+.cizgi::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--rose),transparent)}
+.ani{position:relative;padding-left:40px;margin-bottom:44px}
+.ani::before{content:"";position:absolute;left:4px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--gold)}
+.ani time{font-family:var(--hand);font-size:24px;color:var(--gold)}
+.ani h3{font-size:28px;font-weight:600;line-height:1.2;margin:2px 0 8px}
+.ani p{color:var(--muted)}
+.cerceve{margin-top:16px;padding:10px;background:linear-gradient(135deg,#a9864e,#6b4f2a 40%,#b8955a 60%,#5c4325);border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.5);transform:rotate(-1deg)}
+.ani:nth-child(even) .cerceve{transform:rotate(1.2deg)}
+.cerceve img,.cerceve .bos{width:100%;aspect-ratio:4/3;object-fit:cover;border:3px solid #2a1d10;background:#2a1d10}
+.cerceve .bos{display:flex;align-items:center;justify-content:center;font-family:var(--hand);font-size:22px;color:#a08868;background:repeating-linear-gradient(45deg,#2f2216 0 12px,#33261a 12px 24px)}
+
+/* Sevdiğim şeyler */
+.kartlar{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:560px;width:100%}
+.kart:last-child:nth-child(odd){grid-column:span 2}
+.kart{perspective:800px;height:150px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.kart-ic{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
+.kart.acik .kart-ic{transform:rotateY(180deg)}
+.yuz{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:14px}
+.on{background:linear-gradient(145deg,#3a2230,#24161e);border:1px solid rgba(232,160,168,.3);font-size:36px;color:var(--rose);font-variant-emoji:text}
+.arka{background:linear-gradient(145deg,#f3e2d6,#e7cdbd);color:#3a2028;transform:rotateY(180deg);font-size:18px;line-height:1.35}
+.ipucu{margin-top:18px;font-family:var(--hand);font-size:20px;color:var(--muted)}
+
+/* Mektup */
+.mektup{max-width:560px;width:100%;background:#f3e6d8;color:#3a2a22;border-radius:6px;padding:36px 26px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,.55);font-family:var(--hand);font-size:25px;line-height:1.45;position:relative;background-image:repeating-linear-gradient(transparent 0 35px,rgba(120,90,70,.15) 35px 36px)}
+.mektup p{margin-bottom:14px;min-height:1em}
+.mektup .imza{text-align:right;margin-top:20px}
+.imlec{display:inline-block;width:2px;height:1em;background:#3a2a22;vertical-align:-3px;animation:yanson .9s steps(1) infinite}
+@keyframes yanson{50%{opacity:0}}
+
+/* Final */
+#son h2{font-size:clamp(46px,13vw,90px)}
+#son p{max-width:420px;color:var(--muted);font-size:22px}
+.tekrar{margin-top:36px;background:none;border:1px solid var(--rose);color:var(--rose);font:inherit;font-size:18px;padding:12px 26px;border-radius:999px;cursor:pointer}
+
+/* Kaydırınca belirme */
+.goster{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s ease}
+.goster.gorundu{opacity:1;transform:none}
+
+/* Müzik düğmesi */
+#muzik{position:fixed;right:16px;bottom:16px;z-index:20;width:46px;height:46px;border-radius:50%;border:1px solid rgba(232,160,168,.5);background:rgba(20,13,18,.7);color:var(--rose);font-size:20px;cursor:pointer;display:none;backdrop-filter:blur(6px)}
+
+.ucan{position:fixed;z-index:60;pointer-events:none;font-size:22px;animation:uc 2.6s ease-out forwards}
+@keyframes uc{to{transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(.4);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+
+<canvas id="yildizlar"></canvas>
+
+<div id="perde">
+  <p id="perde-yazi"></p>
+  <button class="kalp-btn" id="ac" aria-label="Aç">
+    <svg viewBox="0 0 64 64"><path d="M32 56S6 40 6 22a13 13 0 0 1 26-4 13 13 0 0 1 26 4c0 18-26 34-26 34z" fill="#e8a0a8"/></svg>
+  </button>
+  <small>kalbe dokun</small>
+</div>
+
+<button id="muzik" aria-label="Müziği aç/kapat">♪</button>
+
+<main>
+  <section id="giris">
+    <div class="dar goster">
+      <div class="kucuk" id="ust-yazi"></div>
+      <h1 id="baslik"></h1>
+      <p class="alt" id="alt-yazi"></p>
+      <div class="sayac" aria-live="off">
+        <div><b id="s-gun">0</b><span>gün</span></div>
+        <div><b id="s-saat">0</b><span>saat</span></div>
+        <div><b id="s-dk">0</b><span>dakika</span></div>
+        <div><b id="s-sn">0</b><span>saniye</span></div>
+      </div>
+      <div class="asagi">aşağı kaydır ↓</div>
+    </div>
+  </section>
+
+  <section id="hikaye">
+    <h2 class="goster">Bizim <span class="el">hikayemiz</span></h2>
+    <div class="cizgi" id="anilar"></div>
+  </section>
+
+  <section id="sevdiklerim">
+    <h2 class="goster">Sende <span class="el">sevdiğim</span> şeyler</h2>
+    <div class="kartlar goster" id="kartlar"></div>
+    <div class="ipucu goster">her birine dokun</div>
+  </section>
+
+  <section id="mektup-bolum">
+    <h2 class="goster">Sana bir <span class="el">mektup</span></h2>
+    <div class="mektup goster" id="mektup"></div>
+  </section>
+
+  <section id="son">
+    <div class="dar goster">
+      <h2 class="el" id="son-baslik"></h2>
+      <p id="son-yazi"></p>
+      <button class="tekrar" id="kalpler">bir kalp daha ♥</button>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ============================================================
+   BÜTÜN İÇERİK BURADA. Sadece bu kısmı düzenlemen yeterli.
+   [KÖŞELİ PARANTEZ] içindekiler senin dolduracağın yerler.
+   ============================================================ */
+const CONFIG = {
+  sevgili: "Ceyda",
+  sen: "Emirhan",
+  // Birlikte olmaya başladığımız an (YYYY-AA-GGTSS:DD)
+  baslangic: "2022-11-12T00:00",
+
+  perde: "Bu tablonun arkasında küçük bir sır saklıydı. Onu bulan sensin.",
+  ustYazi: "4. yılımız",
+  altYazi: "Seninle geçen her an, bu tablodaki her fırça darbesi kadar özenle seçilmiş gibi.",
+
+  // İstersen foto: "dosya.jpg" ekleyip seninle/foto/ klasörüne koyabilirsin.
+  anilar: [
+    { tarih: "12 Kasım 2022", baslik: "Her şeyin başladığı gün", metin: "Hayatıma girdiğin gün. O zaman bilmiyordum ama en güzel hikayem o gün başladı." },
+    { tarih: "12 Kasım 2023", baslik: "İlk yılımız", metin: "Bir yıl boyunca seni her gün biraz daha sevdim: gülüşünü, sevecenliğini, her şeye iyi tarafından bakışını." },
+    { tarih: "12 Kasım 2024", baslik: "İkinci yılımız", metin: "Birlikte güldük, birlikte büyüdük. Zor günleri bile senin tatlılığın kolaylaştırdı." },
+    { tarih: "12 Kasım 2025", baslik: "Üçüncü yılımız", metin: "Her yeni gün seninle daha anlamlı, her hayal seninle daha güzel oldu." },
+    { tarih: "12 Kasım 2026", baslik: "Bugün", metin: "Ve dört yıl sonra buradayız. Duvarda bir tablo, arkasında bir kalp, karşısında sen." }
+  ],
+
+  // Kartın önünde sembol, arkasında yazı
+  sevdiklerim: [
+    { on: "☀", arka: "Olaylara hep olumlu bakışın. En kötü günü bile güzelleştiriyorsun." },
+    { on: "✿", arka: "Sevecenliğin. Herkese ve her şeye gösterdiğin o şefkat." },
+    { on: "☺", arka: "Tatlılığın. Ne yapsan içimi ısıtıyorsun." },
+    { on: "♫", arka: "Hailie's Song. Şu an çalan şarkı, bizim şarkımız." },
+    { on: "♥", arka: "Ve en çok, sen olduğun için." }
+  ],
+
+  mektup: [
+    "Sevgilim Ceyda,",
+    "Bu tabloyu hazırlarken her rengi seçerken seni düşündüm. Ama asıl söylemek istediklerimi fırçayla anlatamadım, o yüzden onları buraya, tablonun arkasına sakladım.",
+    "Dört yıl önce hayatıma girdiğinde her şeyin bu kadar güzel olacağını bilmiyordum. Şimdi biliyorum ve iyi ki hayatımdasın.",
+    "Sen sonraki her günümün, her saatimin ve her dakikamın hayallerini süslüyorsun.",
+    "Seni seviyorum sevgilim. Nice yıllara, nice tablolara."
+  ],
+  imza: "Seni çok seven, Emirhan",
+
+  sonBaslik: "Seni seviyorum",
+  sonYazi: "Bu tabloya her baktığında, arkasında seni bekleyen bu sayfayı hatırla.",
+
+  // Arka plan şarkısı: Eminem - Hailie's Song (YouTube). Biri açılmazsa sıradakine geçer.
+  // Kendi mp3 dosyanı koymak istersen muzik: "sarki.mp3" yaz, YouTube yerine o çalar.
+  muzik: "",
+  youtube: ["tD5oQQ-CQ4E", "cGDicJwVATw", "ALhIIA3XMCU"]
+};
+/* ============================================================ */
+
+const $ = s => document.querySelector(s);
+const yaz = (id, t) => { $(id).textContent = t; };
+
+yaz("#perde-yazi", CONFIG.perde);
+yaz("#ust-yazi", CONFIG.ustYazi);
+$("#baslik").innerHTML = `Sevgili <span class="el"></span>`;
+$("#baslik .el").textContent = CONFIG.sevgili;
+yaz("#alt-yazi", CONFIG.altYazi);
+yaz("#son-baslik", CONFIG.sonBaslik);
+yaz("#son-yazi", CONFIG.sonYazi);
+
+// Anılar
+const anilar = $("#anilar");
+CONFIG.anilar.forEach(a => {
+  const d = document.createElement("article");
+  d.className = "ani goster";
+  d.innerHTML = `<time></time><h3></h3><p></p>`;
+  d.querySelector("time").textContent = a.tarih;
+  d.querySelector("h3").textContent = a.baslik;
+  d.querySelector("p").textContent = a.metin;
+  if (a.foto) {
+    const c = document.createElement("div"); c.className = "cerceve"; d.appendChild(c);
+    const img = new Image(); img.loading = "lazy"; img.alt = a.baslik; img.src = "foto/" + a.foto;
+    c.appendChild(img);
+  }
+  anilar.appendChild(d);
+});
+
+// Kartlar
+const kartlar = $("#kartlar");
+CONFIG.sevdiklerim.forEach(k => {
+  const d = document.createElement("div");
+  d.className = "kart";
+  d.innerHTML = `<div class="kart-ic"><div class="yuz on"></div><div class="yuz arka"></div></div>`;
+  d.querySelector(".on").textContent = k.on;
+  d.querySelector(".arka").textContent = k.arka;
+  d.addEventListener("click", () => d.classList.toggle("acik"));
+  kartlar.appendChild(d);
+});
+
+// Sayaç
+const basla = new Date(CONFIG.baslangic);
+function sayac(){
+  let f = Math.max(0, Date.now() - basla) / 1000;
+  const g = Math.floor(f / 86400); f -= g * 86400;
+  const s = Math.floor(f / 3600); f -= s * 3600;
+  const d = Math.floor(f / 60); const sn = Math.floor(f - d * 60);
+  yaz("#s-gun", g.toLocaleString("tr-TR")); yaz("#s-saat", s); yaz("#s-dk", d); yaz("#s-sn", sn);
+}
+sayac(); setInterval(sayac, 1000);
+
+// Kaydırınca belirme
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("gorundu"); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll(".goster").forEach(el => io.observe(el));
+
+// Mektup: daktilo gibi yazılsın
+const mektup = $("#mektup");
+let mektupBasladi = false;
+new IntersectionObserver((es, o) => {
+  if (es[0].isIntersecting && !mektupBasladi) { mektupBasladi = true; o.disconnect(); mektupYaz(); }
+}, { threshold: .3 }).observe(mektup);
+async function mektupYaz(){
+  const satirlar = [...CONFIG.mektup, CONFIG.imza];
+  const imlec = document.createElement("span"); imlec.className = "imlec";
+  for (let i = 0; i < satirlar.length; i++) {
+    const p = document.createElement("p");
+    if (i === satirlar.length - 1) p.className = "imza";
+    mektup.appendChild(p);
+    for (const ch of satirlar[i]) {
+      p.textContent += ch; p.appendChild(imlec);
+      await new Promise(r => setTimeout(r, ch === "," || ch === "." ? 180 : 32));
+    }
+    await new Promise(r => setTimeout(r, 350));
+  }
+  imlec.remove();
+}
+
+// Kalpler
+function kalpYagdir(n, x, y){
+  const isaretler = ["♥", "❤", "✿", "✦"];
+  for (let i = 0; i < n; i++) {
+    const s = document.createElement("span");
+    s.className = "ucan";
+    s.textContent = isaretler[i % isaretler.length];
+    s.style.left = x + "px"; s.style.top = y + "px";
+    s.style.color = i % 2 ? "#e8a0a8" : "#d9b26f";
+    const a = Math.random() * Math.PI * 2, r = 80 + Math.random() * 220;
+    s.style.setProperty("--x", Math.cos(a) * r + "px");
+    s.style.setProperty("--y", Math.sin(a) * r - 120 + "px");
+    s.style.setProperty("--r", (Math.random() * 360 - 180) + "deg");
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 2700);
+  }
+}
+$("#kalpler").addEventListener("click", e => kalpYagdir(26, e.clientX, e.clientY));
+
+// Müzik: mp3 varsa onu, yoksa YouTube oynatıcısını kullan
+const muzikBtn = $("#muzik");
+let calar = null, calarHazir = false, calarBekliyor = false, ytSira = 0, caliyor = false;
+function butonGuncelle(){ muzikBtn.textContent = caliyor ? "♪" : "×"; }
+if (CONFIG.muzik) {
+  const ses = new Audio(CONFIG.muzik); ses.loop = true;
+  calar = { play: () => ses.play().catch(() => {}), pause: () => ses.pause() };
+  calarHazir = true;
+  ses.addEventListener("play", () => { caliyor = true; butonGuncelle(); });
+  ses.addEventListener("pause", () => { caliyor = false; butonGuncelle(); });
+} else if (CONFIG.youtube && CONFIG.youtube.length) {
+  const kutu = document.createElement("div");
+  kutu.id = "yt"; kutu.style.cssText = "position:fixed;left:-9999px;top:0;width:200px;height:200px";
+  document.body.appendChild(kutu);
+  const t = document.createElement("script"); t.src = "https://www.youtube.com/iframe_api"; document.head.appendChild(t);
+  window.onYouTubeIframeAPIReady = () => {
+    const yt = new YT.Player("yt", {
+      width: 200, height: 200, videoId: CONFIG.youtube[0],
+      playerVars: { playsinline: 1, controls: 0, rel: 0 },
+      events: {
+        onReady: () => { calarHazir = true; if (calarBekliyor) calar.play(); },
+        onStateChange: e => {
+          if (e.data === YT.PlayerState.PLAYING) caliyor = true;
+          if (e.data === YT.PlayerState.PAUSED) caliyor = false;
+          if (e.data === YT.PlayerState.ENDED) { yt.seekTo(0); yt.playVideo(); }
+          butonGuncelle();
+        },
+        onError: () => {
+          // Bu video gömülemiyorsa sıradakini dene
+          if (++ytSira < CONFIG.youtube.length) yt.loadVideoById(CONFIG.youtube[ytSira]);
+        }
+      }
+    });
+    calar = { play: () => yt.playVideo(), pause: () => yt.pauseVideo() };
+  };
+}
+if (CONFIG.muzik || (CONFIG.youtube && CONFIG.youtube.length)) muzikBtn.style.display = "block";
+function muzikBaslat(){ if (calar && calarHazir) calar.play(); else calarBekliyor = true; }
+muzikBtn.addEventListener("click", () => {
+  if (caliyor) calar.pause(); else muzikBaslat();
+});
+
+// Perdeyi aç
+$("#ac").addEventListener("click", e => {
+  kalpYagdir(30, e.clientX, e.clientY);
+  muzikBaslat();
+  setTimeout(() => $("#perde").classList.add("kalk"), 400);
+});
+
+// Yıldızlı arka plan
+const cv = $("#yildizlar"), cx = cv.getContext("2d");
+let yildiz = [];
+function boyut(){
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+  cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px";
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  yildiz = Array.from({ length: Math.round(innerWidth * innerHeight / 9000) }, () => ({
+    x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+    r: Math.random() * 1.3 + .2, f: Math.random() * Math.PI * 2, h: Math.random() * .02 + .005
+  }));
+}
+function ciz(){
+  cx.clearRect(0, 0, innerWidth, innerHeight);
+  for (const y of yildiz) {
+    y.f += y.h;
+    cx.globalAlpha = .35 + Math.sin(y.f) * .3;
+    cx.fillStyle = "#f6e3d0";
+    cx.beginPath(); cx.arc(y.x, y.y, y.r, 0, 7); cx.fill();
+  }
+  requestAnimationFrame(ciz);
+}
+boyut(); ciz(); addEventListener("resize", boyut);
+</script>
+</body>
+</html>
