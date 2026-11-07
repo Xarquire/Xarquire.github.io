@@ -64,6 +64,7 @@ h2{font-size:clamp(34px,8vw,52px);margin-bottom:28px}
 
 /* Sevdiğim şeyler */
 .kartlar{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:560px;width:100%}
+.kart:last-child:nth-child(odd){grid-column:span 2}
 .kart{perspective:800px;height:150px;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .kart-ic{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
 .kart.acik .kart-ic{transform:rotateY(180deg)}
@@ -158,47 +159,49 @@ h2{font-size:clamp(34px,8vw,52px);margin-bottom:28px}
    [KÖŞELİ PARANTEZ] içindekiler senin dolduracağın yerler.
    ============================================================ */
 const CONFIG = {
-  sevgili: "[Onun adı]",
+  sevgili: "Ceyda",
   sen: "Emirhan",
-  // Birlikte olmaya başladığınız an (YYYY-AA-GGTSS:DD)
-  baslangic: "2025-11-07T20:00",
+  // Birlikte olmaya başladığımız an (YYYY-AA-GGTSS:DD)
+  baslangic: "2022-11-12T00:00",
 
   perde: "Bu tablonun arkasında küçük bir sır saklıydı. Onu bulan sensin.",
-  ustYazi: "1. yılımız",
+  ustYazi: "4. yılımız",
   altYazi: "Seninle geçen her an, bu tablodaki her fırça darbesi kadar özenle seçilmiş gibi.",
 
-  // Fotoğrafları seninle/foto/ klasörüne koy, adını buraya yaz. Foto yoksa "" bırak.
+  // İstersen foto: "dosya.jpg" ekleyip seninle/foto/ klasörüne koyabilirsin.
   anilar: [
-    { tarih: "[Tarih]", baslik: "İlk karşılaşmamız", metin: "[Nerede, nasıl tanıştınız? O gün aklında kalan küçük bir detay.]", foto: "" },
-    { tarih: "[Tarih]", baslik: "İlk buluşmamız", metin: "[Nereye gittiniz, ne yediniz, ne konuştunuz?]", foto: "" },
-    { tarih: "[Tarih]", baslik: "Unutamadığım gün", metin: "[İkinizin de gülerek hatırladığı bir an.]", foto: "" },
-    { tarih: "[Tarih]", baslik: "Bugün", metin: "Ve bir yıl sonra buradayız. Duvarda bir tablo, arkasında bir kalp, karşısında sen.", foto: "" }
+    { tarih: "12 Kasım 2022", baslik: "Her şeyin başladığı gün", metin: "Hayatıma girdiğin gün. O zaman bilmiyordum ama en güzel hikayem o gün başladı." },
+    { tarih: "12 Kasım 2023", baslik: "İlk yılımız", metin: "Bir yıl boyunca seni her gün biraz daha sevdim: gülüşünü, sevecenliğini, her şeye iyi tarafından bakışını." },
+    { tarih: "12 Kasım 2024", baslik: "İkinci yılımız", metin: "Birlikte güldük, birlikte büyüdük. Zor günleri bile senin tatlılığın kolaylaştırdı." },
+    { tarih: "12 Kasım 2025", baslik: "Üçüncü yılımız", metin: "Her yeni gün seninle daha anlamlı, her hayal seninle daha güzel oldu." },
+    { tarih: "12 Kasım 2026", baslik: "Bugün", metin: "Ve dört yıl sonra buradayız. Duvarda bir tablo, arkasında bir kalp, karşısında sen." }
   ],
 
-  // Kartın önünde emoji, arkasında yazı
+  // Kartın önünde sembol, arkasında yazı
   sevdiklerim: [
-    { on: "☺", arka: "[Gülüşün ...]" },
-    { on: "✦", arka: "[Gözlerin ...]" },
-    { on: "✿", arka: "[Küçük bir alışkanlığı]" },
-    { on: "♫", arka: "[Birlikte dinlediğiniz şarkı]" },
-    { on: "☾", arka: "[Gece konuşmalarımız]" },
+    { on: "☀", arka: "Olaylara hep olumlu bakışın. En kötü günü bile güzelleştiriyorsun." },
+    { on: "✿", arka: "Sevecenliğin. Herkese ve her şeye gösterdiğin o şefkat." },
+    { on: "☺", arka: "Tatlılığın. Ne yapsan içimi ısıtıyorsun." },
+    { on: "♫", arka: "Hailie's Song. Şu an çalan şarkı, bizim şarkımız." },
     { on: "♥", arka: "Ve en çok, sen olduğun için." }
   ],
 
   mektup: [
-    "Sevgilim,",
+    "Sevgilim Ceyda,",
     "Bu tabloyu hazırlarken her rengi seçerken seni düşündüm. Ama asıl söylemek istediklerimi fırçayla anlatamadım, o yüzden onları buraya, tablonun arkasına sakladım.",
-    "[Ona söylemek istediğin, sadece ikinizin bileceği bir şey.]",
-    "Bir yıl önce hayatıma girdiğinde, her şeyin bu kadar güzel olacağını bilmiyordum. Şimdi biliyorum ve iyi ki sen.",
-    "Nice yıllara, nice tablolara."
+    "Dört yıl önce hayatıma girdiğinde her şeyin bu kadar güzel olacağını bilmiyordum. Şimdi biliyorum ve iyi ki hayatımdasın.",
+    "Sen sonraki her günümün, her saatimin ve her dakikamın hayallerini süslüyorsun.",
+    "Seni seviyorum sevgilim. Nice yıllara, nice tablolara."
   ],
   imza: "Seni çok seven, Emirhan",
 
   sonBaslik: "Seni seviyorum",
   sonYazi: "Bu tabloya her baktığında, arkasında seni bekleyen bu sayfayı hatırla.",
 
-  // İsteğe bağlı arka plan şarkısı: seninle/muzik.mp3 gibi. Yoksa "" bırak.
-  muzik: ""
+  // Arka plan şarkısı: Eminem - Hailie's Song (YouTube). Biri açılmazsa sıradakine geçer.
+  // Kendi mp3 dosyanı koymak istersen muzik: "sarki.mp3" yaz, YouTube yerine o çalar.
+  muzik: "",
+  youtube: ["tD5oQQ-CQ4E", "cGDicJwVATw", "ALhIIA3XMCU"]
 };
 /* ============================================================ */
 
@@ -218,16 +221,14 @@ const anilar = $("#anilar");
 CONFIG.anilar.forEach(a => {
   const d = document.createElement("article");
   d.className = "ani goster";
-  d.innerHTML = `<time></time><h3></h3><p></p><div class="cerceve"></div>`;
+  d.innerHTML = `<time></time><h3></h3><p></p>`;
   d.querySelector("time").textContent = a.tarih;
   d.querySelector("h3").textContent = a.baslik;
   d.querySelector("p").textContent = a.metin;
-  const c = d.querySelector(".cerceve");
   if (a.foto) {
+    const c = document.createElement("div"); c.className = "cerceve"; d.appendChild(c);
     const img = new Image(); img.loading = "lazy"; img.alt = a.baslik; img.src = "foto/" + a.foto;
     c.appendChild(img);
-  } else {
-    c.innerHTML = `<div class="bos">fotoğraf gelecek</div>`;
   }
   anilar.appendChild(d);
 });
@@ -302,18 +303,52 @@ function kalpYagdir(n, x, y){
 }
 $("#kalpler").addEventListener("click", e => kalpYagdir(26, e.clientX, e.clientY));
 
-// Müzik
-const ses = CONFIG.muzik ? new Audio(CONFIG.muzik) : null;
-if (ses) { ses.loop = true; $("#muzik").style.display = "block"; }
-$("#muzik").addEventListener("click", () => {
-  if (!ses) return;
-  if (ses.paused) { ses.play(); $("#muzik").textContent = "♪"; } else { ses.pause(); $("#muzik").textContent = "×"; }
+// Müzik: mp3 varsa onu, yoksa YouTube oynatıcısını kullan
+const muzikBtn = $("#muzik");
+let calar = null, calarHazir = false, calarBekliyor = false, ytSira = 0, caliyor = false;
+function butonGuncelle(){ muzikBtn.textContent = caliyor ? "♪" : "×"; }
+if (CONFIG.muzik) {
+  const ses = new Audio(CONFIG.muzik); ses.loop = true;
+  calar = { play: () => ses.play().catch(() => {}), pause: () => ses.pause() };
+  calarHazir = true;
+  ses.addEventListener("play", () => { caliyor = true; butonGuncelle(); });
+  ses.addEventListener("pause", () => { caliyor = false; butonGuncelle(); });
+} else if (CONFIG.youtube && CONFIG.youtube.length) {
+  const kutu = document.createElement("div");
+  kutu.id = "yt"; kutu.style.cssText = "position:fixed;left:-9999px;top:0;width:200px;height:200px";
+  document.body.appendChild(kutu);
+  const t = document.createElement("script"); t.src = "https://www.youtube.com/iframe_api"; document.head.appendChild(t);
+  window.onYouTubeIframeAPIReady = () => {
+    const yt = new YT.Player("yt", {
+      width: 200, height: 200, videoId: CONFIG.youtube[0],
+      playerVars: { playsinline: 1, controls: 0, rel: 0 },
+      events: {
+        onReady: () => { calarHazir = true; if (calarBekliyor) calar.play(); },
+        onStateChange: e => {
+          if (e.data === YT.PlayerState.PLAYING) caliyor = true;
+          if (e.data === YT.PlayerState.PAUSED) caliyor = false;
+          if (e.data === YT.PlayerState.ENDED) { yt.seekTo(0); yt.playVideo(); }
+          butonGuncelle();
+        },
+        onError: () => {
+          // Bu video gömülemiyorsa sıradakini dene
+          if (++ytSira < CONFIG.youtube.length) yt.loadVideoById(CONFIG.youtube[ytSira]);
+        }
+      }
+    });
+    calar = { play: () => yt.playVideo(), pause: () => yt.pauseVideo() };
+  };
+}
+if (CONFIG.muzik || (CONFIG.youtube && CONFIG.youtube.length)) muzikBtn.style.display = "block";
+function muzikBaslat(){ if (calar && calarHazir) calar.play(); else calarBekliyor = true; }
+muzikBtn.addEventListener("click", () => {
+  if (caliyor) calar.pause(); else muzikBaslat();
 });
 
 // Perdeyi aç
 $("#ac").addEventListener("click", e => {
   kalpYagdir(30, e.clientX, e.clientY);
-  if (ses) ses.play().catch(() => {});
+  muzikBaslat();
   setTimeout(() => $("#perde").classList.add("kalk"), 400);
 });
 
