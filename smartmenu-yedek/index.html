@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>SmartMenuOS | Adisyon ve QR Menü</title>
+<meta name="description" content="SmartMenuOS: kafe, restoran ve manavlar için adisyon ve QR menü sistemi. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL + KDV.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="marka/favicon.ico" sizes="48x48">
+<link rel="icon" href="marka/smartmenuos-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="marka/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&family=Spectral:ital,wght@0,400;0,500;1,400&family=Libre+Franklin:wght@500&display=swap">
+<style>
+/* Hallmark · v2.0.0 · theme: newsprint (deal: manual, scripts not run in this environment) · genre: editorial · shape: Workbench · job: try (14 gün deneme, WhatsApp) · posture: restrained · hero: Stage · nav: masthead bar over a double rule · footer: colophon block with credits · imagery: screenshots 7 (the user's own, from the live site) · signature: Masa 4's adisyon set as a newspaper listing beside the real kasa screen */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: P, a newspaper for a POS reads as a costume unless the copy is plain; kept every claim to what smartmenuos.com already states, set the limits as a front-page column */
+/* waive 47b: none used. answered F4: one filled primary per screen (ink), WhatsApp is the only job action */
+
+:root {
+  --color-paper: oklch(94% 0.011 92); --color-paper-2: oklch(90.5% 0.015 88); --color-paper-3: oklch(87% 0.017 86);
+  --color-ink: oklch(17% 0.012 60); --color-ink-2: oklch(27% 0.012 58); --color-muted: oklch(46% 0.014 60);
+  --color-rule: oklch(68% 0.016 75); --color-rule-2: oklch(34% 0.012 60);
+  --color-accent: oklch(44% 0.13 32); --color-accent-ink: oklch(95% 0.012 90); --color-focus: oklch(48% 0.17 32);
+  --color-on-ink: oklch(94% 0.011 92); --color-on-ink-muted: oklch(78% 0.014 80); --color-on-ink-rule: oklch(45% 0.012 60);
+  --color-focus-on-ink: oklch(80% 0.12 60);
+  --font-display: "Zilla Slab", ui-serif, Georgia, serif; --font-body: "Spectral", ui-serif, Georgia, serif;
+  --font-outlier: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 0; --rule-hair: 1px; --tracking-display: -0.02em; --display-weight: 700;
+
+  --text-display: clamp(2.75rem, 1.2rem + 4.4vw, 5.25rem);
+  --text-display-s: clamp(2.25rem, 1.2rem + 3vw, 3.75rem);
+  --text-section: clamp(2.125rem, 1.3rem + 2.4vw, 3.25rem);
+  --text-title: clamp(1.25rem, 1.05rem + 0.5vw, 1.5625rem);
+  --text-lead: clamp(1.125rem, 1.02rem + 0.35vw, 1.3125rem);
+  --text-md: 1.0625rem; --text-sm: 0.9375rem;
+
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px;
+  --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --section-gap-s: clamp(72px, 8vw, 120px); --section-gap: clamp(88px, 10vw, 144px);
+  --container: 1440px; --gutter: clamp(16px, 4.4vw, 64px); --gap-columns: clamp(16px, 2.2vw, 32px);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --dur-micro: 120ms; --dur-short: 220ms;
+  --z-sticky-nav: 300;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font: 400 var(--text-md)/1.58 var(--font-body); font-synthesis: none; text-rendering: optimizeLegibility; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); line-height: 1.05; margin: 0; text-wrap: balance; overflow-wrap: break-word; min-width: 0; }
+h1 { font-size: var(--text-display); max-width: 14ch; }
+h2 { font-size: var(--text-section); max-width: 22ch; }
+h3 { font-size: var(--text-title); line-height: 1.15; letter-spacing: -0.01em; }
+p { margin: 0; text-wrap: pretty; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+.lead { font-size: var(--text-lead); line-height: 1.45; color: var(--color-ink-2); max-width: 34ch; }
+small, figcaption, .meta { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.agate { font: 500 1em/1.2 var(--font-outlier); font-variant-numeric: tabular-nums; }
+
+a { color: var(--color-accent); text-decoration-line: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.16em; transition: text-decoration-thickness var(--dur-micro) var(--ease-out); }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+::selection { background: color-mix(in oklab, var(--color-accent) 20%, transparent); }
+
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.rule { border: 0; border-top: var(--rule-hair) solid var(--color-rule); margin: 0; }
+.rule--double { box-sizing: content-box; height: 2px; border: 0; border-block: var(--rule-hair) solid var(--color-rule-2); margin: 0; }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-lg); border: 1px solid var(--color-ink); border-radius: 0; background: var(--color-ink); color: var(--color-paper); font: 700 var(--text-sm)/1 var(--font-display); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
+.btn--rule { background: transparent; color: var(--color-ink); border-inline-color: transparent; border-block: var(--rule-hair) solid var(--color-ink); }
+.btn--rule:hover { background: var(--color-paper-2); }
+.btn--light { background: var(--color-on-ink); color: var(--color-ink); border-color: var(--color-on-ink); }
+.btn--light:hover { background: var(--color-paper-2); }
+.btn--light:focus-visible, .btn--rule-light:focus-visible { outline-color: var(--color-focus-on-ink); }
+.btn--rule-light { background: transparent; color: var(--color-on-ink); border-inline-color: transparent; border-block: var(--rule-hair) solid var(--color-on-ink); }
+.btn--rule-light:hover { background: var(--color-ink-2); }
+
+/* nav */
+.masthead { position: sticky; top: 0; z-index: var(--z-sticky-nav); background: var(--color-paper); }
+.masthead__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: 72px; }
+.masthead__logo { display: block; flex-shrink: 0; }
+.masthead__logo img { width: 190px; height: auto; }
+.masthead__dateline { flex: 1; text-align: center; }
+.masthead__links { display: flex; align-items: center; gap: var(--space-lg); }
+.masthead__links a:not(.btn) { color: var(--color-ink); text-decoration-color: transparent; font-size: var(--text-sm); white-space: nowrap; }
+.masthead__links a:not(.btn):hover { text-decoration-color: var(--color-ink); }
+
+/* hero */
+.hero { display: grid; align-items: center; min-height: calc(100svh - 76px); padding-block: var(--space-xl) var(--space-2xl); }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: center; }
+.hero__text { display: grid; gap: var(--space-lg); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xs); }
+.hero__terms { max-width: 38ch; }
+.shot { margin: 0; }
+.shot img { border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-2); }
+.shot figcaption { padding-top: var(--space-xs); }
+
+/* journey: switcher */
+.section { padding-block: var(--section-gap); }
+.section--tight { padding-block: var(--section-gap-s); }
+.headblock { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; margin-bottom: var(--space-2xl); }
+.headblock .lead { justify-self: start; }
+.tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.tab { appearance: none; border: 0; border-left: var(--rule-hair) solid var(--color-rule); background: none; padding: var(--space-md) var(--space-lg) var(--space-md); text-align: left; font: 700 var(--text-title)/1.1 var(--font-display); letter-spacing: -0.01em; color: var(--color-muted); cursor: pointer; box-shadow: inset 0 -3px 0 transparent; transition: color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); min-height: 52px; }
+.tab:first-child { border-left: 0; padding-left: 0; }
+.tab:hover { color: var(--color-ink-2); }
+.tab[aria-selected="true"] { color: var(--color-ink); box-shadow: inset 0 -3px 0 var(--color-ink); }
+.tab:focus-visible { outline-offset: -2px; }
+.tab small { display: block; margin-top: var(--space-2xs); font-size: var(--text-sm); }
+.panel { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-top: var(--space-2xl); align-items: start; }
+.panel[hidden] { display: none; }
+.panel__text { display: grid; gap: var(--space-md); max-width: 36ch; }
+.panel__text h3 { font-size: var(--text-display-s); line-height: 1.02; }
+.panel--phone .shot { max-width: 300px; justify-self: center; }
+
+/* listing (signature) */
+.listing { margin-top: var(--space-xs); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.listing li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: var(--space-md); align-items: baseline; padding-block: var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.listing .item { font: 700 1.0625rem/1.2 var(--font-display); }
+.listing .qty { color: var(--color-muted); }
+.listing .sum { border-bottom: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.listing .sum .item { font-size: var(--text-title); }
+.listing .sum .agate { font-size: var(--text-title); }
+
+/* qr split */
+.qr { background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); }
+.qr__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: center; }
+.qr__text { display: grid; gap: var(--space-lg); }
+.facts li { padding-block: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule); max-width: 46ch; }
+.facts li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.qr__phones { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; width: 100%; max-width: 560px; justify-self: end; }
+.qr__phones .shot:last-child { padding-bottom: var(--space-3xl); }
+
+/* types index */
+.index { width: 100%; border-collapse: collapse; }
+.index th { text-align: left; font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); padding: 0 var(--space-md) var(--space-sm) 0; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.index td { padding: var(--space-lg) var(--space-md) var(--space-lg) 0; border-bottom: var(--rule-hair) solid var(--color-rule); vertical-align: baseline; }
+.index td:first-child { font: 700 var(--text-title)/1.1 var(--font-display); letter-spacing: -0.01em; width: 22%; }
+.index td:nth-child(2) { width: 20%; color: var(--color-ink-2); }
+.index tr:first-child td:first-child { font-size: var(--text-display-s); }
+.switches { margin-top: var(--space-xl); max-width: 62ch; }
+
+/* front page in columns */
+.front__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-xl); padding-top: var(--space-lg); }
+.front__head h2 { font-size: var(--text-display-s); max-width: 24ch; }
+.cols { columns: 3 18rem; column-gap: var(--space-xl); column-rule: var(--rule-hair) solid var(--color-rule); hyphens: auto; }
+.cols p + p { margin-top: var(--space-md); }
+.cols p { break-inside: avoid-column; }
+.cols strong { font-weight: 500; }
+.dropcap::first-letter { float: left; font: 700 3.6em/0.8 var(--font-display); padding: var(--space-2xs) var(--space-xs) 0 0; color: var(--color-ink); }
+.front__req { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.front__req h3 { margin-bottom: var(--space-xs); }
+
+/* faq rows */
+.faq__grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); }
+.faq details { border-top: var(--rule-hair) solid var(--color-rule); }
+.faq details:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.faq summary { list-style: none; display: flex; justify-content: space-between; gap: var(--space-md); align-items: baseline; padding-block: var(--space-lg); cursor: pointer; font: 700 var(--text-title)/1.2 var(--font-display); letter-spacing: -0.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 500 var(--text-title)/1 var(--font-outlier); color: var(--color-muted); flex-shrink: 0; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq summary:hover { color: var(--color-ink-2); }
+.faq details p { padding-bottom: var(--space-lg); max-width: 60ch; color: var(--color-ink-2); }
+
+/* ink band: price and contact */
+.band { background: var(--color-ink); color: var(--color-on-ink); padding-block: var(--section-gap-s); }
+.band a:not(.btn) { color: var(--color-on-ink); text-decoration-color: var(--color-focus-on-ink); }
+.band a:not(.btn):focus-visible { outline-color: var(--color-focus-on-ink); }
+.band__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: var(--space-3xl); align-items: start; }
+.price { font: 700 var(--text-display)/1 var(--font-display); letter-spacing: var(--tracking-display); }
+.price span { display: block; margin-top: var(--space-sm); font: 400 var(--text-lead)/1.4 var(--font-body); letter-spacing: 0; color: var(--color-on-ink-muted); }
+.band__text { display: grid; gap: var(--space-lg); }
+.band__text p { color: var(--color-on-ink-muted); max-width: 44ch; }
+.band .hairline { border-top: var(--rule-hair) solid var(--color-focus-on-ink); width: var(--space-2xl); }
+.included li { padding-block: var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-on-ink-rule); }
+.included li:first-child { border-top: var(--rule-hair) solid var(--color-on-ink-rule); }
+.contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); margin-top: var(--space-xl); }
+.contact dt { font-size: var(--text-sm); color: var(--color-on-ink-muted); }
+.contact dd { margin: var(--space-2xs) 0 0; font-weight: 500; }
+.band__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* footer colophon */
+.colophon { padding-block: var(--space-2xl) var(--space-3xl); }
+.colophon__top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-lg); padding-bottom: var(--space-lg); }
+.colophon__top img { width: 170px; height: auto; }
+.colophon__links { display: flex; flex-wrap: wrap; gap: var(--space-lg); }
+.credits { margin-top: var(--space-lg); max-width: 75ch; font-size: var(--text-sm); color: var(--color-muted); }
+.credits details { margin-top: var(--space-sm); }
+.credits summary { cursor: pointer; color: var(--color-ink-2); }
+.credits ul { margin-top: var(--space-sm); columns: 2 18rem; column-gap: var(--space-xl); }
+.credits li { break-inside: avoid; padding-block: var(--space-3xs); }
+
+.skip { position: absolute; left: var(--space-md); top: var(--space-md); transform: translateY(-200%); background: var(--color-ink); color: var(--color-paper); padding: var(--space-xs) var(--space-md); z-index: 400; }
+.skip:focus-visible { transform: none; }
+
+@media (max-width: 75rem) {
+  .masthead__dateline { display: none; }
+}
+@media (max-width: 60rem) {
+  .masthead__links a:not(.btn) { display: none; }
+  .masthead__logo img { width: 150px; }
+  .hero { padding-block: var(--space-xl) var(--space-2xl); }
+  .hero__grid, .qr__grid, .band__grid, .faq__grid, .headblock, .panel { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); min-height: 0; }
+  .headblock { margin-bottom: var(--space-xl); }
+  .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tab:nth-child(3) { border-left: 0; padding-left: 0; }
+  .tab:nth-child(-n+2) { border-bottom: var(--rule-hair) solid var(--color-rule); }
+  .front__req { grid-template-columns: minmax(0, 1fr); }
+  .qr__phones .shot:last-child { padding-bottom: var(--space-xl); }
+  .panel--phone .shot { max-width: 240px; }
+}
+@media (max-width: 40rem) {
+  .tab { padding: var(--space-sm) var(--space-sm); font-size: 1.0625rem; }
+  .tab small { display: none; }
+  .index thead { display: none; }
+  .index tr { display: grid; grid-template-columns: minmax(0, 1fr); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+  .index td { border: 0; padding: var(--space-2xs) 0; width: auto !important; }
+  .contact { grid-template-columns: minmax(0, 1fr); }
+  .masthead__bar { min-height: 64px; }
+  .masthead .btn { padding: 0 var(--space-md); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .tab, a { transition: none; }
+  .btn:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<header class="masthead">
+  <div class="container masthead__bar">
+    <a class="masthead__logo" href="#" aria-label="SmartMenuOS ana sayfa"><img src="marka/smartmenuos-logo-light.svg" alt="SmartMenuOS" width="190" height="34"></a>
+    <p class="masthead__dateline meta">İstanbul. Kafe, restoran ve manav için adisyon.</p>
+    <nav class="masthead__links" aria-label="Ana menü">
+      <a href="#akis">Nasıl çalışır</a>
+      <a href="#qr">QR menü</a>
+      <a href="#fiyat">Fiyat</a>
+      <a href="#sorular">Sorular</a>
+      <a class="btn" href="https://wa.me/905423540851?text=Merhaba%2C%20SmartMenuOS%2014%20g%C3%BCnl%C3%BCk%20denemeyi%20ba%C5%9Flatmak%20istiyorum." rel="noopener">14 gün deneyin</a>
+    </nav>
+  </div>
+  <div class="container"><hr class="rule--double"></div>
+</header>
+
+<main id="icerik">
+
+<section class="hero" aria-labelledby="baslik">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <h1 id="baslik">Masadan mutfağa, kasaya tek sistem.</h1>
+      <p class="lead">Garson telefondan girer, mutfak ekranda görür, kasa hesabı keser.</p>
+      <div class="hero__actions">
+        <a class="btn" href="https://wa.me/905423540851?text=Merhaba%2C%20SmartMenuOS%2014%20g%C3%BCnl%C3%BCk%20denemeyi%20ba%C5%9Flatmak%20istiyorum." rel="noopener">14 gün ücretsiz deneyin</a>
+        <a class="btn btn--rule" href="#fiyat">Fiyatı görün</a>
+      </div>
+      <p class="hero__terms meta">Kurulum, eğitim ve destek pakete dahil. İnternet kesilse de yerel ağda çalışır.</p>
+    </div>
+    <figure class="shot">
+      <img src="img/kasa-siparis.png" alt="SmartMenuOS kasa ekranı: Masa 4 için ürün ekleme, solda kategoriler, ortada fotoğraflı ürünler, sağda sepet ve Mutfağa gönder düğmesi" width="1226" height="852" fetchpriority="high">
+      <figcaption>Kasa ekranı, Masa 4. Sürüm 1.6, örnek menüyle.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="akis" aria-labelledby="akis-baslik">
+  <div class="container">
+    <hr class="rule--double">
+    <div class="headblock" style="padding-top: var(--space-xl)">
+      <h2 id="akis-baslik">Bir siparişin dört durağı.</h2>
+      <p class="lead">Kâğıt adisyon yok, mutfağa koşturma yok. Durağı seçin.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Siparişin durakları">
+      <button class="tab" role="tab" id="t-garson" aria-controls="p-garson" aria-selected="true">Garson<small>Telefondan sipariş</small></button>
+      <button class="tab" role="tab" id="t-mutfak" aria-controls="p-mutfak" aria-selected="false" tabindex="-1">Mutfak<small>Ekrana düşer</small></button>
+      <button class="tab" role="tab" id="t-kasa" aria-controls="p-kasa" aria-selected="false" tabindex="-1">Kasa<small>Hesap kesilir</small></button>
+      <button class="tab" role="tab" id="t-rapor" aria-controls="p-rapor" aria-selected="false" tabindex="-1">Rapor<small>Gün sonu ve ciro</small></button>
+    </div>
+
+    <div class="panel panel--phone" role="tabpanel" id="p-garson" aria-labelledby="t-garson">
+      <div class="panel__text">
+        <h3>Sipariş masada alınır.</h3>
+        <p>Garson siparişi kendi telefonunun tarayıcısında girer. Uygulama kurulmaz.</p>
+        <ul class="listing" aria-label="Örnek adisyon">
+          <li><span class="item">Latte (orta)</span><span class="qty agate">2</span><span class="agate">270,00</span></li>
+          <li><span class="item">Cheesecake</span><span class="qty agate">1</span><span class="agate">180,00</span></li>
+          <li><span class="item">Brownie</span><span class="qty agate">1</span><span class="agate">160,00</span></li>
+          <li class="sum"><span class="item">Toplam</span><span></span><span class="agate">610,00 ₺</span></li>
+        </ul>
+        <small>Örnek adisyon. Fiyatlar işletmenin kendi menüsünden gelir.</small>
+      </div>
+      <figure class="shot">
+        <img src="img/garson-siparis.png" alt="Garson telefonunda sipariş alma ekranı" width="780" height="1688" loading="lazy">
+        <figcaption>Garson telefonu.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-mutfak" aria-labelledby="t-mutfak" hidden>
+      <div class="panel__text">
+        <h3>Mutfak saniyeler içinde görür.</h3>
+        <p>Yiyecekler mutfakta, içecekler barda. Not ve seçenekler (boy, süt, ekstra) fişte ve ekranda yazar. Hazır olan sipariş garsona bildirilir.</p>
+      </div>
+      <figure class="shot">
+        <img src="img/mutfak.png" alt="Mutfak ve bar ekranı, bekleyen ve hazırlanan siparişler" width="1226" height="852" loading="lazy">
+        <figcaption>Mutfak ve bar ekranı.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-kasa" aria-labelledby="t-kasa" hidden>
+      <div class="panel__text">
+        <h3>Hesap kalem kalem kesilir.</h3>
+        <p>Nakit, kart ya da karışık ödeme. Hesabı kişiye ya da tutara göre bölün; ikram, iskonto ve bahşiş ayrı kaydedilir.</p>
+      </div>
+      <figure class="shot">
+        <img src="img/kasa-adisyon.png" alt="Kasa adisyon ekranı, masanın kalemleri ve ödeme düğmeleri" width="1226" height="852" loading="lazy">
+        <figcaption>Kasa, adisyon.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-rapor" aria-labelledby="t-rapor" hidden>
+      <div class="panel__text">
+        <h3>Bugün ne sattınız, hangi saatte?</h3>
+        <p>Ürün, kategori, saat, personel ve ödeme yöntemi dökümü. Gün sonu, cari hesap ve veresiye aynı yerde.</p>
+      </div>
+      <figure class="shot">
+        <img src="img/raporlar.png" alt="Yönetim ekranında ciro raporları" width="1226" height="852" loading="lazy">
+        <figcaption>Yönetim, raporlar.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section qr" id="qr" aria-labelledby="qr-baslik">
+  <div class="container qr__grid">
+    <div class="qr__text">
+      <h2 id="qr-baslik">Menü müşterinin telefonunda açılır.</h2>
+      <ul class="facts">
+        <li>Her masanın QR kodu uygulamadan yazdırılır.</li>
+        <li>Müşteri kamerayla okutur; uygulama indirmez.</li>
+        <li>Sipariş, geldiği masayla birlikte mutfağa ve kasaya düşer.</li>
+      </ul>
+      <small>QR menü varsayılan olarak işletmenin Wi-Fi ağında açılır.</small>
+    </div>
+    <div class="qr__phones">
+      <figure class="shot">
+        <img src="img/qr-menu.png" alt="QR menü: fotoğraflı kategori ve ürün listesi" width="780" height="1688" loading="lazy">
+        <figcaption>QR menü.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/qr-urun.png" alt="QR menüde ürün seçenekleri ekranı" width="780" height="1688" loading="lazy">
+        <figcaption>Ürün seçenekleri.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="turler" aria-labelledby="turler-baslik">
+  <div class="container">
+    <div class="headblock">
+      <h2 id="turler-baslik">Kurulumda işletme türünüzü seçin.</h2>
+      <p class="lead">Ekran düzeni ve önerilen özellikler türe göre gelir.</p>
+    </div>
+    <table class="index">
+      <thead><tr><th scope="col">Tür</th><th scope="col">Durum</th><th scope="col">Neler gelir</th></tr></thead>
+      <tbody>
+        <tr><td>Kafe</td><td>Hazır</td><td>Hızlı satış tezgâhı, masada çay ve kahve siparişi, QR menü.</td></tr>
+        <tr><td>Restoran</td><td>Hazır</td><td>Masa planı, mutfak ekranı, ürün seçenekleri, hesap bölme.</td></tr>
+        <tr><td>Manav</td><td>Hazır</td><td>Masasız tezgâh satışı; ürün kiloyla ya da adetle.</td></tr>
+        <tr><td>Büfe ve beach</td><td>Kafe düzeniyle</td><td>Masa açmadan tahsilat; geniş alanda garson telefonu ve QR menü.</td></tr>
+      </tbody>
+    </table>
+    <p class="switches">Veresiye, rezervasyon, bahşiş ya da hesap bölme kullanmıyorsanız Ayarlar’dan kapatın; düğmeleri ekrandan kalkar, verileriniz silinmez.</p>
+  </div>
+</section>
+
+<section class="section--tight" aria-labelledby="not-baslik">
+  <div class="container">
+    <hr class="rule--double">
+    <div class="front__head">
+      <h2 id="not-baslik">Kurmadan önce bilmeniz gerekenler.</h2>
+      <p class="meta">SmartMenuOS buluta bağlı değildir. Veritabanı ve menü kasadaki Windows bilgisayarda çalışır.</p>
+    </div>
+    <div class="cols">
+      <p class="dropcap">Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin kendi POS cihazından alınır ve kasada “Kart” olarak kaydedilir; tutar POS’a otomatik gönderilmez.</p>
+      <p>Mali fiş yazar kasadan (ÖKC) ayrıca kesilir. SmartMenuOS’un bastığı fiş mali belge değildir; yükümlülükleriniz için mali müşavirinize danışın.</p>
+      <p>Doğrulanmış bir asgari donanım ya da onaylı yazıcı model listesi yoktur. Yazıcı, kâğıt kesme ve Türkçe karakterler kurulumda işletmedeki cihazla denenir.</p>
+      <p>Mobil veriyle QR menü için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir. Kasa bilgisayarı ve telefonlar aynı ağda olmalıdır; misafir ağı cihazları ayırıyorsa çalışmaz.</p>
+    </div>
+    <div class="front__req">
+      <div><h3>Kasa bilgisayarı</h3><p>Windows 10 veya 11, .NET Framework 4.8 ve ücretsiz SQL Server Express.</p></div>
+      <div><h3>Telefon ve tablet</h3><p>Uygulama kurulmaz; garson tarayıcıdan, müşteri QR koddan girer.</p></div>
+      <div><h3>Yazıcı ve çekmece</h3><p>Windows’a kurulu fiş yazıcısı; mutfak, bar ve kasa için ayrı ayrı.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="sorular" aria-labelledby="sss-baslik">
+  <div class="container faq__grid">
+    <h2 id="sss-baslik">Sık sorulanlar.</h2>
+    <div>
+      <details>
+        <summary>İnternet kesilirse ne olur?</summary>
+        <p>Sistem işletmenin kendi bilgisayarında ve yerel ağında çalışır. Wi-Fi çalıştığı sürece sipariş almaya, mutfağa göndermeye ve hesap kesmeye devam edersiniz.</p>
+      </details>
+      <details>
+        <summary>Birden fazla kasa kullanabilir miyim?</summary>
+        <p>Evet, aynı işletmede. Veritabanı ana bilgisayarda tutulur, diğer kasa ve mutfak bilgisayarları ona bağlanır. Şubeler arası bağlantı yoktur.</p>
+      </details>
+      <details>
+        <summary>Verilerim güvende mi?</summary>
+        <p>Veriler işletmenizin bilgisayarında tutulur ve otomatik olarak yedeklenir. Yedeğin ayrıca başka bir diske ya da USB belleğe kopyalanması önerilir.</p>
+      </details>
+      <details>
+        <summary>Deneme bitince menüm silinir mi?</summary>
+        <p>Hayır. Yıllık paketin lisansı aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır.</p>
+      </details>
+      <details>
+        <summary>Kurulum ve eğitim ücretli mi?</summary>
+        <p>Hayır. Kurulum, eğitim ve destek yıllık pakete dahildir; ayrıca ücret alınmaz.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="fiyat" aria-labelledby="fiyat-baslik">
+  <div class="container band__grid">
+    <div class="band__text">
+      <h2 id="fiyat-baslik" class="price">8.000 TL<span>+ KDV, 1 yıllık paket. Önce 14 gün ücretsiz.</span></h2>
+      <div class="hairline" aria-hidden="true"></div>
+      <ul class="included" aria-label="Pakete dahil olanlar">
+        <li>Adisyon, hızlı satış ve hesap bölme</li>
+        <li>QR menü ve garson telefonundan sipariş</li>
+        <li>Mutfak ve bar ekranı, mutfak ve bar yazıcısı</li>
+        <li>Cari hesap, gün sonu ve raporlar</li>
+        <li>Kurulum, eğitim ve destek</li>
+      </ul>
+    </div>
+    <div class="band__text">
+      <h3>Denemenizi başlatalım.</h3>
+      <p>WhatsApp’tan ya da e-postayla yazın; kurulumu planlayıp sistemi kendi menünüzle açalım.</p>
+      <div class="band__actions">
+        <a class="btn btn--light" href="https://wa.me/905423540851?text=Merhaba%2C%20SmartMenuOS%2014%20g%C3%BCnl%C3%BCk%20denemeyi%20ba%C5%9Flatmak%20istiyorum." rel="noopener">WhatsApp’tan yazın</a>
+        <a class="btn btn--rule-light" href="mailto:smartmenuoss@gmail.com?subject=SmartMenuOS%20deneme%20talebi">E-posta gönderin</a>
+      </div>
+      <dl class="contact">
+        <div><dt>WhatsApp ve telefon</dt><dd><a href="https://wa.me/905423540851" rel="noopener">0542 354 08 51</a></dd></div>
+        <div><dt>E-posta</dt><dd><a href="mailto:smartmenuoss@gmail.com">smartmenuoss@gmail.com</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/smartmenuos/" rel="noopener">@smartmenuos</a></dd></div>
+        <div><dt>Şehir</dt><dd>İstanbul</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <div class="colophon__top">
+      <img src="marka/smartmenuos-logo-light.svg" alt="SmartMenuOS" width="170" height="31">
+      <nav class="colophon__links" aria-label="Alt menü">
+        <a href="#akis">Nasıl çalışır</a>
+        <a href="#fiyat">Fiyat</a>
+        <a href="#sorular">Sorular</a>
+      </nav>
+    </div>
+    <hr class="rule">
+    <div class="credits">
+      <p>© 2026 SmartMenuOS, İstanbul.</p>
+      <p>Ekran görüntülerindeki işletme ve menü örnektir. Ürün fotoğrafları <a href="https://unsplash.com/license" rel="noopener">Unsplash Lisansı</a> ve <a href="https://www.pexels.com/license/" rel="noopener">Pexels Lisansı</a> ile kullanılmıştır; menü kartına uysun diye kırpılmıştır.</p>
+    <details><summary>Fotoğraf sahipleri</summary><ul>
+      <li>Çay: <a href="https://unsplash.com/photos/w-EIoCN75-Q" rel="noopener">Doğan Alpaslan DEMİR</a> (Unsplash)</li>
+      <li>Türk Kahvesi: <a href="https://unsplash.com/photos/JNUELX786BU" rel="noopener">Kameron Kincade</a> (Unsplash)</li>
+      <li>Latte: <a href="https://unsplash.com/photos/XOhI_kW_TaM" rel="noopener">Nathan Dumlao</a> (Unsplash)</li>
+      <li>Cappuccino: <a href="https://unsplash.com/photos/7zow7-ZranQ" rel="noopener">Sepehr Moazed</a> (Unsplash)</li>
+      <li>Americano: <a href="https://unsplash.com/photos/JNhaaPEz3FY" rel="noopener">Gerson Cifuentes</a> (Unsplash)</li>
+      <li>Sıcak Çikolata: <a href="https://unsplash.com/photos/NtmNhrdfs-o" rel="noopener">Elena Leya</a> (Unsplash)</li>
+      <li>Limonata: <a href="https://unsplash.com/photos/-uC6z3S8CMI" rel="noopener">Zhang Ziyu</a> (Unsplash)</li>
+      <li>Portakal Suyu: <a href="https://unsplash.com/photos/gEkTo1Oi78A" rel="noopener">Aneta Voborilova</a> (Unsplash)</li>
+      <li>Ice Latte: <a href="https://unsplash.com/photos/L-sm1B4L1Ns" rel="noopener">Demi DeHerrera</a> (Unsplash)</li>
+      <li>Ayran: <a href="https://www.pexels.com/photo/26648793/" rel="noopener">Esra Erdem</a> (Pexels)</li>
+      <li>Serpme Kahvaltı: <a href="https://unsplash.com/photos/NQkB9ohmb8s" rel="noopener">Ömer Haktan Bulut</a> (Unsplash)</li>
+      <li>Menemen: <a href="https://www.pexels.com/photo/36863875/" rel="noopener">Merve Gülhan</a> (Pexels)</li>
+      <li>Sucuklu Yumurta: <a href="https://www.pexels.com/photo/37206716/" rel="noopener">Mavi Yıldız Restoran Cumalıkızık Bursa</a> (Pexels)</li>
+      <li>Simit: <a href="https://unsplash.com/photos/hq9cnzbpoYQ" rel="noopener">Yasin Onus</a> (Unsplash)</li>
+      <li>Karışık Tost: <a href="https://www.pexels.com/photo/11256670/" rel="noopener">Tolga Aslantürk</a> (Pexels)</li>
+      <li>Hamburger: <a href="https://unsplash.com/photos/sc5sTPMrVfk" rel="noopener">amirali mirhashemian</a> (Unsplash)</li>
+      <li>Izgara Köfte: <a href="https://www.pexels.com/photo/7776552/" rel="noopener">Engin Akyurt</a> (Pexels)</li>
+      <li>Pizza Margherita: <a href="https://unsplash.com/photos/wgq8NVyXsYY" rel="noopener">Luigi Boccardo</a> (Unsplash)</li>
+      <li>Spagetti Napoliten: <a href="https://unsplash.com/photos/Htb3Neu9Tmg" rel="noopener">Mandy Bourke</a> (Unsplash)</li>
+      <li>Sezar Salata: <a href="https://unsplash.com/photos/UdLsLK_KFLw" rel="noopener">Cliffer Rebelo</a> (Unsplash)</li>
+      <li>Cheesecake: <a href="https://unsplash.com/photos/lKF0Urvp4RY" rel="noopener">A Studios</a> (Unsplash)</li>
+      <li>Brownie: <a href="https://unsplash.com/photos/yBNwcGFDqBk" rel="noopener">Arwen</a> (Unsplash)</li>
+      <li>Sufle: <a href="https://unsplash.com/photos/g1wZMtzpRy8" rel="noopener">joe boshra</a> (Unsplash)</li>
+      <li>Baklava: <a href="https://unsplash.com/photos/OEDeQheVySQ" rel="noopener">Benjamin Chambon</a> (Unsplash)</li>
+      <li>Waffle: <a href="https://unsplash.com/photos/1LPsUqjb_Jg" rel="noopener">Mae Mu</a> (Unsplash)</li>
+    </ul></details>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus({ preventScroll: true });
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab, false); });
+    tab.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') n = tabs[0];
+      if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); select(n, true); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
