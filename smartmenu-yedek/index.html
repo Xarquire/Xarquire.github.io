@@ -25,6 +25,7 @@
   --color-accent: oklch(44% 0.13 32); --color-accent-ink: oklch(95% 0.012 90); --color-focus: oklch(48% 0.17 32);
   --color-on-ink: oklch(94% 0.011 92); --color-on-ink-muted: oklch(78% 0.014 80); --color-on-ink-rule: oklch(45% 0.012 60);
   --color-focus-on-ink: oklch(80% 0.12 60);
+  --color-field: oklch(85% 0.105 74); --color-field-2: oklch(80% 0.12 68); --color-brand: oklch(70% 0.18 52); --color-brand-deep: oklch(58% 0.17 45);
   --font-display: "Zilla Slab", ui-serif, Georgia, serif; --font-body: "Spectral", ui-serif, Georgia, serif;
   --font-outlier: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
   --radius-card: 0; --rule-hair: 1px; --tracking-display: -0.02em; --display-weight: 700;
@@ -76,8 +77,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
 .btn--rule { background: transparent; color: var(--color-ink); border-inline-color: transparent; border-block: var(--rule-hair) solid var(--color-ink); }
 .btn--rule:hover { background: var(--color-paper-2); }
-.btn--light { background: var(--color-on-ink); color: var(--color-ink); border-color: var(--color-on-ink); }
-.btn--light:hover { background: var(--color-paper-2); }
+.btn--light { background: var(--color-field); color: var(--color-ink); border-color: var(--color-field); }
+.btn--light:hover { background: var(--color-on-ink); }
 .btn--light:focus-visible, .btn--rule-light:focus-visible { outline-color: var(--color-focus-on-ink); }
 .btn--rule-light { background: transparent; color: var(--color-on-ink); border-inline-color: transparent; border-block: var(--rule-hair) solid var(--color-on-ink); }
 .btn--rule-light:hover { background: var(--color-ink-2); }
@@ -99,6 +100,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xs); }
 .hero__terms { max-width: 38ch; }
 .shot { margin: 0; }
+.hero .shot { position: relative; }
+.hero .shot::before { content: ""; position: absolute; inset: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-xl) var(--space-2xl); background: var(--color-field); z-index: -1; }
+.hero .shot img { position: relative; border-color: var(--color-ink); }
 .shot img { border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-2); }
 .shot figcaption { padding-top: var(--space-xs); }
 
@@ -111,7 +115,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .tab { appearance: none; border: 0; border-left: var(--rule-hair) solid var(--color-rule); background: none; padding: var(--space-md) var(--space-lg) var(--space-md); text-align: left; font: 700 var(--text-title)/1.1 var(--font-display); letter-spacing: -0.01em; color: var(--color-muted); cursor: pointer; box-shadow: inset 0 -3px 0 transparent; transition: color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); min-height: 52px; }
 .tab:first-child { border-left: 0; padding-left: 0; }
 .tab:hover { color: var(--color-ink-2); }
-.tab[aria-selected="true"] { color: var(--color-ink); box-shadow: inset 0 -3px 0 var(--color-ink); }
+.tab[aria-selected="true"] { color: var(--color-ink); box-shadow: inset 0 -4px 0 var(--color-brand); }
 .tab:focus-visible { outline-offset: -2px; }
 .tab small { display: block; margin-top: var(--space-2xs); font-size: var(--text-sm); }
 .panel { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-top: var(--space-2xl); align-items: start; }
@@ -147,6 +151,24 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .index tr:first-child td:first-child { font-size: var(--text-display-s); }
 .switches { margin-top: var(--space-xl); max-width: 62ch; }
 
+/* committed field band: brand amber */
+.field { background: var(--color-field); border-block: var(--rule-hair) solid var(--color-field-2); }
+.field .lead { color: var(--color-ink); }
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap-columns); }
+.tile { grid-column: span 3; }
+.tile--lead { grid-column: span 7; }
+.tile.shot:not(.tile--lead) { grid-column: span 5; }
+.tile .shot img, .tile img { width: 100%; border-color: var(--color-ink); }
+.tile figcaption { color: var(--color-ink-2); }
+.tile--text { display: grid; align-content: start; gap: var(--space-sm); padding-top: var(--space-md); border-top: 3px solid var(--color-ink); }
+.tile--text p { color: var(--color-ink-2); }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); counter-reset: adim; }
+.steps li { counter-increment: adim; display: grid; gap: var(--space-sm); align-content: start; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.steps li::before { content: counter(adim); font: 700 var(--text-display)/0.9 var(--font-display); color: var(--color-brand-deep); letter-spacing: var(--tracking-display); }
+.steps p { color: var(--color-ink-2); max-width: 40ch; }
+.qr__photo { margin-top: var(--space-md); }
+.qr__photo img { aspect-ratio: 16 / 10; object-fit: cover; }
+
 /* front page in columns */
 .front__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-xl); padding-top: var(--space-lg); }
 .front__head h2 { font-size: var(--text-display-s); max-width: 24ch; }
@@ -178,7 +200,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .price span { display: block; margin-top: var(--space-sm); font: 400 var(--text-lead)/1.4 var(--font-body); letter-spacing: 0; color: var(--color-on-ink-muted); }
 .band__text { display: grid; gap: var(--space-lg); }
 .band__text p { color: var(--color-on-ink-muted); max-width: 44ch; }
-.band .hairline { border-top: var(--rule-hair) solid var(--color-focus-on-ink); width: var(--space-2xl); }
+.band .hairline { border-top: 4px solid var(--color-brand); width: var(--space-2xl); }
 .included li { padding-block: var(--space-sm); border-bottom: var(--rule-hair) solid var(--color-on-ink-rule); }
 .included li:first-child { border-top: var(--rule-hair) solid var(--color-on-ink-rule); }
 .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); margin-top: var(--space-xl); }
@@ -212,7 +234,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tab:nth-child(3) { border-left: 0; padding-left: 0; }
   .tab:nth-child(-n+2) { border-bottom: var(--rule-hair) solid var(--color-rule); }
-  .front__req { grid-template-columns: minmax(0, 1fr); }
+  .front__req, .steps { grid-template-columns: minmax(0, 1fr); }
+  .tile, .tile--lead, .tile.shot:not(.tile--lead) { grid-column: span 12; }
+  .tile--text { grid-column: span 6; min-height: 0; }
+  .hero .shot::before { inset: calc(-1 * var(--space-sm)) calc(-1 * var(--space-sm)) var(--space-lg) var(--space-xl); }
   .qr__phones .shot:last-child { padding-bottom: var(--space-xl); }
   .panel--phone .shot { max-width: 240px; }
 }
@@ -223,6 +248,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .index tr { display: grid; grid-template-columns: minmax(0, 1fr); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
   .index td { border: 0; padding: var(--space-2xs) 0; width: auto !important; }
   .contact { grid-template-columns: minmax(0, 1fr); }
+  .tile--text { grid-column: span 12; }
   .masthead__bar { min-height: 64px; }
   .masthead .btn { padding: 0 var(--space-md); }
 }
@@ -241,6 +267,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     <p class="masthead__dateline meta">İstanbul. Kafe, restoran ve manav için adisyon.</p>
     <nav class="masthead__links" aria-label="Ana menü">
       <a href="#akis">Nasıl çalışır</a>
+      <a href="#ozellikler">Özellikler</a>
       <a href="#qr">QR menü</a>
       <a href="#fiyat">Fiyat</a>
       <a href="#sorular">Sorular</a>
@@ -347,7 +374,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         <li>Müşteri kamerayla okutur; uygulama indirmez.</li>
         <li>Sipariş, geldiği masayla birlikte mutfağa ve kasaya düşer.</li>
       </ul>
-      <small>QR menü varsayılan olarak işletmenin Wi-Fi ağında açılır.</small>
+      <figure class="shot qr__photo">
+        <img src="img/masa-qr-standi.jpg" alt="Kafe masasında SmartMenuOS QR kod standı" width="1600" height="1000" loading="lazy">
+        <figcaption>Masa QR standı, örnek görsel.</figcaption>
+      </figure>
     </div>
     <div class="qr__phones">
       <figure class="shot">
@@ -381,23 +411,57 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   </div>
 </section>
 
-<section class="section--tight" aria-labelledby="not-baslik">
+<section class="section field" id="ozellikler" aria-labelledby="oz-baslik">
+  <div class="container">
+    <div class="headblock">
+      <h2 id="oz-baslik">Servisin her adımı aynı ekranda.</h2>
+      <p class="lead">Salon, bahçe, teras: hangi masa dolu, ne kadar açık, tek bakışta.</p>
+    </div>
+    <div class="bento">
+      <figure class="tile tile--lead shot">
+        <img src="img/kasa-masalar.png" alt="Kasa ekranında bölgelere ayrılmış masalar, dolu masalarda açık tutar" width="1226" height="610" loading="lazy">
+        <figcaption>Masalar ve bölgeler. Taşıma, birleştirme ve rezervasyon.</figcaption>
+      </figure>
+      <figure class="tile shot">
+        <img src="img/hesap-bol.png" alt="Hesabı kişi sayısına ya da tutara göre bölme penceresi" width="690" height="560" loading="lazy">
+        <figcaption>Hesabı kişiye ya da tutara göre bölün.</figcaption>
+      </figure>
+      <div class="tile tile--text">
+        <h3>Hızlı satış</h3>
+        <p>Masa açmadan tezgâhtan tahsilat. Barkod okutun ya da ürüne dokunun.</p>
+      </div>
+      <div class="tile tile--text">
+        <h3>Cari ve veresiye</h3>
+        <p>Müşteri hesabına yazın, ödendikçe düşün. Gün sonu ve ciro raporu hazır.</p>
+      </div>
+      <div class="tile tile--text">
+        <h3>Menü Excel’den gelir</h3>
+        <p>Ürünleri, fiyatları ve fotoğrafları bir listeyle aktarın.</p>
+      </div>
+      <div class="tile tile--text">
+        <h3>Size göre sadeleşir</h3>
+        <p>Kullanmadığınız özelliği kapatın, düğmesi ekrandan kalksın.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kurulum" aria-labelledby="kur-baslik">
   <div class="container">
     <hr class="rule--double">
-    <div class="front__head">
-      <h2 id="not-baslik">Kurmadan önce bilmeniz gerekenler.</h2>
-      <p class="meta">SmartMenuOS buluta bağlı değildir. Veritabanı ve menü kasadaki Windows bilgisayarda çalışır.</p>
+    <div class="headblock" style="padding-top: var(--space-xl)">
+      <h2 id="kur-baslik">Denemeden ilk servise üç adım.</h2>
+      <p class="lead">Kasada bir Windows bilgisayar, cepte telefonlar yeter.</p>
     </div>
-    <div class="cols">
-      <p class="dropcap">Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin kendi POS cihazından alınır ve kasada “Kart” olarak kaydedilir; tutar POS’a otomatik gönderilmez.</p>
-      <p>Mali fiş yazar kasadan (ÖKC) ayrıca kesilir. SmartMenuOS’un bastığı fiş mali belge değildir; yükümlülükleriniz için mali müşavirinize danışın.</p>
-      <p>Doğrulanmış bir asgari donanım ya da onaylı yazıcı model listesi yoktur. Yazıcı, kâğıt kesme ve Türkçe karakterler kurulumda işletmedeki cihazla denenir.</p>
-      <p>Mobil veriyle QR menü için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir. Kasa bilgisayarı ve telefonlar aynı ağda olmalıdır; misafir ağı cihazları ayırıyorsa çalışmaz.</p>
-    </div>
+    <ol class="steps">
+      <li><h3>Görüşme ve kurulum</h3><p>İşletmenizi dinliyoruz. Kurulum bilgisayarınıza yapılır, menü Excel’den aktarılır, masa QR kodları yazdırılır.</p></li>
+      <li><h3>14 gün ücretsiz</h3><p>Sistemi kendi menünüzle, kendi servisinizde kullanırsınız. Yazıcılar ve telefonlar birlikte denenir.</p></li>
+      <li><h3>Yıllık paket</h3><p>Devam ederseniz lisans aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır.</p></li>
+    </ol>
     <div class="front__req">
-      <div><h3>Kasa bilgisayarı</h3><p>Windows 10 veya 11, .NET Framework 4.8 ve ücretsiz SQL Server Express.</p></div>
+      <div><h3>Kasa bilgisayarı</h3><p>Windows 10 veya 11 ve ücretsiz SQL Server Express.</p></div>
       <div><h3>Telefon ve tablet</h3><p>Uygulama kurulmaz; garson tarayıcıdan, müşteri QR koddan girer.</p></div>
-      <div><h3>Yazıcı ve çekmece</h3><p>Windows’a kurulu fiş yazıcısı; mutfak, bar ve kasa için ayrı ayrı.</p></div>
+      <div><h3>Yazıcı ve çekmece</h3><p>Mutfak, bar ve kasa için ayrı fiş yazıcısı; nakitte çekmece açılır.</p></div>
     </div>
   </div>
 </section>
@@ -412,11 +476,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       </details>
       <details>
         <summary>Birden fazla kasa kullanabilir miyim?</summary>
-        <p>Evet, aynı işletmede. Veritabanı ana bilgisayarda tutulur, diğer kasa ve mutfak bilgisayarları ona bağlanır. Şubeler arası bağlantı yoktur.</p>
+        <p>Evet, aynı işletmede. Veritabanı ana bilgisayarda tutulur, diğer kasa ve mutfak bilgisayarları ona bağlanır.</p>
       </details>
       <details>
         <summary>Verilerim güvende mi?</summary>
-        <p>Veriler işletmenizin bilgisayarında tutulur ve otomatik olarak yedeklenir. Yedeğin ayrıca başka bir diske ya da USB belleğe kopyalanması önerilir.</p>
+        <p>Veriler işletmenizin bilgisayarında tutulur ve otomatik olarak yedeklenir. Yedeği isterseniz ayrıca bir diske ya da USB belleğe alırsınız.</p>
       </details>
       <details>
         <summary>Deneme bitince menüm silinir mi?</summary>
