@@ -1,10 +1,13 @@
 // Cloudflare: smartmenuos.com yalnız smartmenu/ klasörünü yayınlar (kökteki portfolyo GitHub Pages'te kalır).
 //
-// /guncelleme/* SmartMenuOS kasalarının otomatik güncellemesi (1.7.3): sunucu/index.js.
-// Sürüm bildirimi herkese, paket parçaları yalnızca geçerli lisanslı kasaya verilir.
-// Dosyalar Workers KV'de (GUNCELLEME); Lisans Yönetimi → Güncelleme yükler. Paket
-// dosyaları bu depoya KONMAZ (depo herkese açık).
-// Kaynak ve testler: SmartMenuOS deposu, tools/GuncellemeSunucusu.
+// Worker (sunucu/index.js) yalnızca iki yolda çalışır:
+//   /guncelleme/*   SmartMenuOS kasalarının güncellemesi (sürüm bildirimi herkese, paket yalnız lisanslı kasaya)
+//   /lisans/durum   uzaktan lisans durumu (1.8.0): imzalı durum cevabı, iptal kaydı, yenilenmiş anahtar
+// KV (GUNCELLEME): guncelleme/*, paket/* (Lisans Yönetimi → Güncelleme), kurulum/*, sert (Lisans Yönetimi →
+//   Uzaktan durum), iptalgorulme/* (Worker). D1 (TELEMETRI): kasa_durum, yalnız teknik bilgi.
+// Gizli değer (yalnız Cloudflare'de, bu dosyada ASLA): DURUM_GIZLI — Lisans Yönetimi "Uzaktan durumu kur" yükler.
+// Paket dosyaları bu depoya KONMAZ (depo herkese açık).
+// Kaynak ve testler: SmartMenuOS deposu, tools/GuncellemeSunucusu (bu dosyanın aslı: site/wrangler.jsonc).
 {
   "name": "smartmenuos",
   "compatibility_date": "2026-09-01",
@@ -12,11 +15,17 @@
   "assets": {
     "directory": "./smartmenu",
     "binding": "ASSETS",
-    "run_worker_first": ["/guncelleme/*"]
+    "run_worker_first": ["/guncelleme/*", "/lisans/durum"]
   },
-  // Kimlik yazılmadı: ilk yayında Cloudflare depoyu kendisi oluşturur
-  // ("smartmenuos-guncelleme"), sonraki yayınlar aynısını kullanır.
+  // Kimlikler yazılmadı: ilk yayında Cloudflare kendisi oluşturur ("smartmenuos-guncelleme" KV,
+  // "smartmenuos-telemetri" D1), sonraki yayınlar aynısını kullanır. D1 oluşmazsa panelden aynı adla
+  // oluşturulup "database_id" buraya eklenir.
   "kv_namespaces": [
     { "binding": "GUNCELLEME" }
-  ]
+  ],
+  "d1_databases": [
+    { "binding": "TELEMETRI", "database_name": "smartmenuos-telemetri" }
+  ],
+  // Her gün 03:30 UTC (06:30 Türkiye): 180 gün görülmeyen kasa satırları silinir.
+  "triggers": { "crons": ["30 3 * * *"] }
 }
