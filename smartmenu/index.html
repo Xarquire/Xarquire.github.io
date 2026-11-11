@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <script>if(location.hostname==="xarquire.github.io"||location.hostname==="www.smartmenuos.com")location.replace("https://smartmenuos.com/"+location.search+location.hash)</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon ve QR menü sistemi. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL.">
-<title>SmartMenuOS | QR Menü ve Adisyon Sistemi · Kafe, Restoran, Büfe</title>
+<meta name="description" content="SmartMenuOS: kafe, restoran, büfe ve manavlar için adisyon sistemi, QR menü ve restoran yönetim programı. Garson telefondan sipariş girer, mutfak ekranda görür, kasa hesabı keser. 14 gün ücretsiz deneyin; 1 yıllık paket 8.000 TL.">
+<title>SmartMenuOS | Adisyon Sistemi, QR Menü ve Restoran Yönetim Programı</title>
 <meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="marka/favicon.ico" sizes="48x48">
@@ -35,6 +35,7 @@
    "@type": "Organization",
    "@id": "https://smartmenuos.com/#org",
    "name": "SmartMenuOS",
+   "alternateName": ["Smart Menu OS", "SmartMenu OS"],
    "url": "https://smartmenuos.com/",
    "logo": "https://smartmenuos.com/marka/android-chrome-512x512.png",
    "email": "smartmenuoss@gmail.com",
@@ -238,8 +239,9 @@ a { color: inherit; }
 /* hero */
 .hero { background: radial-gradient(1000px 420px at 50% -10%, var(--amber-soft), transparent 70%), var(--bg); }
 .hero-text { text-align: center; max-width: 860px; margin: 0 auto; padding-top: 64px; display: grid; justify-items: center; }
-.hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.3rem); font-weight: 850; margin-top: 18px; }
-.hero h1 em { font-style: normal; color: var(--amber-ink); }
+.hero .slogan { font-family: var(--f-display); font-stretch: 112%; line-height: 1.08; text-wrap: balance; letter-spacing: -0.01em; font-size: clamp(2.4rem, 5.6vw, 4.3rem); font-weight: 850; margin: 18px 0 0; }
+.hero h1.eyebrow { margin: 0; }
+.hero .slogan em { font-style: normal; color: var(--amber-ink); }
 .hero .lead { margin-top: 20px; }
 .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
 .hero-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin: 26px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.95rem; }
@@ -476,8 +478,8 @@ footer .credits a { color: inherit; }
   <section class="hero" style="padding:0">
     <div class="wrap">
       <div class="hero-text">
-        <p class="eyebrow"><span class="type-swap" aria-live="off"><span class="cur">Kafeniz</span><span>Restoranınız</span><span>Büfeniz</span><span>Manavınız</span></span> için adisyon sistemi</p>
-        <h1>Masadan mutfağa, <em>mutfaktan kasaya</em> tek sistem.</h1>
+        <h1 class="eyebrow"><span class="type-swap" aria-live="off"><span class="cur">Kafeniz</span><span>Restoranınız</span><span>Büfeniz</span><span>Manavınız</span></span> için adisyon sistemi</h1>
+        <p class="slogan">Masadan mutfağa, <em>mutfaktan kasaya</em> tek sistem.</p>
         <p class="lead">Garson siparişi telefondan girer, müşteri isterse QR menüden kendisi verir. Mutfak anında görür, kasa hesabı keser. SmartMenuOS işletmenizin kendi bilgisayarında çalışır.</p>
         <div class="hero-cta">
           <a class="btn btn-amber" href="#iletisim">14 gün ücretsiz deneyin <span class="arr">→</span></a>
