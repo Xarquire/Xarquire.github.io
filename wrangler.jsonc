@@ -27,5 +27,9 @@
     { "binding": "TELEMETRI", "database_name": "smartmenuos-telemetri" }
   ],
   // Her gün 03:30 UTC (06:30 Türkiye): 180 gün görülmeyen kasa satırları silinir.
-  "triggers": { "crons": ["30 3 * * *"] }
+  "triggers": { "crons": ["30 3 * * *"] },
+  // PR önizlemeleri (Workers Builds, `wrangler preview`) bu blok olmadan derlenmez. Bilerek boş:
+  // önizlemeye KV/D1 bağlanmaz, böylece bir PR önizlemesi canlı güncelleme/lisans verisine dokunamaz.
+  // Önizlemede yalnız statik site denenir; /guncelleme/* ve /lisans/durum orada çalışmaz.
+  "previews": {}
 }
