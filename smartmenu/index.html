@@ -77,7 +77,7 @@
     "price": "8000",
     "priceCurrency": "TRY",
     "url": "https://smartmenuos.com/#fiyat",
-    "description": "Kurulum, eğitim ve destek dahil. 14 gün ücretsiz deneme."
+    "description": "Yazılım lisansı. Kurulum, eğitim ve destek dahil; donanım dahil değildir. 14 gün ücretsiz deneme."
    }
   },
   {
@@ -113,7 +113,7 @@
      "name": "Hangi cihazlar gerekiyor?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır."
+      "text": "Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Bilgisayar, tablet, telefon ve yazıcılar pakete dahil değildir; işletme kendisi temin eder. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır."
      }
     },
     {
@@ -121,7 +121,7 @@
      "name": "Fiş ve mutfak yazıcısı destekleniyor mu?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Evet. Windows'a yazıcı olarak kurulabilen fiş yazıcıları kullanılır: mutfak, bar ve kasa için ayrı yazıcı seçilebilir, nakit ödemede para çekmecesi açılabilir. Onaylı bir model listesi yoktur; her yazıcı kurulumda deneme fişiyle sınanır."
+      "text": "Evet, yazılım bu yazıcılara fiş ve sipariş gönderir; yazıcının kendisi pakete dahil değildir. Windows'a yazıcı olarak kurulabilen fiş yazıcıları kullanılır: mutfak, bar ve kasa için ayrı yazıcı seçilebilir, nakit ödemede para çekmecesi açılabilir. Onaylı bir model listesi yoktur; her yazıcı kurulumda deneme fişiyle sınanır."
      }
     },
     {
@@ -377,8 +377,6 @@ section { padding-block: 92px; }
 .req > div { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; background: #fff; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .req ul { margin: 0; padding: 0 0 0 18px; color: var(--muted); display: grid; gap: 6px; font-size: .97rem; }
 .req .k { font: 600 .72rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--amber-ink); }
-.honest { margin-top: 22px; border: 1px solid #f3dca8; border-left: 4px solid var(--amber); border-radius: var(--r); padding: 18px 22px; background: var(--amber-soft); display: grid; gap: 8px; }
-.honest ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 @media (max-width: 900px) { .req { grid-template-columns: 1fr; } }
 
 /* fiyat */
@@ -741,15 +739,6 @@ footer .credits a { color: inherit; }
         <div><span class="k">Telefon ve tablet</span><h3>Uygulama kurulmaz</h3><ul><li>Garson, sipariş ekranını telefonunun tarayıcısında açar</li><li>Müşteri masadaki QR kodu kendi telefonuyla okutur</li><li>Kasa bilgisayarı ve telefonlar aynı ağda olmalıdır; misafir ağı cihazları ayırıyorsa çalışmaz</li></ul></div>
         <div><span class="k">Yazıcı ve çekmece</span><h3>Windows'a kurulu fiş yazıcısı</h3><ul><li>Mutfak, bar ve kasa için ayrı yazıcı; kategoriye göre bar ayrımı</li><li>Para çekmecesi kasa yazıcısına bağlanır</li><li>Her yazıcı kurulumda deneme fişiyle sınanır</li></ul></div>
       </div>
-      <div class="honest">
-        <b>Bilmeniz gerekenler</b>
-        <ul>
-          <li>Doğrulanmış bir asgari donanım ya da onaylı yazıcı model listesi yoktur. Yazıcı, kâğıt kesme ve Türkçe karakterler kurulumda işletmedeki cihazla denenir.</li>
-          <li>Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin POS cihazından alınır ve kasada "Kart" olarak kaydedilir.</li>
-          <li>Mali fiş yazar kasadan (ÖKC) ayrıca kesilir; SmartMenuOS'un fişi mali belge değildir.</li>
-          <li>QR menü varsayılan olarak işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir.</li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -764,11 +753,11 @@ footer .credits a { color: inherit; }
         <div class="plan pick">
           <span class="badge">1 yıllık paket</span>
           <div class="price"><b>8.000 TL</b><span>/ yıl</span></div>
-          <p class="note">Kurulum, eğitim ve destek dahildir.</p>
+          <p class="note">Yazılım lisansıdır. Kurulum, eğitim ve destek dahildir; bilgisayar, yazıcı, tablet gibi donanımlar dahil değildir.</p>
           <ul>
             <li>Adisyon, hızlı satış ve hesap bölme</li>
             <li>QR menü ve garson telefonundan sipariş</li>
-            <li>Mutfak ve bar ekranı, mutfak/bar yazıcısı</li>
+            <li>Mutfak ve bar ekranı yazılımı, yazıcıya sipariş gönderme</li>
             <li>Masa bölgeleri, ürün seçenekleri ve notları</li>
             <li>Cari hesap, gün sonu ve raporlar</li>
             <li>Kurulum, eğitim ve destek</li>
@@ -792,8 +781,8 @@ footer .credits a { color: inherit; }
         <details open><summary>Fiyat ne kadar?</summary><p>1 yıllık paket 8.000 TL. Kurulum, eğitim ve destek bu pakete dahildir. Önce 14 gün ücretsiz deneyebilirsiniz.</p></details>
         <details><summary>Deneme süresi var mı?</summary><p>Evet, 14 gün ücretsiz. Deneme bittiğinde devam etmek isterseniz yıllık paketin lisansı aynı kuruluma girilir; menünüz ve kayıtlarınız yerinde kalır.</p></details>
         <details><summary>İnternet kesilirse ne olur?</summary><p>SmartMenuOS işletmenizin kendi bilgisayarında ve yerel ağında çalışır. İnternet kesilse de Wi-Fi ağı çalıştığı sürece sipariş almaya, mutfağa göndermeye ve hesap kesmeye devam edersiniz.</p></details>
-        <details><summary>Hangi cihazlar gerekiyor?</summary><p>Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır.</p></details>
-        <details><summary>Fiş ve mutfak yazıcısı destekleniyor mu?</summary><p>Evet. Windows'a yazıcı olarak kurulabilen fiş yazıcıları kullanılır: mutfak, bar ve kasa için ayrı yazıcı seçilebilir, nakit ödemede para çekmecesi açılabilir. Onaylı bir model listesi yoktur; her yazıcı kurulumda deneme fişiyle sınanır.</p></details>
+        <details><summary>Hangi cihazlar gerekiyor?</summary><p>Kasa için Windows 10 veya 11 bir bilgisayar. Garsonlar kendi telefonlarından ya da tabletten, tarayıcıyla sipariş girer; müşteriler QR menüyü kendi telefonundan açar. Ayrı bir uygulama kurulmaz. Bilgisayar, tablet, telefon ve yazıcılar pakete dahil değildir; işletme kendisi temin eder. Doğrulanmış bir asgari donanım listesi yoktur; bilgisayar Windows ve SQL Server Express'in kendi gereksinimlerini karşılamalıdır.</p></details>
+        <details><summary>Fiş ve mutfak yazıcısı destekleniyor mu?</summary><p>Evet, yazılım bu yazıcılara fiş ve sipariş gönderir; yazıcının kendisi pakete dahil değildir. Windows'a yazıcı olarak kurulabilen fiş yazıcıları kullanılır: mutfak, bar ve kasa için ayrı yazıcı seçilebilir, nakit ödemede para çekmecesi açılabilir. Onaylı bir model listesi yoktur; her yazıcı kurulumda deneme fişiyle sınanır.</p></details>
         <details><summary>Kartlı ödeme POS cihazına gider mi?</summary><p>Hayır. Banka POS entegrasyonu yoktur. Kartlı ödeme işletmenin kendi POS cihazından alınır, kasada ödeme yöntemi "Kart" olarak kaydedilir; tutar POS'a otomatik gönderilmez.</p></details>
         <details><summary>Yazar kasa (ÖKC) ile bağlantılı mı?</summary><p>Hayır. SmartMenuOS'un bastığı fiş mali belge değildir; mali fiş işletmenin yazar kasasından ayrıca kesilir. İşletmenizin yükümlülükleri için mali müşavirinize danışın.</p></details>
         <details><summary>Müşteri QR menüyü mobil veriyle açabilir mi?</summary><p>Varsayılan kurulumda QR menü işletmenin Wi-Fi ağında açılır. Mobil veriyle erişim için alan adı ve ayrıca kurulan bir internet bağlantısı gerekir; bu, kurulumda ayrıca planlanır.</p></details>
