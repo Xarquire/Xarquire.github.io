@@ -223,7 +223,8 @@ a { color: inherit; }
 .logo img { display: block; height: 34px; width: auto; }
 @media (max-width: 420px) { .logo img { height: 28px; } }
 .nav { display: flex; gap: 22px; margin-left: auto; font-weight: 600; font-size: 0.95rem; }
-.nav a { text-decoration: none; color: var(--muted); transition: color .2s; }
+.nav a { text-decoration: none; color: var(--muted); transition: color .2s; white-space: nowrap; }
+@media (max-width: 1240px) { .nav { gap: 16px; } .nav .genis { display: none; } }
 .nav a:hover { color: var(--ink); }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: 8px; font: 700 0.98rem/1 var(--f-body); text-decoration: none; border: 1.5px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s; }
 .btn-amber { background: var(--amber); color: #1b1300; box-shadow: 0 8px 22px -12px rgba(200,130,0,.9); }
@@ -233,7 +234,7 @@ a { color: inherit; }
 .btn .arr { transition: transform .2s; }
 .btn:hover .arr { transform: translateX(4px); }
 .top .btn { padding: 10px 16px; }
-@media (max-width: 880px) { .nav { display: none; } .top .btn { margin-left: auto; } }
+@media (max-width: 990px) { .nav { display: none; } .top .btn { margin-left: auto; } }
 
 /* hero */
 .hero { background: radial-gradient(1000px 420px at 50% -10%, var(--amber-soft), transparent 70%), var(--bg); }
@@ -380,6 +381,11 @@ section { padding-block: 92px; }
 @media (max-width: 900px) { .req { grid-template-columns: 1fr; } }
 
 /* fiyat */
+.diger-urun { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.diger-urun a { display: grid; gap: 4px; text-decoration: none; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.diger-urun a:hover { border-color: var(--amber); }
+.diger-urun span { color: var(--muted); font-size: .9rem; }
+@media (max-width: 760px) { .diger-urun { grid-template-columns: 1fr; } }
 .pricing { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 20px; align-items: stretch; }
 .plan { border: 1px solid var(--line); border-radius: 16px; padding: 30px; display: grid; gap: 16px; align-content: start; background: #fff; position: relative; box-shadow: var(--shadow); }
 .plan.pick { border: 2px solid var(--amber); }
@@ -461,9 +467,11 @@ footer .credits a { color: inherit; }
       <a href="#akis">Nasıl çalışır</a>
       <a href="#ozellikler">Özellikler</a>
       <a href="#qr-menu">QR menü</a>
-      <a href="#kurulum">Kurulum</a>
+      <a class="genis" href="#kurulum">Kurulum</a>
       <a href="#fiyat">Fiyat</a>
-      <a href="#sss">SSS</a>
+      <a href="cozumler/">Çözümler</a>
+      <a href="urunler/">Ürünler</a>
+      <a class="genis" href="#sss">SSS</a>
       <a href="#iletisim">İletişim</a>
     </nav>
     <a class="btn btn-amber" href="#iletisim">14 gün ücretsiz deneyin</a>
@@ -771,6 +779,11 @@ footer .credits a { color: inherit; }
           <a class="btn btn-line" href="#iletisim">Denemeyi başlatın <span class="arr">→</span></a>
         </div>
       </div>
+      <div class="diger-urun">
+        <a href="cozumler/#bulut-qr-menu"><span>Adisyonsuz, yalnızca QR menü</span><b>Bulut QR menü · 3.000 TL / yıl</b></a>
+        <a href="urunler/#masa-karti"><span>Telefonu yaklaştır ya da okut</span><b>NFC-QR masa kartı · 250 TL / adet</b></a>
+        <a href="urunler/"><span>Tüm ürünler ve fiyatlar</span><b>Ürünler sayfası →</b></a>
+      </div>
     </div>
   </section>
 
@@ -838,7 +851,7 @@ footer .credits a { color: inherit; }
 <footer>
   <div class="wrap">
     <span>© 2026 SmartMenuOS</span>
-    <nav aria-label="Sayfalar"><a href="adisyon-programi/">Adisyon programı</a><a href="qr-menu/">QR menü</a><a href="manav-programi/">Manav programı</a><a href="internetsiz-adisyon-programi/">İnternetsiz adisyon programı</a></nav>
+    <nav aria-label="Sayfalar"><a href="cozumler/">Çözümler</a><a href="urunler/">Ürünler</a><a href="adisyon-programi/">Adisyon programı</a><a href="qr-menu/">QR menü</a><a href="manav-programi/">Manav programı</a><a href="internetsiz-adisyon-programi/">İnternetsiz adisyon programı</a></nav>
     <nav aria-label="İletişim"><a href="https://wa.me/905423540851" rel="noopener">WhatsApp</a><a href="mailto:smartmenuoss@gmail.com">E-posta</a><a href="https://www.instagram.com/smartmenuos/" rel="noopener">Instagram</a></nav>
   </div>
   <div class="wrap credits" id="gorsel-kaynaklari">
