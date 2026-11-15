@@ -205,8 +205,46 @@
   </section>
   <section>
     <div class="wrap">
-      <div class="head"><p class="eyebrow">Hazır tasarımlar</p><h2>Restoranlar için</h2><p class="lead">Çini, Ocakbaşı, Zarif, Lokanta ve Modern bistro. Renk, yazı ve masa adları işletmenize göre değişir.</p></div>
-      <figure class="shot"><picture><source srcset="/img/nfc-kart-restoran-tasarimlari.webp" type="image/webp"><img src="/img/nfc-kart-restoran-tasarimlari.jpg" alt="Restoranlar için beş NFC-QR masa kartı tasarımı: Çini, Ocakbaşı, Zarif, Lokanta ve Modern bistro" width="1400" height="1032" loading="lazy"></picture></figure>
+      <div class="head"><p class="eyebrow">Hazır tasarımlar</p><h2>Restoranlar için</h2><p class="lead">Çini, Ocakbaşı, Zarif, Lokanta ve Modern bistro. Renk, yazı ve masa adları işletmenize göre değişir. Kendi logonuzu ya da tasarımınızı yükleyip kartta nasıl duracağını da görebilirsiniz.</p></div>
+      <div class="kart-galeri">
+        <figure><picture><source srcset="/img/nfc-kart-cini.webp" type="image/webp"><img src="/img/nfc-kart-cini.jpg" alt="Çini tasarımlı NFC-QR masa kartı: lacivert zemin, çini deseni, Masa 12" width="640" height="640" loading="lazy"></picture><figcaption>1 · Çini</figcaption></figure>
+        <figure><picture><source srcset="/img/nfc-kart-ocakbasi.webp" type="image/webp"><img src="/img/nfc-kart-ocakbasi.jpg" alt="Ocakbaşı tasarımlı NFC-QR masa kartı: kömür siyahı zemin, köz ışığı, Masa 12" width="640" height="640" loading="lazy"></picture><figcaption>2 · Ocakbaşı</figcaption></figure>
+        <figure><picture><source srcset="/img/nfc-kart-zarif.webp" type="image/webp"><img src="/img/nfc-kart-zarif.jpg" alt="Zarif tasarımlı NFC-QR masa kartı: krem zemin, altın çerçeve, Masa 12" width="640" height="640" loading="lazy"></picture><figcaption>3 · Zarif</figcaption></figure>
+        <figure><picture><source srcset="/img/nfc-kart-lokanta.webp" type="image/webp"><img src="/img/nfc-kart-lokanta.jpg" alt="Lokanta tasarımlı NFC-QR masa kartı: kareli masa örtüsü, mühür şeklinde Masa 12" width="640" height="640" loading="lazy"></picture><figcaption>4 · Lokanta</figcaption></figure>
+        <figure><picture><source srcset="/img/nfc-kart-modern-bistro.webp" type="image/webp"><img src="/img/nfc-kart-modern-bistro.jpg" alt="Modern bistro tasarımlı NFC-QR masa kartı: turuncu sütunda büyük Masa 12" width="640" height="640" loading="lazy"></picture><figcaption>5 · Modern bistro</figcaption></figure>
+        <figure class="kendi" id="kendi-tasarim">
+          <div class="kendi-kutu">
+            <canvas id="ktCanvas" width="1000" height="1000" role="img" aria-label="Kendi tasarımınızın masa kartı önizlemesi"></canvas>
+            <label class="kendi-bos" id="ktBos" for="ktDosya">
+              <span class="kendi-ikon" aria-hidden="true">+</span>
+              <b>Kendi tasarımınızı yükleyin</b>
+              <span>Logonuzu ya da hazır kart tasarımınızı seçin, kartta nasıl duracağını görün.</span>
+            </label>
+          </div>
+          <figcaption>6 · Sizin tasarımınız</figcaption>
+        </figure>
+      </div>
+      <div class="kendi-panel" id="ktPanel">
+        <div class="kendi-satir">
+          <label class="btn btn-line" for="ktDosya">Dosya seçin</label>
+          <input id="ktDosya" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden>
+          <fieldset class="kendi-tur"><legend>Yüklediğim dosya</legend>
+            <label><input type="radio" name="ktTur" value="logo" checked> Logom (karta yerleştirilsin)</label>
+            <label><input type="radio" name="ktTur" value="tam"> Hazır kart tasarımım</label>
+          </fieldset>
+        </div>
+        <div class="kendi-satir" id="ktLogoAyar">
+          <label>Masa <input id="ktMasa" type="text" value="12" maxlength="10" inputmode="text"></label>
+          <label>Vurgu rengi <input id="ktRenk" type="color" value="#FF7A1A"></label>
+        </div>
+        <p class="kendi-not" id="ktDurum">Dosyanız yalnızca bu tarayıcıda gösterilir, hiçbir yere yüklenmez. Önizleme 8,55×8,55 cm kart içindir; QR kod örnektir, baskıda kendi menü adresiniz kullanılır.</p>
+        <div class="kendi-satir">
+          <button class="btn btn-line" type="button" id="ktIndir" disabled>Önizlemeyi indirin</button>
+          <a class="btn btn-amber" id="ktWa" href="https://wa.me/905423540851?text=Merhaba%2C%20kendi%20tasar%C4%B1m%C4%B1mla%20NFC-QR%20masa%20kart%C4%B1%20(adet%20250%20TL)%20sipari%C5%9F%20etmek%20istiyorum.%20Tasar%C4%B1m%C4%B1m%C4%B1%20bu%20mesaja%20ekliyorum.%20Masa%20say%C4%B1m%3A%20" rel="noopener">WhatsApp'tan sipariş verin</a>
+          <a class="btn btn-line" href="mailto:smartmenuoss@gmail.com?subject=NFC-QR%20masa%20kart%C4%B1%20-%20kendi%20tasar%C4%B1m%C4%B1m&amp;body=Merhaba%2C%20kendi%20tasar%C4%B1m%C4%B1mla%20NFC-QR%20masa%20kart%C4%B1%20sipari%C5%9F%20etmek%20istiyorum.%20Tasar%C4%B1m%C4%B1m%20ekte.%0AMasa%20say%C4%B1s%C4%B1%3A%20%0A%C4%B0%C5%9Fletme%20ad%C4%B1%3A%20">E-postayla gönderin</a>
+        </div>
+        <p class="kendi-not">Önizlemeyi indirip WhatsApp mesajına ya da e-postaya ekleyin. Baskı dosyasını sizinle birlikte netleştiririz.</p>
+      </div>
       <div class="head" style="margin-top:56px"><h2>Kafeler için, ürün fotoğraflı</h2><p class="lead">Fotoğraflar yerine kendi ürünlerinizin fotoğraflarını koyabiliriz.</p></div>
       <figure class="shot"><picture><source srcset="/img/nfc-kart-tasarimlari.webp" type="image/webp"><img src="/img/nfc-kart-tasarimlari.jpg" alt="Kafeler için ürün fotoğraflı NFC-QR masa kartı tasarımları: Vitrin, Mozaik, Sofra, Polaroid ve Sade" width="1400" height="1032" loading="lazy"></picture></figure>
     </div>
@@ -224,6 +262,71 @@
     </div>
   </section>
 </main>
+<script>
+(function(){
+  var cv=document.getElementById('ktCanvas'); if(!cv||!cv.getContext)return;
+  var cx=cv.getContext('2d'), dosya=document.getElementById('ktDosya'), bos=document.getElementById('ktBos');
+  var masa=document.getElementById('ktMasa'), renk=document.getElementById('ktRenk'), durum=document.getElementById('ktDurum');
+  var indir=document.getElementById('ktIndir'), logoAyar=document.getElementById('ktLogoAyar');
+  var QR=["11111110110000000110001111111","10000010010100001001001000001","10111010011111011111101011101","10111010101000111001001011101","10111010101001101110001011101","10000010111011110101001000001","11111110101010101010101111111","00000000101110100111000000000","10001011110011111101111111001","00111101001000000000011111111","01001111111001110110001110001","01110001010011011111111101011","00010111101011000100110100010","11001100011001101000101111111","00011110011010001000100001101","10101100011010100101001100011","10001110110111110101010000010","10000000101100000000001111011","00011110101001110110101000101","00011101011111000111101010011","11101010101011010100111111001","00000000100001110111100010001","11111110110010011011101011101","10000010000000101101100010011","10111010110001101101111111000","10111010010000011110110000001","10111010010101010111010001111","10000010000010110101100011011","11111110100100000100101010010"], gorsel=null, url=null;
+  var F1='"Archivo","Arial Narrow",system-ui,sans-serif', F2='"Source Sans 3","Segoe UI",system-ui,sans-serif';
+  function tur(){var r=document.querySelector('input[name=ktTur]:checked');return r?r.value:'logo';}
+  function yuv(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h,r);cx.arcTo(x+w,y+h,x,y+h,r);cx.arcTo(x,y+h,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath();}
+  function sigdir(m,max,boy){var s=boy;cx.font='900 '+s+'px '+F1;while(cx.measureText(m).width>max&&s>30){s-=4;cx.font='900 '+s+'px '+F1;}return s;}
+  function ciz(){
+    var W=1000,a=renk.value||'#FF7A1A';
+    cx.clearRect(0,0,W,W);
+    if(!gorsel)return;
+    if(tur()==='tam'){
+      var s=Math.min(gorsel.width,gorsel.height);cx.fillStyle='#fff';cx.fillRect(0,0,W,W);
+      cx.drawImage(gorsel,(gorsel.width-s)/2,(gorsel.height-s)/2,s,s,0,0,W,W);return;
+    }
+    cx.fillStyle='#FFFBF4';cx.fillRect(0,0,W,W);
+    var g=cx.createLinearGradient(0,0,W,0);g.addColorStop(0,'#FFC24A');g.addColorStop(1,a);cx.fillStyle=g;cx.fillRect(0,930,W,70);
+    // logo
+    var lw=400,lh=170,k=Math.min(lw/gorsel.width,lh/gorsel.height),dw=gorsel.width*k,dh=gorsel.height*k;
+    cx.drawImage(gorsel,80,80+(lh-dh)/2,dw,dh);
+    // masa rozeti
+    var m=(masa.value||'').trim()||'12';cx.fillStyle='#141C2B';yuv(700,80,220,170,30);cx.fill();
+    cx.textAlign='center';cx.fillStyle=a;cx.font='700 30px '+F2;cx.fillText('M A S A',810,130);
+    cx.fillStyle='#fff';var fs=sigdir(m,190,100);cx.fillText(m,810,135+fs*0.85);
+    // başlık
+    cx.textAlign='left';cx.fillStyle='#5B6475';cx.font='600 36px '+F2;cx.fillText('Menüye ulaşmak için',80,345);
+    cx.font='800 64px '+F1;cx.fillStyle='#141C2B';var t1='Dokunun ',t2='ya da ',t3='okutun';
+    var x=80;cx.fillText(t1,x,420);x+=cx.measureText(t1).width;cx.fillStyle=a;cx.fillText(t2,x,420);x+=cx.measureText(t2).width;cx.fillStyle='#141C2B';cx.fillText(t3,x,420);
+    // NFC
+    cx.fillStyle='#fff';cx.strokeStyle='#141C2B';cx.lineWidth=7;cx.beginPath();cx.arc(230,640,105,0,Math.PI*2);cx.fill();cx.stroke();
+    cx.lineWidth=9;cx.lineCap='round';yuv(178,578,62,118,14);cx.stroke();cx.beginPath();cx.moveTo(197,594);cx.lineTo(221,594);cx.stroke();
+    cx.strokeStyle=a;[[28],[48],[68]].forEach(function(r){cx.beginPath();cx.arc(250,637,r[0],-0.75,0.75);cx.stroke();});
+    cx.textAlign='center';cx.fillStyle='#141C2B';cx.font='800 34px '+F1;cx.fillText('Telefonu karta',230,800);cx.fillText('yaklaştırın',230,840);
+    // QR
+    var qx=520,qy=470,qs=400,n=QR.length,p=40,ms=(qs-2*p)/n;
+    cx.fillStyle='#fff';yuv(qx,qy,qs,qs,26);cx.fill();
+    cx.strokeStyle=a;cx.lineWidth=10;cx.lineCap='round';var L=60;
+    [[qx,qy,1,1],[qx+qs,qy,-1,1],[qx,qy+qs,1,-1],[qx+qs,qy+qs,-1,-1]].forEach(function(c){cx.beginPath();cx.moveTo(c[0]+5*c[2],c[1]+L*c[3]);cx.lineTo(c[0]+5*c[2],c[1]+5*c[3]);cx.lineTo(c[0]+L*c[2],c[1]+5*c[3]);cx.stroke();});
+    cx.fillStyle='#141C2B';for(var y=0;y<n;y++)for(var xx=0;xx<n;xx++)if(QR[y].charAt(xx)==='1')cx.fillRect(qx+p+xx*ms,qy+p+y*ms,Math.ceil(ms),Math.ceil(ms));
+    cx.font='700 28px '+F2;cx.fillText('Kamerayla okutun',qx+qs/2,qy+qs+42);
+  }
+  function yukle(f){
+    if(!f)return;
+    if(!/^image\/(png|jpeg|webp|svg\+xml)$/.test(f.type)){durum.textContent='Lütfen PNG, JPG, WEBP ya da SVG bir görsel seçin.';return;}
+    if(f.size>15*1024*1024){durum.textContent='Dosya 15 MB\'tan büyük; daha küçük bir görsel seçin.';return;}
+    if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);
+    var im=new Image();im.onload=function(){gorsel=im;bos.hidden=true;cv.classList.add('dolu');indir.disabled=false;
+      durum.textContent='"'+f.name+'" önizleniyor. Dosyanız yalnızca bu tarayıcıda, hiçbir yere yüklenmedi.';ciz();};
+    im.onerror=function(){durum.textContent='Bu görsel açılamadı; başka bir dosya deneyin.';};im.src=url;
+  }
+  dosya.addEventListener('change',function(){yukle(dosya.files[0]);});
+  var kutu=cv.parentNode;
+  ['dragover','dragenter'].forEach(function(e){kutu.addEventListener(e,function(v){v.preventDefault();kutu.classList.add('surukle');});});
+  ['dragleave','drop'].forEach(function(e){kutu.addEventListener(e,function(v){v.preventDefault();kutu.classList.remove('surukle');if(e==='drop'&&v.dataTransfer.files[0])yukle(v.dataTransfer.files[0]);});});
+  document.querySelectorAll('input[name=ktTur]').forEach(function(r){r.addEventListener('change',function(){logoAyar.hidden=tur()==='tam';ciz();});});
+  masa.addEventListener('input',ciz);renk.addEventListener('input',ciz);
+  indir.addEventListener('click',function(){try{var a=document.createElement('a');a.download='smartmenuos-kart-onizleme.png';a.href=cv.toDataURL('image/png');document.body.appendChild(a);a.click();a.remove();}catch(e){durum.textContent='Önizleme indirilemedi; ekran görüntüsü alabilirsiniz.';}});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(ciz);
+})();
+</script>
+
 <footer>
   <div class="wrap">
     <span>© 2026 SmartMenuOS · İstanbul</span>
