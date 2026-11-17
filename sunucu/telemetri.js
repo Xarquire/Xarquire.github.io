@@ -2,7 +2,10 @@
 // smartmenuos-telemetri). Kurulum başına TEK, güncel satır; geçmiş tutulmaz (protokol §11.3).
 // Yalnızca teknik bilgi: sürüm, kanal, güncelleme sonucu, son yedek, QR/tünel, tünel programı
 // sürümü, son 24 saatteki hata sayısı, disk boşluğu, saat farkı, program dosyalarının bütünlüğü
-// (1.8.0 aşama 5, K7) ve (imzalı başlıktan) kurulum, işletme, lisans bitişi ve üretim anı.
+// (1.8.0 aşama 5, K7) ve (imzalı başlıktan) kurulum, lisans bitişi ve üretim anı.
+// İşletme adı YAZILMAZ (KVKK, yasal denetim 2026-11-16): şahıs işletmesinde ad kişisel veridir ve
+// Lisans Yönetimi adı kurulum kimliğinden kendi kaydında bulur. Sütun şema uyumu için kalır, hep NULL;
+// eski satırlardaki adlar günlük temizlikte silinir (ADSIZLASTIR_SQL).
 // Sipariş, masa, ciro bilgisi GİTMEZ; bilinmeyen alan hiçbir yere yazılmaz (istek reddedilmez, yok sayılır).
 // 180 gün görülmeyen satır her gün silinir (index.js → scheduled).
 //
@@ -46,6 +49,8 @@ export const YAZ_SQL =
 
 export const SAKLAMA_GUN = 180;
 export const BUDA_SQL = "DELETE FROM kasa_durum WHERE son_gorulme_utc < ?1";
+// Bu sürümden önce yazılmış işletme adlarını siler (günlük; ad kalmadıysa hiçbir satırı değiştirmez).
+export const ADSIZLASTIR_SQL = "UPDATE kasa_durum SET isletme = NULL WHERE isletme IS NOT NULL";
 
 // Kasanın gönderdiği telemetri alanları (KASA-DURUM'un TelemetriAlanlari.TelemetriAlanAdlari
 // sabitiyle aynı sıra ve adlar, TunelKaynakTaramasiTests K06; aydınlatma metni bu listeden
@@ -62,7 +67,6 @@ const SURUM = /^\d{1,3}\.\d{1,3}\.\d{1,3}$/;
 const KANAL = /^[a-z0-9-]{1,32}$/;
 // cloudflared sürümü (YIL.AY.YAMA; Core DisProgram.TunelSurumu.Gecerli ile aynı küme).
 const TUNEL_SURUM = /^20\d{2}\.(1[0-2]|[1-9])\.\d{1,3}$/;
-const ISLETME_EN_COK = 120;
 const SAAT_FARKI_EN_COK = 5256000; // dakika (10 yıl)
 
 const secenek = (deger, izinli) => (typeof deger === "string" && izinli.includes(deger) ? deger : null);
@@ -71,7 +75,7 @@ const duzNesne = (x) => !!x && typeof x === "object" && !Array.isArray(x);
 
 /**
  * D1 satırı (SUTUNLAR adlarıyla). Geçersiz alan null yazılır; telemetri hatası isteği
- * reddettirmez. kurulum, işletme, bitiş, üretim anı imzalı lisanstan gelir, gövdeden değil.
+ * reddettirmez. kurulum, bitiş, üretim anı imzalı lisanstan gelir, gövdeden değil; işletme adı yazılmaz.
  */
 export function telemetriHazirla({ govde, lisans, kasaSaati, simdi }, sonCevap) {
   const g = duzNesne(govde) ? govde : {};
@@ -84,13 +88,9 @@ export function telemetriHazirla({ govde, lisans, kasaSaati, simdi }, sonCevap) 
     fark = Math.max(-SAAT_FARKI_EN_COK, Math.min(SAAT_FARKI_EN_COK, fark)) || 0;
   }
 
-  const isletme = typeof lisans.isletme === "string" && lisans.isletme !== ""
-    ? Array.from(lisans.isletme).slice(0, ISLETME_EN_COK).join("")
-    : null;
-
   return {
     kurulum: lisans.kurulumKimligi,
-    isletme,
+    isletme: null,
     surum: typeof g.surum === "string" && SURUM.test(g.surum) ? g.surum : null,
     kanal: typeof g.kanal === "string" && KANAL.test(g.kanal) ? g.kanal : null,
     guncelleme_sonucu: secenek(t.guncellemeSonucu, ["tamam", "yarida", "yok"]),
@@ -142,12 +142,13 @@ export async function telemetriYaz(d1, kayit) {
   }
 }
 
-/** 180 gün görülmeyen satırları siler (günlük zamanlanmış görev). Hata atmaz. */
+/** 180 gün görülmeyen satırları siler, eski işletme adlarını boşaltır (günlük zamanlanmış görev). Hata atmaz. */
 export async function telemetriBuda(d1, simdi) {
   if (!d1) return;
   try {
     await tabloyuHazirla(d1);
     await d1.prepare(BUDA_SQL).bind(utcMetin(simdi.getTime() - SAKLAMA_GUN * GUN_MS)).run();
+    await d1.prepare(ADSIZLASTIR_SQL).run();
   } catch {
     tabloHazir = null;
     gunluk("d1-hata", null);
