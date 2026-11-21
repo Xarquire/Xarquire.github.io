@@ -391,6 +391,8 @@ section { padding-block: 92px; }
 .plan .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .plan .price b { font: 850 clamp(2.6rem, 6vw, 3.6rem)/1 var(--f-display); font-stretch: 110%; font-variant-numeric: tabular-nums; }
 .plan .price span { color: var(--muted); font-weight: 600; }
+.plan .lansman { display: inline-block; width: fit-content; align-self: flex-start; background: #E8F3EC; color: #1F6B3A; font-weight: 700; font-size: .8rem; letter-spacing: .02em; padding: 5px 10px; border-radius: 999px; margin-top: 14px; }
+.plan .sonra { display: block; color: var(--muted); font-size: .92rem; font-weight: 600; margin-top: 8px; }
 .plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); }
 .plan li::before { content: "✓  "; color: var(--green); font-weight: 700; }
 .plan .note { font-size: .9rem; color: var(--muted); }
@@ -758,7 +760,9 @@ footer .credits a { color: inherit; }
       <div class="pricing">
         <div class="plan pick">
           <span class="badge">1 yıllık paket</span>
+          <span class="lansman">Lansman fiyatı</span>
           <div class="price"><b>8.000 TL</b><span>/ yıl</span></div>
+          <span class="sonra">1 Ocak 2027'den itibaren 12.000 TL / yıl</span>
           <p class="note">Yazılım lisansıdır. Kurulum, eğitim ve destek dahildir; bilgisayar, yazıcı, tablet gibi donanımlar dahil değildir.</p>
           <ul>
             <li>Adisyon, hızlı satış ve hesap bölme</li>

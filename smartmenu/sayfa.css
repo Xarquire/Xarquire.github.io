@@ -146,3 +146,7 @@ footer a:hover { text-decoration: underline; }
 button.btn { cursor: pointer; }
 button.btn:disabled { opacity: .5; cursor: not-allowed; }
 @media (max-width: 760px) { .kart-galeri { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 12px; } }
+
+/* Lansman fiyatı */
+.lansman { display: inline-block; width: fit-content; justify-self: start; align-self: flex-start; background: #E8F3EC; color: #1F6B3A; font: 700 .78rem/1 var(--f-body, inherit); letter-spacing: .02em; padding: 5px 9px; border-radius: 999px; vertical-align: middle; }
+.sonra { display: block; color: var(--muted); font-size: .9rem; font-weight: 600; margin-top: 6px; }
